@@ -15,7 +15,7 @@ def test_lnis():
 def test_lss():
     _ = int(input())
     a = list(map(int, input().split()))
-    print(lss(a))
+    print(lss_length(a))
 
 
 def test_lis():
@@ -28,9 +28,9 @@ def test_lis():
     for i, a in enumerate(tests):
         print(f'TEST #{i + 1}')
         print('Source array:', *a)
-        s = lis(a)
-        print(f'LIS Length: {len(s)}')
-        print(f'LIS 1:', *[a[i] for i in s])
+        print(f'LIS Length: {lis_length(a)}')
+        print(f'LIS Length Improved: {lis_length_improved(a)}')
+        print(f'LIS:', *[a[i] for i in lis(a)])
         print(f'LIS 2:', *[a[i] for i in lis2(a)])
         print(f'LIS Improved:', *[a[i] for i in lis_improved(a)])
         print()
