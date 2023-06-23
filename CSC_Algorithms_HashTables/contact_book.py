@@ -1,36 +1,26 @@
-class Map:
-    def __init__(self, n):
-        self.a = [None] * n
-        self.n = n
+from open_address_map import OpenAddressMap
 
-    def add(self, number, name):
-        self.a[number] = name
 
-    def find(self, number):
-        if self.a[number] is None:
-            raise KeyError
-        return self.a[number]
+PRIME = 11
 
-    def delete(self, number):
-        if self.a[number] is None:
-            raise KeyError
-        self.a[number] = None
+
+def h(key, m):
+    return (int(key) * PRIME) % m
 
 
 def contact_book(n, queries):
-    d = Map(10_000_000)
+    # без указания размера был TL =(
+    d = OpenAddressMap(h, n)
     result = []
-    for i in range(n):
-        if queries[i][0] == 'add':
-            d.add(int(queries[i][1]), queries[i][2])
-        elif queries[i][0] == 'find':
+    for query in queries:
+        command = query[0]
+        if command == 'add':
+            d.add(query[1], query[2])
+        elif command == 'find':
+            result.append(d.get(query[1], 'not found'))
+        elif command == 'del':
             try:
-                result.append(d.find(int(queries[i][1])))
-            except KeyError:
-                result.append('not found')
-        elif queries[i][0] == 'del':
-            try:
-                d.delete(int(queries[i][1]))
+                d.delete(query[1])
             except KeyError:
                 pass
         else:
