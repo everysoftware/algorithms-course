@@ -2,9 +2,9 @@
 
 ## Содержание
 
-1.1. [Числа Фибоначчи](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#11-%D1%87%D0%B8%D1%81%D0%BB%D0%B0-%D1%84%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8)  
-1.2. [Наибольшой общий делитель](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#12-%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%BE%D0%B1%D1%89%D0%B8%D0%B9-%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C)  
-1.3. [O-символика](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#13-o-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8%D0%BA%D0%B0)  
+[1.1. Числа Фибоначчи](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#11-%D1%87%D0%B8%D1%81%D0%BB%D0%B0-%D1%84%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8)  
+[1.2. Наибольшой общий делитель](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#12-%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%BE%D0%B1%D1%89%D0%B8%D0%B9-%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C)  
+[1.3. O-символика](https://github.com/everysoftware/CSC_Algorithms/tree/master/CSC_Algorithms_Intro#13-o-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B8%D0%BA%D0%B0)  
 
 ## 1.1. Числа Фибоначчи
 
@@ -29,16 +29,16 @@ def fib_rec_cached(n):
     else:
         return fib_rec_cached(n - 1) + fib_rec_cached(n - 2)
 ```
-### Вычисление числа Фибоначчи с помощью таблицы
+### [Вычисление числа Фибоначчи с помощью таблицы](https://stepik.org/lesson/13228/step/6?unit=3414)
 ```python
 def fib_table(n):
-    a = [0] * n
-    a[1] = 1
     if n < 2:
-        return a[n]
-    for i in range(2, n):
+        return n
+    a = [0] * (n + 1)
+    a[1] = 1
+    for i in range(2, n + 1):
         a[i] = a[i - 1] + a[i - 2]
-    return a[n - 1] + a[n - 2]
+    return a[n]
   ```
 ### Вычисление числа Фибоначчи с сохранением только последних двух чисел
 ```python
@@ -63,7 +63,7 @@ def fib_formula(n):
     psi = (1 - 5 ** 0.5) / 2
     return int((phi ** n - psi ** n) / 5 ** 0.5)
 ```
-### Вычисление последней цифры числа Фибоначчи
+### [Вычисление последней цифры числа Фибоначчи](https://stepik.org/lesson/13228/step/7?unit=3414)
 ```python
 def fib_last_digit(n):
     if n < 2:
@@ -85,7 +85,7 @@ def fib_mod_two_last(n, m):
         fib1, fib2 = fib2, (fib1 + fib2) % m
     return (fib1 + fib2) % m
 ```
-### Вычисление числа Фибоначчи по модулью [методом Пизано](https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B8%D0%BE%D0%B4_%D0%9F%D0%B8%D0%B7%D0%B0%D0%BD%D0%BE)
+### [Вычисление числа Фибоначчи по модулю методом Пизано](https://stepik.org/lesson/13228/step/8?unit=3414)
 ```python
 def fib_mod_pisano(n, m):
     # используем периодичность
@@ -136,7 +136,7 @@ def gcd_euclid(a, b):
 def gcd(a, b):
     return gcd(b, a % b) if b else a
 ```
-### Циклическая реализация алгоритма Евклида
+### [Циклическая реализация алгоритма Евклида](https://stepik.org/lesson/13229/step/5?unit=3415)
 ```python
 def gcd_non_rec(a, b):
     while b:
@@ -146,7 +146,7 @@ def gcd_non_rec(a, b):
 ## 1.3. O-символика
 
 Файл: bigo.py
-### Сортировка функций по скорости роста ([задача](https://stepik.org/lesson/13230/step/10?unit=3416))
+### [Сортировка функций по скорости роста](https://stepik.org/lesson/13230/step/10?unit=3416)
 ```python
 from math import log, sqrt, factorial
 
