@@ -17,13 +17,13 @@ def fib_rec_cached(n):
 
 
 def fib_table(n):
-    a = [0] * n
-    a[1] = 1
     if n < 2:
-        return a[n]
-    for i in range(2, n):
+        return n
+    a = [0] * (n + 1)
+    a[1] = 1
+    for i in range(2, n + 1):
         a[i] = a[i - 1] + a[i - 2]
-    return a[n - 1] + a[n - 2]
+    return a[n]
 
 
 def fib_two_last(n):
