@@ -1,8 +1,8 @@
-from sets import TreeSet
+from sets import HashSet
 
 
 def auto_analysis(n, e, d, equals, not_equals):
-    s = TreeSet(n)
+    s = HashSet(n)
     for i in range(1, n + 1):
         s.make_set(i)
     for i in range(e):

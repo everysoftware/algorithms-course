@@ -1,4 +1,4 @@
-class NaiveSet:
+class NaiveHashSet:
     # ID множества - минимальный элемент
     def __init__(self, n):
         self.smallest = [0] * (n + 1)
@@ -24,7 +24,7 @@ class NaiveSet:
                 self.smallest[k] = m
 
 
-class UnrankedTreeSet:
+class UnrankedHashSet:
     def __init__(self, n):
         self.parent = [0] * (n + 1)
         self.n = n
@@ -48,7 +48,7 @@ class UnrankedTreeSet:
         raise NotImplementedError
 
 
-class RankedTreeSet:
+class RankedHashSet:
     def __init__(self, n):
         self.parent = [0] * (n + 1)
         self.rank = [0] * (n + 1)
@@ -75,7 +75,7 @@ class RankedTreeSet:
                 self.rank[j_id] += 1
 
 
-class CompressedRankedTreeSet:
+class CompressedHashSet:
     def __init__(self, n):
         self.parent = [0] * (n + 1)
         self.rank = [0] * (n + 1)
@@ -102,4 +102,4 @@ class CompressedRankedTreeSet:
                 self.rank[j_id] += 1
 
 
-TreeSet = CompressedRankedTreeSet
+HashSet = CompressedHashSet

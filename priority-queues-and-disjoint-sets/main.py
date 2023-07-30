@@ -3,7 +3,6 @@ from parallel import *
 from sets import *
 from table_union import *
 from auto_analysis import *
-from contact_book import *
 
 
 def test_heapify():
@@ -23,7 +22,7 @@ def test_parallel():
 
 
 def test_naive_set():
-    s = NaiveSet(10)
+    s = NaiveHashSet(10)
     for i in range(1, 10):
         s.make_set(i)
     for x in [3, 2, 4, 7]:
@@ -39,7 +38,7 @@ def test_naive_set():
 
 def test_tree_set():
     def test1():
-        s = TreeSet(10)
+        s = HashSet(10)
         for i in range(1, 10):
             s.make_set(i)
         for x in [3, 2, 4, 7]:
@@ -54,7 +53,7 @@ def test_tree_set():
         print(f'Rank: {s.rank}')
 
     def test2():
-        s = TreeSet(6)
+        s = HashSet(6)
         for i in range(1, 7):
             s.make_set(i)
         for x, y in [(2, 4), (5, 2), (3, 1), (2, 3), (2, 6)]:
@@ -83,12 +82,6 @@ def test_auto_analysis():
     print(1 if auto_analysis(n, e, d, equals, not_equals) else 0)
 
 
-def test_contact_book():
-    n = int(input())
-    queries = [input().split() for _ in range(n)]
-    print(*contact_book(n, queries), sep='\n')
-
-
 def main():
     f = [
         ('Task #1. Heapify', test_heapify),
@@ -96,8 +89,7 @@ def main():
         ('Naive set', test_naive_set),
         ('Tree set', test_tree_set),
         ('Task #3. Table union', test_table_union),
-        ('Task #4. Auto analysis', test_auto_analysis),
-        ('Task #5. Contact book', test_contact_book)
+        ('Task #4. Auto analysis', test_auto_analysis)
     ]
     for i, x in enumerate(f):
         print(f'{i + 1}. {x[0]}')
