@@ -1,4 +1,4 @@
-from bst import BSTNode
+from bst_node import BSTNode
 from traversal import dfs_inorder_iter
 
 
