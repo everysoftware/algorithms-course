@@ -1,7 +1,7 @@
 from bst import BST
 from bst_test import BSTTest
 
-from avl import AVLTree
+from avl_tree import AVLTree
 from avl_test import AVLTest
 
 from traversal import traversal, traversal_iter
