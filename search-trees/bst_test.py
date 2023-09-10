@@ -1,8 +1,13 @@
 import random
 
+from bst import BST
+from is_bst import is_bst
+
 
 class BSTTest:
     def __init__(self, tree):
+        if not isinstance(tree, BST):
+            raise ValueError
         self.tree = tree
         self._update_keys()
 
@@ -11,12 +16,17 @@ class BSTTest:
             self.keys = []
             self.size = 0
         else:
-            self.keys = self.tree.in_order()
+            self.keys = [x.key for x in self.tree.in_order()]
             self.size = len(self.keys)
+
+    def check_tree_correctness(self, root=None):
+        if root is None:
+            root = self.tree.root
+        assert is_bst(root)
 
     def test_print(self):
         print('TESTING PRINT')
-        self.tree.self_print()
+        self.tree.print()
 
     def test_search(self):
         print('TESTING SEARCH')
@@ -25,21 +35,26 @@ class BSTTest:
         result.append(self.tree.find(float('-inf')))
         print(*result, sep='\n')
 
-    def test_addition(self, test_size=5):
-        print('TESTING ADDITION')
-        numbers = [random.randint(0, 20) for _ in range(test_size)]
+    def test_insert(self):
+        print('TESTING INSERTION')
+        numbers = [random.randint(0, 25) for _ in range(15)]
         print(f'Generated numbers: {numbers}')
         for x in numbers:
-            assert self.tree.add(x)
-        assert self.tree.in_order() == sorted(self.keys + numbers)
+            self.tree.insert(x)
+            self.check_tree_correctness()
+        assert [x.key for x in self.tree.in_order()] == sorted(set(self.keys + numbers))
         print('Result:')
-        self.tree.self_print()
+        self.tree.print()
         self._update_keys()
 
     def test_max_min(self):
         print('TESTING MAX / MIN')
-        print(f'Maximum: {self.tree.maximum()}')
-        print(f'Minimum: {self.tree.minimum()}')
+        mx = self.tree.maximum()
+        print(f'Maximum: {mx}')
+        assert mx.key == max(self.keys)
+        mn = self.tree.minimum()
+        assert mn.key == min(self.keys)
+        print(f'Minimum: {mn}')
 
     def test_next(self):
         print('TESTING NEXT')
@@ -50,7 +65,7 @@ class BSTTest:
             result.append(curr.key)
             nxt = curr.next_element()
         print(f'Result: {result}')
-        assert result == self.tree.in_order()
+        assert result == [x.key for x in self.tree.in_order()]
 
     def test_prev(self):
         print('TESTING PREV')
@@ -61,48 +76,56 @@ class BSTTest:
             result.append(curr.key)
             nxt = curr.prev_element()
         print(f'Result: {result}')
-        assert result == self.tree.in_order()[::-1]
+        assert result == [x.key for x in self.tree.in_order()][::-1]
 
     def test_split_merge(self):
         print('TESTING SPLIT / MERGE')
-        print('Root:')
-        print(self.tree.root)
-        print('Splitting the tree...')
-        key = self.tree.root.key
-        node1, node2 = self.tree.split(key)
-        print('Left tree (new tree):')
-        print(node1)
-        node1.self_print()
-        assert node1.in_order() == [x for x in self.keys if x <= key]
-        print('Right tree:')
-        print(node2)
-        node2.self_print()
-        assert node2.in_order() == [x for x in self.keys if x > key]
-        print('Merging the trees...')
-        self.tree.merge(node2)
-        print('Merged (new tree):')
-        print(self.tree.root)
-        self.tree.self_print()
-        assert self.tree.in_order() == self.keys
+        not_visited = self.keys.copy()
+        random.shuffle(not_visited)
+        print('TREE:')
+        self.tree.print_d()
+        while not_visited:
+            key = not_visited.pop()
+            print(f'Splitting the tree by {key}...')
+            key = self.tree.root.key
+            left, right = self.tree.split(key)
+            print('LEFT:')
+            left.print_d()
+            self.check_tree_correctness(left)
+            assert [x.key for x in left.in_order()] == [x for x in self.keys if x <= key]
+            print('RIGHT:')
+            right.print_d()
+            self.check_tree_correctness(right)
+            assert [x.key for x in right.in_order()] == [x for x in self.keys if x > key]
+            print('Merging the trees...')
+            self.tree.root = left
+            self.tree.merge(right)
+            print('MERGED:')
+            self.tree.print_d()
+            self.check_tree_correctness()
+            assert [x.key for x in self.tree.in_order()] == self.keys
 
     def test_removal(self):
         print('TESTING REMOVAL')
         print(f'Keys: {self.keys}')
         k = self.size
-        for key in self.keys:
+        while self.keys:
+            key = random.choice(self.keys)
             print(f'Delete {key}')
-            assert self.tree.delete(key)
-            self.tree.self_print()
+            self.tree.delete(key)
+            self.tree.print_d()
+            self.check_tree_correctness()
             k -= 1
             assert k == len(self.tree.in_order())
-        self._update_keys()
+            self._update_keys()
 
     def _test_all(self):
-        tests = [self.test_print, self.test_search, self.test_addition,
+        tests = [self.test_print, self.test_search, self.test_insert,
                  self.test_max_min, self.test_next, self.test_prev,
                  self.test_split_merge, self.test_removal]
         for f in tests:
             f()
+            self.check_tree_correctness()
             print()
 
     def test_all(self):

@@ -1,11 +1,10 @@
 from bst import BST
 from bst_test import BSTTest
-
 from avl_tree import AVLTree
 from avl_test import AVLTest
-
 from traversal import traversal, traversal_iter
 from is_bst import is_bst, is_bst_iter, is_general_bst
+from accumulative_set import accumulative_set
 
 
 def test_bst():
@@ -57,19 +56,29 @@ def test_is_general_bst():
     print('CORRECT' if is_general_bst(root) else 'INCORRECT')
 
 
-def main():
-    f = [('Test BST', test_bst),
-         ('Test AVL Tree', test_avl),
-         ('Traversal', test_dfs),
-         ('Task #1. Iterative traversal', test_dfs_iter),
-         ('BST property check', test_is_bst),
-         ('Task #2. Iterative BST property check', test_is_bst_iter),
-         ('Task #3. General BST property check', test_is_general_bst)]
-    for i, x in enumerate(f):
-        print(f'{i + 1}. {x[0]}')
+def test_accumulative_set():
     n = int(input())
-    if 1 <= n <= len(f):
-        f[n - 1][1]()
+    queries = [input().split() for _ in range(n)]
+    for _, ans in accumulative_set(queries):
+        print(ans)
+
+
+def main():
+    options = [
+        ('Test BST', test_bst),
+        ('Test AVL Tree', test_avl),
+        ('Traversal', test_dfs),
+        ('Iterative traversal (Task #1)', test_dfs_iter),
+        ('BST property check', test_is_bst),
+        ('Iterative BST property check (Task #2)', test_is_bst_iter),
+        ('General BST property check (Task #3)', test_is_general_bst),
+        ('Accumulative set (Task #4)', test_accumulative_set)
+    ]
+    for i, option in enumerate(options):
+        print(f'{i + 1}. {option[0]}')
+    option_number = int(input())
+    if 1 <= option_number <= len(options):
+        options[option_number - 1][1]()
     else:
         print('Unknown option')
 

@@ -1,15 +1,14 @@
 """
-АВЛ-дерево - это сбалансированное двоичное дерево поиска.
-
-Для любого узла АВЛ-дерева высота его правого поддерева отличается от высоты левого поддерева не более чем на единицу.
+АВЛ-дерево
 """
 
-
-import avl_node
+from avl_node import AVLNode
 from bst import BST
 
 
 class AVLTree(BST):
+    node_type = AVLNode
+
     def __init__(self, root=None):
         super().__init__(root)
 
@@ -20,7 +19,7 @@ class AVLTree(BST):
         if arr is None:
             arr = []
         size = len(arr)
-        nodes = [avl_node.AVLNode() for _ in range(size)]
+        nodes = [self.node_type() for _ in range(size)]
         for i in range(size):
             key, left, right = arr[i]
             nodes[i].key = key
@@ -39,4 +38,3 @@ class AVLTree(BST):
             self.root = None
 
         return self
-

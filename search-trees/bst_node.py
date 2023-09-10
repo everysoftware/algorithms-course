@@ -9,7 +9,7 @@ class BSTNode:
         left = self.left.key if self.left is not None else None
         right = self.right.key if self.right is not None else None
         parent = self.parent.key if self.parent is not None else None
-        return f'BSTNode(key: {self.key}, parent: {parent}, left: {left}, right: {right})'
+        return f'BSTNode(K: {self.key}, P: {parent}, L: {left}, R: {right})'
 
     def __repr__(self):
         return str(self)
@@ -17,23 +17,23 @@ class BSTNode:
     def find(self, key):
         return find(self, key)
 
-    def add(self, key):
-        return add(self, key)
+    def insert(self, key):
+        return insert(self, key)
 
     def in_order(self):
         return in_order(self)
 
-    def self_print(self):
-        print_recursive(self)
+    def print(self, node=None):
+        print_recursive(self if node is None else node)
+
+    def print_d(self, node=None):
+        print_d(self if node is None else node)
 
     def maximum(self):
         return maximum(self)
 
     def minimum(self):
         return minimum(self)
-
-    def swap(self, rhs):
-        return swap(self, rhs)
 
     def next_element(self):
         return next_element(self)
@@ -55,6 +55,19 @@ class BSTNode:
 
     def split(self, key):
         return split(self, key)
+
+
+def print_d(node):
+    if node is None:
+        print('Empty node')
+        return
+    print('*** Information ***')
+    print(f'Root: {node}')
+    print('Tree nodes:')
+    print(*node.in_order(), sep='\n')
+    print('Tree:')
+    node.print()
+    print('********************')
 
 
 def get_root(node):
@@ -80,31 +93,28 @@ def find(node, key):
         return find(node.right, key)
 
 
-def add(node, key):
-    if node is None:
-        return False
+def insert(node, key, parent=None):
+    if node is None and isinstance(parent, BSTNode):
+        return type(parent)(key, parent)
+    elif node is None and not isinstance(parent, BSTNode):
+        return None
     if node.key > key:
-        if node.left is None:
-            node.left = BSTNode(key, node)
-            return True
-        else:
-            return add(node.left, key)
-    else:
-        if node.right is None:
-            node.right = BSTNode(key, node)
-            return True
-        else:
-            return add(node.right, key)
+        node.left = insert(node.left, key, node)
+    elif node.key < key:
+        node.right = insert(node.right, key, node)
+    return node
 
 
 def in_order(node):
     if node is None:
         return []
-    return in_order(node.left) + [node.key] + in_order(node.right)
+    return in_order(node.left) + [node] + in_order(node.right)
 
 
 def print_recursive(node, level=0):
     if node is not None:
+        if node.left is node or node.right is node:
+            raise RecursionError
         print_recursive(node.left, level + 1)
         print(' ' * 4 * level + '-> ' + str(node.key))
         print_recursive(node.right, level + 1)
@@ -124,10 +134,6 @@ def minimum(node):
     if node.left is None:
         return node
     return minimum(node.left)
-
-
-def swap(lhs, rhs):
-    lhs.key, rhs.key = rhs.key, lhs.key
 
 
 def next_element(node):
@@ -157,63 +163,29 @@ def prev_element(node):
     return parent
 
 
-def delete_base_case(node):
-    if node is None:
-        return False
-    if node.left is None or node.right is None:
-        child = node.right if node.left is None else node.left
-        if child is not None:
-            child.parent = node.parent
-        if node.parent is None:
-            # корень
-            if child is None:
-                return False
-            else:
-                # чтобы найти новый корень при его обновлении через root()
-                node.parent = child
-        else:
-            # некорневая вершина
-            if node.parent.left is node:
-                node.parent.left = child
-            else:
-                node.parent.right = child
-    return True
-
-
-def delete_node(node, target):
-    if node is None:
-        return False
-    if node is target:
-        if node.left is None or node.right is None:
-            print(f'Node found: {node}')
-            return delete_base_case(node)
-        else:
-            swap_node = prev_element(node)
-            print(f'Swap node: {swap_node}')
-            swap(node, swap_node)
-            return delete_node(node.left, target)
-    elif node.key > target.key:
-        return delete_node(node.left, target)
-    else:
-        return delete_node(node.right, target)
-
-
 def delete(node, key):
     if node is None:
-        return False
+        return None
     if node.key == key:
         if node.left is None or node.right is None:
-            print(f'Node found: {node}')
-            return delete_base_case(node)
+            child = node.right if node.left is None else node.left
+            if child is not None:
+                child.parent = node.parent
+            if node.parent is not None:
+                if node.parent.left is node:
+                    node.parent.left = child
+                else:
+                    node.parent.right = child
+            node = child
         else:
             swap_node = prev_element(node)
-            print(f'Swap node: {swap_node}')
-            swap(node, swap_node)
-            return delete_node(node.left, swap_node)
+            node.key = swap_node.key
+            node.left = delete(node.left, swap_node.key)
     elif node.key > key:
-        return delete(node.left, key)
+        node.left = delete(node.left, key)
     else:
-        return delete(node.right, key)
+        node.right = delete(node.right, key)
+    return node
 
 
 def is_leaf(node):
@@ -222,23 +194,27 @@ def is_leaf(node):
 
 # склейка при известной идеально подходящей вершине tree
 # (node1 < tree <= node2)
-def merge_with_root(node1, node2, root):
-    root.left = node1
-    root.right = node2
-    if node1 is not None:
-        node1.parent = root
-    if node2 is not None:
-        node2.parent = root
+def merge_with_root(left, right, root):
+    root.left = left
+    root.right = right
+    if left is not None:
+        left.parent = root
+    if right is not None:
+        right.parent = root
     return root
 
 
-def merge(node1, node2):
-    root = maximum(node1)
-    delete_base_case(root)
-    node1 = get_root(root)
-    # удаление корня меняет его родителя, поэтому приводим в изначальное состояние
-    clear_parent(root)
-    return merge_with_root(node1, node2, root)
+def merge(left, right):
+    if left is None and right is None:
+        return None
+    elif left is None:
+        return right
+    elif right is None:
+        return left
+    new_root = maximum(left)
+    left = delete(left, new_root.key)
+    clear_parent(new_root)
+    return merge_with_root(left, right, new_root)
 
 
 def split(node, key):
@@ -267,5 +243,3 @@ def split(node, key):
         left = merge_with_root(node.left, temp, node)
     clear_parent(left, right)
     return left, right
-
-

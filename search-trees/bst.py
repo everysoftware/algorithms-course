@@ -1,22 +1,33 @@
 """
-BST (Binary Search Tree) - двоичное дерево поиска.
-В левом поддереве корня находятся вершины, меньшие корня,
-а в правом поддереве - большие или равные корню.
+Двоичное дерево поиска
 """
-
 
 from bst_node import BSTNode
 
 
 class BST:
+    node_type = BSTNode
+
     def __init__(self, root=None):
         self.root = root
 
-    def self_print(self):
+    def empty(self):
+        return self.root is None
+
+    def key_exists(self, key):
+        return self.find(key) is not None
+
+    def print(self):
         if self.root is None:
-            print('(Empty tree)')
+            print('Empty tree')
         else:
-            self.root.self_print()
+            self.root.print()
+
+    def print_d(self):
+        if self.root is None:
+            print('Empty tree')
+        else:
+            self.root.print_d()
 
     def in_order(self):
         if self.root is None:
@@ -24,12 +35,13 @@ class BST:
         return self.root.in_order()
 
     def find(self, key):
+        if self.root is None:
+            return None
         return self.root.find(key)
 
-    def add(self, key):
-        result = self.root.add(key)
-        self.root = self.root.root()
-        return result
+    def insert(self, key):
+        self.root = self.node_type(key) if self.empty() else self.root.insert(key)
+        return self.root
 
     def maximum(self):
         return self.root.maximum()
@@ -42,20 +54,19 @@ class BST:
 
     def merge(self, rhs):
         self.root = self.root.merge(rhs)
+        return self.root
 
     def delete(self, key):
-        result = self.root.delete(key)
-        self.root = self.root.root()
-        if not result and self.root.is_leaf():
-            self.root = None
-            return True
-        return result
+        if self.root is None:
+            return
+        self.root = self.root.delete(key)
+        return self.root
 
     def build_from_array(self, arr):
         if arr is None:
             arr = []
         size = len(arr)
-        tree = [BSTNode() for _ in range(size)]
+        tree = [self.node_type() for _ in range(size)]
         for i in range(size):
             key, left, right = arr[i]
             tree[i].key = key

@@ -1,27 +1,23 @@
-import bst_node
+from bst_node import BSTNode, prev_element, merge_with_root, clear_parent
 
 
-class AVLNode(bst_node.BSTNode):
+class AVLNode(BSTNode):
     def __init__(self, key=None, parent=None, left=None, right=None):
         super().__init__(key, parent, left, right)
-        self.height = 1
+        self.height = 0
         self.size = 1
 
     def __str__(self):
         left = self.left.key if self.left is not None else None
         right = self.right.key if self.right is not None else None
         parent = self.parent.key if self.parent is not None else None
-        return f'AVLNode(key: {self.key}, height: {self.height}, size: {self.size}, parent: {parent}, left: {left}, ' \
-               f'right: {right})'
+        return f'AVLNode(K: {self.key}, H: {self.height}, S: {self.size}, P: {parent}, L: {left}, R: {right})'
 
-    def __repr__(self):
-        return str(self)
-
-    def add(self, key):
-        return add(self, key)
+    def insert(self, key):
+        return avl_insert(self, key)
 
     def delete(self, key):
-        return delete(self, key)
+        return avl_delete(self, key)
 
     def order_statistics(self, k):
         return order_statistics(self, k)
@@ -38,28 +34,28 @@ class AVLNode(bst_node.BSTNode):
     def update_size_recursive(self):
         update_size_recursive(self)
 
+    def update_attributes(self):
+        update_size(self)
+        update_height(self)
+
 
 def get_height(node):
-    if node is None:
-        return 0
-    return node.height
+    return node.height if node is not None else -1
 
 
 def update_height(node):
-    node.height = 1 + max(get_height(node.left), get_height(node.right))
+    node.height = max(get_height(node.left), get_height(node.right)) + 1
 
 
 def update_height_recursive(node):
     if node is None:
-        return 0
-    node.height = 1 + max(update_height_recursive(node.left), update_height_recursive(node.right))
+        return -1
+    node.height = max(update_height_recursive(node.left), update_height_recursive(node.right)) + 1
     return node.height
 
 
 def get_size(node):
-    if node is None:
-        return 0
-    return node.size
+    return node.size if node is not None else 0
 
 
 def update_size(node):
@@ -69,16 +65,17 @@ def update_size(node):
 def update_size_recursive(node):
     if node is None:
         return 0
-    node.size = 1 + update_size_recursive(node.left) + update_size_recursive(node.right)
+    node.size = update_size_recursive(node.left) + update_size_recursive(node.right) + 1
     return node.size
 
 
 def update_attributes(node):
-    update_size(node)
-    update_height(node)
+    if node is None:
+        return
+    node.update_attributes()
 
 
-# Индикатор сбалансированности:
+# Коэффициент сбалансированности:
 # если get_balance(x) <= 1, то всё хорошо.
 # если get_balance(x) = -2, значит, слева высота больше, поэтому балансируем дерево вправо.
 # если get_balance(x) = 2, значит, больше высота справа, и нужно балансировать дерево влево.
@@ -88,8 +85,22 @@ def get_balance(node):
     return get_height(node.right) - get_height(node.left)
 
 
-def is_balanced(node):
-    return abs(get_balance(node)) <= 1
+def check_height(node):
+    if not isinstance(node, AVLNode):
+        return True
+    return all(get_height(x) == max(get_height(x.left), get_height(x.right)) + 1 for x in node.in_order())
+
+
+def check_size(node):
+    if not isinstance(node, AVLNode):
+        return True
+    return all(get_size(x) == get_size(x.left) + get_size(x.right) + 1 for x in node.in_order())
+
+
+def check_balance(node):
+    if not isinstance(node, AVLNode):
+        return True
+    return all(abs(get_balance(x)) <= 1 for x in node.in_order())
 
 
 def right_rotate(node):
@@ -135,6 +146,9 @@ def left_rotate(node):
 
 
 def balance(node):
+    if node is None:
+        return
+    update_attributes(node)
     k = get_balance(node)
     possible_new_root = node
     if k == -2:
@@ -148,88 +162,41 @@ def balance(node):
     return possible_new_root
 
 
-def add(node, key):
-    if node is None:
-        return False
+def avl_insert(node, key, parent=None):
+    if node is None and isinstance(parent, BSTNode):
+        return type(parent)(key, parent)
+    elif node is None and not isinstance(parent, BSTNode):
+        return None
     if node.key > key:
-        if node.left is None:
-            node.left = AVLNode(key, node)
-            result = True
-        else:
-            result = add(node.left, key)
-    else:
-        if node.right is None:
-            node.right = AVLNode(key, node)
-            result = True
-        else:
-            result = add(node.right, key)
-
-    update_attributes(node)
-
-    if not is_balanced(node):
-        print(f'Addition {key} requires balancing {node}')
-        print('Before balancing:')
-        node.root().self_print()
-        balance(node)
-        print('After balancing:')
-        node.root().self_print()
-
-    return result
+        node.left = avl_insert(node.left, key, node)
+    elif node.key < key:
+        node.right = avl_insert(node.right, key, node)
+    return balance(node)
 
 
-def delete_base_case(node):
-    result = bst_node.delete_base_case(node)
-    update_attributes(node)
-    balance(node)
-    return result
-
-
-def delete_node(node, target):
+def avl_delete(node, key):
     if node is None:
-        return False
-
-    if node is target:
-        if node.left is None or node.right is None:
-            print(f'Node found: {node}')
-            result = delete_base_case(node)
-        else:
-            swap_node = bst_node.prev_element(node)
-            print(f'Swap node: {swap_node}')
-            bst_node.swap(node, swap_node)
-            result = delete_node(node.left, target)
-    elif node.key > target.key:
-        result = delete_node(node.left, target)
-    else:
-        result = delete_node(node.right, target)
-
-    update_attributes(node)
-    balance(node)
-
-    return result
-
-
-def delete(node, key):
-    if node is None:
-        return False
-
+        return None
     if node.key == key:
         if node.left is None or node.right is None:
-            print(f'Node found: {node}')
-            result = delete_base_case(node)
+            child = node.right if node.left is None else node.left
+            if child is not None:
+                child.parent = node.parent
+            if node.parent is not None:
+                if node.parent.left is node:
+                    node.parent.left = child
+                else:
+                    node.parent.right = child
+            node = child
         else:
-            swap_node = bst_node.prev_element(node)
-            print(f'Swap node: {swap_node}')
-            bst_node.swap(node, swap_node)
-            result = delete_node(node.left, swap_node)
+            swap_node = prev_element(node)
+            node.key = swap_node.key
+            node.left = avl_delete(node.left, swap_node.key)
     elif node.key > key:
-        result = delete(node.left, key)
+        node.left = avl_delete(node.left, key)
     else:
-        result = delete(node.right, key)
-
-    update_attributes(node)
-    balance(node)
-
-    return result
+        node.right = avl_delete(node.right, key)
+    return balance(node)
 
 
 def order_statistics(node, k):
@@ -244,67 +211,52 @@ def order_statistics(node, k):
         return order_statistics(node.right, k - left_size - 1)
 
 
-def avl_merge_with_root(node1, node2, root):
-    h1 = get_height(node1)
-    h2 = get_height(node2)
+def avl_merge_with_root(left, right, root):
+    if root is None:
+        raise ValueError
+    h1 = get_height(left)
+    h2 = get_height(right)
     if abs(h1 - h2) <= 1:
-        bst_node.merge_with_root(node1, node2, root)
+        merge_with_root(left, right, root)
         update_attributes(root)
-        return root
+        return balance(root)
     elif h1 > h2:
-        new_root = avl_merge_with_root(node1.right, node2, root)
-        node1.right = new_root
-        new_root.parent = node1
-        return balance(node1)
+        new_root = avl_merge_with_root(left.right, right, root)
+        left.right = new_root
+        new_root.parent = left
+        update_attributes(left)
+        return balance(left)
     else:
-        new_root = avl_merge_with_root(node1, node2.left, root)
-        node2.left = new_root
-        new_root.parent = node2
-        return balance(node2)
+        new_root = avl_merge_with_root(left, right.left, root)
+        right.left = new_root
+        new_root.parent = right
+        update_attributes(right)
+        return balance(right)
 
 
-def avl_merge(node1, node2):
-    if node1 is None and node2 is None:
+def avl_merge(left, right):
+    if left is None and right is None:
         return None
-    elif node1 is None:
-        return node2
-    elif node2 is None:
-        return node1
-
-    root = node1.maximum()
-    delete_base_case(root)
-    node1 = root.root()
-    # удаление корня меняет его родителя, поэтому приводим в изначальное состояние
-    bst_node.clear_parent(root)
-
-    return avl_merge_with_root(node1, node2, root)
+    elif left is None:
+        return right
+    elif right is None:
+        return left
+    new_root = left.maximum()
+    left = avl_delete(left, new_root.key)
+    clear_parent(new_root)
+    return avl_merge_with_root(left, right, new_root)
 
 
 def avl_split(node, key):
     if node is None:
         return None, None
     if node.key > key:
-        # Корень и всё его правое поддерево должно отправиться во 2 часть ответа,
-        # потому что там всё больше чем key.
-        # В левом же поддереве могут быть ключи как <= key, так и > key, поэтому
-        # его мы продолжаем резать.
-        # После этого левая часть этого рекурсивного разреза - это сразу первая часть
-        # нашего ответа, а чтобы получить вторую часть - мы сливаем правую часть дерева
-        # с правой частью рекурсивного разреза.
         left, temp = avl_split(node.left, key)
-        bst_node.clear_parent(temp, node.right)
+        clear_parent(temp, node.right)
         right = avl_merge_with_root(temp, node.right, node)
     else:
-        # Корень и всё его левое поддерево должны отправиться в 1 часть ответа,
-        # потому что там всё меньше или равно key.
-        # В правом же поддереве могут быть как ключи <= key, так и > key,
-        # поэтому продолжаем резать.
-        # После этого правая часть разреза сразу идёт как 2 часть ответа,
-        # а чтобы получить первую, сливаем левые части.
         temp, right = avl_split(node.right, key)
-        bst_node.clear_parent(node.left, temp)
+        clear_parent(node.left, temp)
         left = avl_merge_with_root(node.left, temp, node)
-    bst_node.clear_parent(left, right)
+    clear_parent(left, right)
     return left, right
-
-
