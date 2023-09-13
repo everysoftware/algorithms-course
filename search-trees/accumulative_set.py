@@ -4,7 +4,6 @@
 
 from avl_node import AVLNode, avl_merge, avl_split, check_height, check_size, check_balance
 from avl_tree import AVLTree
-from bst_node import print_d
 from is_bst import is_bst
 
 
@@ -53,34 +52,18 @@ class AccumulativeSet(AVLTree):
     def __init__(self, root=None):
         super().__init__(root)
 
-    def insert(self, key):
+    def insert(self, key, value=None):
         result = self.find(key)
         if result is not None:
             return result
-        return super().insert(key)
+        return super().insert(key, value)
 
     def sum_between(self, left_num, right_num):
         left, temp = avl_split(self.root, left_num - 1)
-        print('Left:')
-        print_d(left)
-        check_tree_correctness(left)
-        print('Temp:')
-        print_d(temp)
-        check_tree_correctness(temp)
         middle, right = avl_split(temp, right_num)
-        print('Middle:')
-        print_d(middle)
-        check_tree_correctness(middle)
-        print('Right:')
-        print_d(right)
-        check_tree_correctness(right)
         res = get_summa(middle)
         temp = avl_merge(middle, right)
-        print('Temp (Middle + Right):')
-        print_d(temp)
-        check_tree_correctness(temp)
         self.root = avl_merge(left, temp)
-        check_tree_correctness(self.root)
         return res
 
 
@@ -95,7 +78,6 @@ def accumulative_set(queries):
 
     for i, args in enumerate(queries):
         option = args[0]
-        print(f'Query #{i + 1}:', *args)
         if option == '?':
             key = f(int(args[1]))
             result.append((i + 1, 'Found' if st.key_exists(key) else 'Not found'))
@@ -111,10 +93,5 @@ def accumulative_set(queries):
             st.delete(key)
 
         check_tree_correctness(st.root)
-
-        print('Tree after query:')
-        st.print()
-        print()
-        print()
 
     return result

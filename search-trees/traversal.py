@@ -1,12 +1,5 @@
 """
-Задача 1. https://stepik.org/lesson/45970/step/1
-Реализовать обходы дерева.
-
-Обход дерева в стиле DFS Preorder: Node -> Left -> Right
-Обход дерева в стиле DFS Inorder: Left -> Node -> Right
-Обход дерева в стиле DFS Postorder: Left -> Right -> Node
-
-Сложность: O(N)
+Обход дерева
 """
 
 
@@ -34,7 +27,7 @@ def traversal(a):
             dfs_postorder(a))
 
 
-# Итеративные версии обходов
+# Итеративные версии обходов.
 
 
 def dfs_preorder_iter(root):

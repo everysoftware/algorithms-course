@@ -5,6 +5,7 @@ from avl_test import AVLTest
 from traversal import traversal, traversal_iter
 from is_bst import is_bst, is_bst_iter, is_general_bst
 from accumulative_set import accumulative_set
+from rope import rope
 
 
 def test_bst():
@@ -63,6 +64,13 @@ def test_accumulative_set():
         print(ans)
 
 
+def test_rope():
+    s = input()
+    q = int(input())
+    queries = [list(map(int, input().split())) for _ in range(q)]
+    print(rope(s, queries))
+
+
 def main():
     options = [
         ('Test BST', test_bst),
@@ -72,7 +80,8 @@ def main():
         ('BST property check', test_is_bst),
         ('Iterative BST property check (Task #2)', test_is_bst_iter),
         ('General BST property check (Task #3)', test_is_general_bst),
-        ('Accumulative set (Task #4)', test_accumulative_set)
+        ('Accumulative set (Task #4)', test_accumulative_set),
+        ('Rope (Task #5)', test_rope)
     ]
     for i, option in enumerate(options):
         print(f'{i + 1}. {option[0]}')

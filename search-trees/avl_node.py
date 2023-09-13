@@ -2,8 +2,8 @@ from bst_node import BSTNode, prev_element, merge_with_root, clear_parent
 
 
 class AVLNode(BSTNode):
-    def __init__(self, key=None, parent=None, left=None, right=None):
-        super().__init__(key, parent, left, right)
+    def __init__(self, key=None, value=None, parent=None, left=None, right=None):
+        super().__init__(key, value, parent, left, right)
         self.height = 0
         self.size = 1
 
@@ -11,10 +11,14 @@ class AVLNode(BSTNode):
         left = self.left.key if self.left is not None else None
         right = self.right.key if self.right is not None else None
         parent = self.parent.key if self.parent is not None else None
-        return f'AVLNode(K: {self.key}, H: {self.height}, S: {self.size}, P: {parent}, L: {left}, R: {right})'
+        return f'{type(self).__name__}(K: {self.key}, V: {self.value} H: {self.height}, S: {self.size}, P: {parent}, ' \
+               f'L: {left}, R: {right})'
 
-    def insert(self, key):
-        return avl_insert(self, key)
+    def __repr__(self):
+        return super().__repr__()
+
+    def insert(self, key, value=None):
+        return avl_insert(self, key, value)
 
     def delete(self, key):
         return avl_delete(self, key)
@@ -162,15 +166,15 @@ def balance(node):
     return possible_new_root
 
 
-def avl_insert(node, key, parent=None):
-    if node is None and isinstance(parent, BSTNode):
-        return type(parent)(key, parent)
-    elif node is None and not isinstance(parent, BSTNode):
+def avl_insert(node, key, value, parent=None):
+    if node is None and isinstance(parent, AVLNode):
+        return type(parent)(key, value, parent)
+    elif node is None and not isinstance(parent, AVLNode):
         return None
     if node.key > key:
-        node.left = avl_insert(node.left, key, node)
+        node.left = avl_insert(node.left, key, value, node)
     elif node.key < key:
-        node.right = avl_insert(node.right, key, node)
+        node.right = avl_insert(node.right, key, value, node)
     return balance(node)
 
 
@@ -191,6 +195,7 @@ def avl_delete(node, key):
         else:
             swap_node = prev_element(node)
             node.key = swap_node.key
+            node.value = swap_node.value
             node.left = avl_delete(node.left, swap_node.key)
     elif node.key > key:
         node.left = avl_delete(node.left, key)
@@ -213,7 +218,7 @@ def order_statistics(node, k):
 
 def avl_merge_with_root(left, right, root):
     if root is None:
-        raise ValueError
+        return None
     h1 = get_height(left)
     h2 = get_height(right)
     if abs(h1 - h2) <= 1:

@@ -39,8 +39,8 @@ class BST:
             return None
         return self.root.find(key)
 
-    def insert(self, key):
-        self.root = self.node_type(key) if self.empty() else self.root.insert(key)
+    def insert(self, key, value=None):
+        self.root = self.node_type(key, value) if self.empty() else self.root.insert(key, value)
         return self.root
 
     def maximum(self):

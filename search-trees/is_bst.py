@@ -2,12 +2,10 @@ from bst_node import BSTNode
 from traversal import dfs_inorder_iter
 
 
-# O(NlogN)
 def is_bst_naive(a, root):
     return dfs_inorder_iter(root) == sorted(x[0] for x in a)
 
 
-# O(N)
 def is_bst(root, min_key=float('-inf'), max_key=float('inf')):
     if root is None:
         return True
@@ -17,17 +15,15 @@ def is_bst(root, min_key=float('-inf'), max_key=float('inf')):
         is_bst(root.right, root.key, max_key)
 
 
-# O(N)
 def is_bst_inorder(root, prev=BSTNode(float('-inf'))):
     if root is None:
         return True
-    # проверяем левое поддерево
+    # Проверяем левое поддерево.
     left = is_bst_inorder(root.left, prev)
-    # значение текущего узла должно быть больше предыдущего
+    # Значение текущего узла должно быть больше предыдущего.
     if root.key <= prev.key:
         return False
-    # обновляем данные предыдущего узла и проверяем
-    # правое поддерево
+    # Обновляем данные предыдущего узла и проверяем правое поддерево.
     prev.key = root.key
     return left and is_bst_inorder(root.right, prev)
 
