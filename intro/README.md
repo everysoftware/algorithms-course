@@ -88,7 +88,7 @@ def fib_mod_two_last(n, m):
 ### [Вычисление числа Фибоначчи по модулю методом Пизано](https://stepik.org/lesson/13228/step/8?unit=3414)
 ```python
 def fib_mod_pisano(n, m):
-    # используем периодичность
+    # Используем периодичность.
     if n < 2:
         return n
     a = [0] * (6 * m + 2)
@@ -116,11 +116,11 @@ def gcd_naive(x, y):
 ```
 ### Рекурсивная реализация алгоритма Евклида
 ```python
-'''
+"""
 Пусть a >= b > 0 и r - остаток от деления a на b. Тогда
-НОД(a, b) = НОД(r, b) <= НОД(a, b) = НОД(a - b, b).
+НОД(a, b) = НОД(r, b). Это следует из равенства: НОД(a, b) = НОД(a - b, b).
 Временная сложность: O(log(ab))
-'''
+"""
 
 
 def gcd_euclid(a, b):
@@ -132,7 +132,7 @@ def gcd_euclid(a, b):
         return gcd_euclid(a, b % a)
 
 
-# вариант покороче
+# Вариант покороче.
 def gcd(a, b):
     return gcd(b, a % b) if b else a
 ```
