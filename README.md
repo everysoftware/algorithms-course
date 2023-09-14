@@ -5,12 +5,13 @@
 * [Алгоритмы: теория и практика. Структуры данных](https://stepik.org/course/1547)
 
 ## Содержание
-1. Введение ```intro```
-2. Жадные алгоритмы ```greedy```
-3. Разделяй и властвуй ```divide-and-conquer```
-4. Динамическое программирование ```dp```
-5. Базовые структуры данных ```base-ds```
-6. Очереди с приоритетом и системы непересекающихся множеств ```priority-queues-and-disjoint-sets```
-7. Хеш-таблицы ```hash-tables```
+1. [Введение](https://github.com/everysoftware/csc-algorithms/tree/master/intro) 
+2. [Жадные алгоритмы](https://github.com/everysoftware/csc-algorithms/tree/master/greedy) 
+3. [Разделяй и властвуй](https://github.com/everysoftware/csc-algorithms/tree/master/divide-and-conquer) 
+4. [Динамическое программирование](https://github.com/everysoftware/csc-algorithms/tree/master/dp)
+5. [Базовые структуры данных](https://github.com/everysoftware/csc-algorithms/tree/master/base-ds) 
+6. [Очереди с приоритетом и системы непересекающихся множеств](https://github.com/everysoftware/csc-algorithms/tree/master/priority-queues-and-disjoint-sets) 
+7. [Хеш-таблицы](https://github.com/everysoftware/csc-algorithms/tree/master/hash-tables) 
+8. [Деревья поиска](https://github.com/everysoftware/csc-algorithms/tree/master/search-trees) 
 
 ## 
