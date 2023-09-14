@@ -1,4 +1,4 @@
-# Введение
+# Модуль 1. Введение
 
 ## Содержание
 
@@ -8,7 +8,7 @@
 
 ## 1.1. Числа Фибоначчи
 
-Файл: fib.py
+Файл: ```fib.py```
 ### Вычисление числа Фибоначчи через рекурсию
 ```python
 def fib_rec(n):
@@ -104,7 +104,7 @@ def fib_mod_pisano(n, m):
 
 ## 1.2. Наибольшой общий делитель
 
-Файл: gcd.py
+Файл: ```gcd.py```
 ### Наивный алгоритм НОД
 ```python
 def gcd_naive(x, y):
@@ -145,7 +145,7 @@ def gcd_non_rec(a, b):
 ```
 ## 1.3. O-символика
 
-Файл: bigo.py
+Файл: ```bigo.py```
 ### [Сортировка функций по скорости роста](https://stepik.org/lesson/13230/step/10?unit=3416)
 ```python
 from math import log, sqrt, factorial
