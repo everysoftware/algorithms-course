@@ -1,8 +1,0 @@
-aaaaabbbbbcccccdddddeeeeefffff
-6
-1 4 26
-2 5 26
-3 6 26
-4 7 26
-5 8 26
-6 9 26
