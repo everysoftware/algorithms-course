@@ -1,17 +1,22 @@
-# Курс алгоритмов от Computer Science Center
+# Авторский курс по алгоритмам и структурам данных
 
-Репозиторий содержит реализацию алгоритмов из курсов Computer Science Center:  
-* [Алгоритмы: теория и практика. Методы](https://stepik.org/course/217)  
+Использованы материалы курсов:
+
+* [Алгоритмы: теория и практика. Методы](https://stepik.org/course/217)
 * [Алгоритмы: теория и практика. Структуры данных](https://stepik.org/course/1547)
 
 ## Содержание
-1. [Введение](https://github.com/everysoftware/csc-algorithms/tree/master/intro) 
-2. [Жадные алгоритмы](https://github.com/everysoftware/csc-algorithms/tree/master/greedy) 
-3. [Разделяй и властвуй](https://github.com/everysoftware/csc-algorithms/tree/master/divide-and-conquer) 
-4. [Динамическое программирование](https://github.com/everysoftware/csc-algorithms/tree/master/dp)
-5. [Базовые структуры данных](https://github.com/everysoftware/csc-algorithms/tree/master/base-ds) 
-6. [Очереди с приоритетом и системы непересекающихся множеств](https://github.com/everysoftware/csc-algorithms/tree/master/priority-queues-and-disjoint-sets) 
-7. [Хеш-таблицы](https://github.com/everysoftware/csc-algorithms/tree/master/hash-tables) 
-8. [Деревья поиска](https://github.com/everysoftware/csc-algorithms/tree/master/search-trees) 
 
-## 
+1. Введение в алгоритмы [+]
+2. Базовые структуры данных [+]
+3. Поиски [+]
+4. Сортировки [+]
+5. Жадные алгоритмы
+6. Метод двух указателей [+]
+7. Разделяй и властвуй
+8. Динамическое программирование
+9. Системы непересекающихся множеств
+10. Хеш-таблицы
+11. Кучи
+12. Деревья поиска [+]
+13. Графы [+]

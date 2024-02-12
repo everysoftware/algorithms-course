@@ -1,12 +1,9 @@
-from fib import test_fib
-from gcd import test_gcd
-from bigo import test_bigo
+from intro.views.menu import menu
 
 
-if __name__ == '__main__':
-    task = {
-        'fib': test_fib,
-        'gcd': test_gcd,
-        'bigo': test_bigo
-    }
-    task[input()]()
+def main():
+    menu()
+
+
+if __name__ == "__main__":
+    main()

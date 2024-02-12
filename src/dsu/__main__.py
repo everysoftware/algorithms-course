@@ -1,4 +1,4 @@
-from src.heaps.impl.heapify import *
+from src.heaps.implementation.heapify import *
 from src.heaps.application.parallel import *
 from sets import *
 from src.dsu.application.table_union import *
@@ -33,7 +33,7 @@ def test_naive_set():
     for x in [1, 8]:
         s.union(6, x)
         assert s.find(6) == s.find(x)
-    print(f'Smallest: {s.smallest}')
+    print(f"Smallest: {s.smallest}")
 
 
 def test_tree_set():
@@ -49,8 +49,8 @@ def test_tree_set():
         for x in [1, 8]:
             s.union(6, x)
             assert s.find(6) == s.find(x)
-        print(f'Parent: {s.parent}')
-        print(f'Rank: {s.rank}')
+        print(f"Parent: {s.parent}")
+        print(f"Rank: {s.rank}")
 
     def test2():
         s = HashSet(6)
@@ -59,12 +59,12 @@ def test_tree_set():
         for x, y in [(2, 4), (5, 2), (3, 1), (2, 3), (2, 6)]:
             s.union(x, y)
             assert s.find(x) == s.find(y)
-        print(f'Parent: {s.parent}')
-        print(f'Rank: {s.rank}')
+        print(f"Parent: {s.parent}")
+        print(f"Rank: {s.rank}")
 
-    print('Test #1')
+    print("Test #1")
     test1()
-    print('Test #2')
+    print("Test #2")
     test2()
 
 
@@ -72,7 +72,7 @@ def test_table_union():
     n, m = list(map(int, input().split()))
     sizes = list(map(int, input().split()))
     queries = [list(map(int, input().split())) for _ in range(m)]
-    print(*table_union(n, m, sizes, queries), sep='\n')
+    print(*table_union(n, m, sizes, queries), sep="\n")
 
 
 def test_auto_analysis():
@@ -84,18 +84,18 @@ def test_auto_analysis():
 
 def main():
     f = [
-        ('Task #1. Heapify', test_heapify),
-        ('Task #2. Parallel processing', test_parallel),
-        ('Naive set', test_naive_set),
-        ('Tree set', test_tree_set),
-        ('Task #3. Table union', test_table_union),
-        ('Task #4. Auto analysis', test_auto_analysis)
+        ("Task #1. Heapify", test_heapify),
+        ("Task #2. Parallel processing", test_parallel),
+        ("Naive set", test_naive_set),
+        ("Tree set", test_tree_set),
+        ("Task #3. Table union", test_table_union),
+        ("Task #4. Auto analysis", test_auto_analysis),
     ]
     for i, x in enumerate(f):
-        print(f'{i + 1}. {x[0]}')
+        print(f"{i + 1}. {x[0]}")
     n = int(input())
     if n > len(f):
-        print('Unknown command')
+        print("Unknown command")
     else:
         f[n - 1][1]()
 

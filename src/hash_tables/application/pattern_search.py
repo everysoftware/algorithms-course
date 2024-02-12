@@ -50,14 +50,15 @@ def pattern_search2(pattern, text):
     # (чтобы считать ответ в прямом порядке)
     pattern_hash = sum((ord(pattern[i]) * powers[m - i - 1]) % p for i in range(m)) % p
     last_terms = [(ord(text[i]) * powers[-1]) % p for i in range(n - m + 1)]
-    cur_hash = (last_terms[0] + sum((ord(text[i]) * powers[m - i - 1]) % p for i in range(1, m))) % p
+    cur_hash = (
+        last_terms[0] + sum((ord(text[i]) * powers[m - i - 1]) % p for i in range(1, m))
+    ) % p
     result = []
     for i in range(n - m):
-        if pattern_hash == cur_hash and pattern == text[i:i + m]:
+        if pattern_hash == cur_hash and pattern == text[i : i + m]:
             result.append(i)
         cur_hash = (((cur_hash - last_terms[i]) * x) % p + ord(text[i + m])) % p
     # последняя подстрока
-    if pattern_hash == cur_hash and pattern == text[n - m:]:
+    if pattern_hash == cur_hash and pattern == text[n - m :]:
         result.append(n - m)
     return result
-

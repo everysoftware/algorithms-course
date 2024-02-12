@@ -14,11 +14,11 @@ def contact_book(n, queries):
     result = []
     for query in queries:
         command = query[0]
-        if command == 'add':
+        if command == "add":
             d.add(query[1], query[2])
-        elif command == 'find':
-            result.append(d.get(query[1], 'not found'))
-        elif command == 'del':
+        elif command == "find":
+            result.append(d.get(query[1], "not found"))
+        elif command == "del":
             try:
                 d.delete(query[1])
             except KeyError:

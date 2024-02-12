@@ -2,7 +2,7 @@ from fib import *
 from lis import *
 from editing import *
 from knapsack import *
-from dp.algo.matrix_seq_mult import *
+from dp.implementation.matrix_seq_mult import *
 from src.dp import *
 
 
@@ -54,24 +54,21 @@ def test_edit_dist_task():
 
 
 def test_edit_dist():
-    tests = [
-        ['editing', 'distance'],
-        ['short', 'ports']
-        ]
+    tests = [["editing", "distance"], ["short", "ports"]]
     for k, (a, b) in enumerate(tests):
-        print(f'TEST #{k + 1}')
-        print(f'A = {a}')
-        print(f'B = {b}')
-        print(f'Editing distance TD: {edit_distance_td(a, b)}')
-        print(f'Editing distance BU: {edit_distance_bu(a, b)}')
-        print(f'Editing path BU:')
+        print(f"TEST #{k + 1}")
+        print(f"A = {a}")
+        print(f"B = {b}")
+        print(f"Editing distance TD: {edit_distance_td(a, b)}")
+        print(f"Editing distance BU: {edit_distance_bu(a, b)}")
+        print(f"Editing path BU:")
         for num, (t, i, j) in enumerate(edit_path_bu(a, b)):
             if t == 0:
-                print(f'{num + 1} - Deleting (\'{a[i]}\' on pos {i + 1})')
+                print(f"{num + 1} - Deleting ('{a[i]}' on pos {i + 1})")
             elif t == 1:
-                print(f'{num + 1} - Insertion (\'{b[j]}\' on pos {i + 1})')
+                print(f"{num + 1} - Insertion ('{b[j]}' on pos {i + 1})")
             else:
-                print(f'{num + 1} - Substitution (\'{a[i]}\' on pos {i + 1} by \'{b[j]}\')')
+                print(f"{num + 1} - Substitution ('{a[i]}' on pos {i + 1} by '{b[j]}')")
         print()
 
 
@@ -96,40 +93,40 @@ def test_lis():
         [7, 2, 1, 3, 8, 4, 9, 1, 2, 6, 5, 9, 3, 8, 1],
         [2, 5, 3, 7, 11, 8, 10, 13, 6],
         [],
-        [7]
+        [7],
     ]
     for i, a in enumerate(tests):
-        print(f'TEST #{i + 1}')
-        print('Source array:', *a)
-        print(f'LIS Length: {lis_length(a)}')
-        print(f'LIS Length Improved: {lis_length_improved(a)}')
-        print(f'LIS:', *[a[i] for i in lis(a)])
-        print(f'LIS 2:', *[a[i] for i in lis2(a)])
-        print(f'LIS Improved:', *[a[i] for i in lis_improved(a)])
+        print(f"TEST #{i + 1}")
+        print("Source array:", *a)
+        print(f"LIS Length: {lis_length(a)}")
+        print(f"LIS Length Improved: {lis_length_improved(a)}")
+        print(f"LIS:", *[a[i] for i in lis(a)])
+        print(f"LIS 2:", *[a[i] for i in lis2(a)])
+        print(f"LIS Improved:", *[a[i] for i in lis_improved(a)])
         print()
 
 
 def test_fib():
     for i in range(15):
-        print(f'{i} => {fib(i)} | {fib_td(i)} | {fib_bu(i)} | {fib_bu_improved(i)}')
+        print(f"{i} => {fib(i)} | {fib_td(i)} | {fib_bu(i)} | {fib_bu_improved(i)}")
 
 
 def main():
     f = [
-        ['Fibonacci numbers', test_fib],
-        ['LIS', test_lis],
-        ['Task #1. Longest successive subsequence', test_lss],
-        ['Task #2. Longest non-increasing subsequence', test_lnis],
-        ['Editing distance', test_edit_dist],
-        ['Task #3. Editing distance', test_edit_dist_task],
-        ['Knapsack', test_knapsack],
-        ['Task #4. Golden knapsack', test_golden_knapsack],
-        ['Matrix sequence multiplication order', test_matrix_mult_test],
-        ['Task #5. Ladder', test_ladder],
-        ['Task #6. Calculator', test_calc]
-        ]
+        ["Fibonacci numbers", test_fib],
+        ["LIS", test_lis],
+        ["Task #1. Longest successive subsequence", test_lss],
+        ["Task #2. Longest non-increasing subsequence", test_lnis],
+        ["Editing distance", test_edit_dist],
+        ["Task #3. Editing distance", test_edit_dist_task],
+        ["Knapsack", test_knapsack],
+        ["Task #4. Golden knapsack", test_golden_knapsack],
+        ["Matrix sequence multiplication order", test_matrix_mult_test],
+        ["Task #5. Ladder", test_ladder],
+        ["Task #6. Calculator", test_calc],
+    ]
     for i, x in enumerate(f):
-        print(f'{i + 1}. {x[0]}')
+        print(f"{i + 1}. {x[0]}")
     f[int(input()) - 1][1]()
 
 
