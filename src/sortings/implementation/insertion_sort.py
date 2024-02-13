@@ -7,7 +7,7 @@ def insertion_sort(a: list[int]) -> None:
 
     for i in range(1, n):
         j = i
-        # ставим элемент на его место
+        # Ставим элемент на его место
         while j > 0 and a[j] < a[j - 1]:
             a[j], a[j - 1] = a[j - 1], a[j]
             j -= 1

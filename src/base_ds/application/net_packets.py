@@ -33,15 +33,15 @@ def net_packets(size: int, packets: list[tuple[int, int]]) -> list[int]:
     start_times = []
 
     for i, (arrival, duration) in enumerate(packets):
-        # удаляем из очереди пакеты, которые уже обработаны
+        # Удаляем из очереди пакеты, которые уже обработаны
         while queue and queue[0] <= arrival:
             queue.popleft()
 
         if len(queue) == size:
-            # если буфер полон, то пакет отбрасывается
+            # Если буфер полон, то пакет отбрасывается
             start_times.append(-1)
         else:
-            # если буфер не полон, то пакет добавляется в очередь
+            # Если буфер не полон, то пакет добавляется в очередь
             start_time = max(queue[-1] if queue else arrival, arrival)
             start_times.append(start_time)
             queue.append(start_time + duration)

@@ -1,13 +1,9 @@
 """Экспоненциальный поиск"""
 
-from typing import TypeVar
-
 from .binary_search import binary_search
 
-T = TypeVar("T")
 
-
-def exp_search(a: list[T], target: T) -> int:
+def exp_search(a: list[int], target: int) -> int:
     """Экспоненциальный поиск. Сложность O(log(i))"""
     n = len(a)
     end = 1

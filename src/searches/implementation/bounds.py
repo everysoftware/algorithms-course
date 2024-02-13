@@ -2,17 +2,16 @@
 Функции для поиска нижней и верхней границы элемента в отсортированном массиве.
 """
 
-from typing import TypeVar, Callable, Any
-
-T = TypeVar("T")
+from typing import Callable, Any
 
 
 def lower_bound(
-    a: list[T],
-    x: T,
+    a: list[int],
+    x: int,
     left: int | None = None,
     right: int | None = None,
-    key: Callable[[T], Any] = None,
+    *,
+    key: Callable[[int], Any] = None,
 ) -> int:
     """
     Возвращает индекс первого элемента в диапазоне [left, right], который больше или равен x.
@@ -35,11 +34,12 @@ def lower_bound(
 
 
 def upper_bound(
-    a: list[T],
-    x: T,
+    a: list[int],
+    x: int,
     left: int | None = None,
     right: int | None = None,
-    key: Callable[[T], Any] = None,
+    *,
+    key: Callable[[int], Any] = None,
 ) -> int:
     """
     Возвращает индекс первого элемента в диапазоне [left, right], который больше x.

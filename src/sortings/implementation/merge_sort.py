@@ -10,7 +10,7 @@ def merge_sort_helper(a: list[int], left: int, right: int) -> list[int]:
         return [a[left]] if len(a) > 0 else []
 
     m = (left + right) // 2
-    # производим слияние двух отсортированных кусков
+    # Производим слияние двух отсортированных кусков
     left_part = merge_sort_helper(a, left, m)
     right_part = merge_sort_helper(a, m + 1, right)
 

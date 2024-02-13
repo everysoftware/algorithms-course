@@ -1,9 +1,5 @@
 """Поиск элемента на отсортированной матрице."""
 
-from typing import TypeVar
-
-T = TypeVar("T")
-
 """
 Дана матрица MxN, в которой строки и столбцы отсортированы в порядке возрастания.
 
@@ -27,7 +23,7 @@ T = TypeVar("T")
 """
 
 
-def ladder_search(a: list[list[T]], target: T) -> tuple[int, int]:
+def ladder_search(a: list[list[int]], target: int) -> tuple[int, int]:
     """Поиск элемента лесенкой на отсортированной матрице. Сложность O(N + M)"""
     n, m = len(a), len(a[0])
     i = 0
@@ -35,10 +31,10 @@ def ladder_search(a: list[list[T]], target: T) -> tuple[int, int]:
 
     while i < n and j >= 0:
         if a[i][j] < target:
-            # идём вниз
+            # Идём вниз
             i += 1
         elif a[i][j] > target:
-            # идём влево
+            # Идём влево
             j -= 1
         else:
             return i, j

@@ -1,12 +1,8 @@
 """Бинарный поиск в отсортированном массиве."""
 
-from typing import TypeVar
-
-T = TypeVar("T")
-
 
 def binary_search(
-    a: list[T], target: T, start: int | None = None, end: int | None = None
+    a: list[int], target: int, start: int | None = None, end: int | None = None
 ) -> int:
     """Бинарный поиск в отсортированном массиве. Сложность O(log(N))."""
     start = start if start is not None else 0

@@ -1,9 +1,10 @@
 """Цифровая сортировка."""
+
 from sortings.implementation import counting_sort
 
 
 def get_d(x: int) -> int:
-    """Возвращает количество разрядов числа."""
+    """Возвращает количество разрядов числа. Сложность O(D)."""
     d = 0
     while x > 0:
         d += 1

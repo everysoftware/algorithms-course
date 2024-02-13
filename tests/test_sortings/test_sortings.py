@@ -30,7 +30,7 @@ def couting_sort_10(a: list[int]) -> list[int]:
         merge_sort,
         iterative_merge_sort,
         couting_sort_10,
-        digit_sort
+        digit_sort,
     ],
 )
 @pytest.mark.parametrize(

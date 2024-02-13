@@ -1,16 +1,47 @@
 """
-Задача о выборе заявок. Сложность: O(NlogN).
+Задача о выборе заявок. Дано множество заявок, каждая из которых представлена отрезком на прямой.
+Необходимо выбрать максимальное количество заявок так, чтобы никакие две не пересекались.
+
+Формат входных данных: список отрезков, представленных кортежами (a, b), где a - левый конец отрезка, b - правый.
+
+Формат выходных данных: список отрезков, представленных кортежами (a, b), где a - левый конец отрезка, b - правый.
 """
 
 
-def act_sel(segments: list) -> list:
-    s = sorted(segments, key=lambda x: x[1])
-    sol = []
+def act_sel(acts: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """
+    Решает задачу о выборе заявок. Сложность: O(NlogN).
+    Принцип работы:
+    1. Сортируем заявки по правому концу отрезка.
+    2. Добавляем в решение первую заявку.
+    3. Пропускаем все заявки, которые пересекаются с текущей.
+    4. Добавляем в решение следующую заявку.
+    5. Повторяем шаги 3-4, пока не закончатся заявки.
+    """
+    n = len(acts)
+    acts.sort(key=lambda x: x[1])
+    selection = []
+
     i = 0
-    while i <= len(s) - 1:
-        seg = s[i]
-        sol.append(seg)
-        # Скипаем пересекающиеся отрезки.
-        while i <= len(s) - 1 and s[i][0] < seg[1]:
+    while i < n:
+        act = acts[i]
+        selection.append(act)
+        # Пропускаем пересекающиеся отрезки.
+        while i < n and acts[i][0] < act[1]:
             i += 1
-    return sol
+
+    return selection
+
+
+def act_sel_other_approach(acts: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """
+    Решает задачу о выборе заявок. Сложность: O(NlogN).
+    """
+    acts.sort(key=lambda x: x[1])
+    selection = [acts[0]]
+
+    for act in acts:
+        if act[0] >= selection[-1][1]:
+            selection.append(act)
+
+    return selection
