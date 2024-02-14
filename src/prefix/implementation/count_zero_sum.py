@@ -9,6 +9,7 @@ a = [1, 2, 3, -3, 1, 2, 3]
 
 
 def count_zero_sum(a: list[int]) -> int:
+    """Префиксные суммы. Сложность O(N)."""
     count = 0
     prefix_sums = {}
     curr_sum = 0

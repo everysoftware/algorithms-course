@@ -3,7 +3,7 @@ from divide_and_conquer.implementation.integer_multiplication import *
 from divide_and_conquer.implementation.matrix_multiplication import *
 from src.sortings.sorting import *
 from divide_and_conquer.implementation.inv_count import *
-from divide_and_conquer.implementation.points_and_segments import *
+from sortings.application.points_and_segments import *
 from divide_and_conquer.implementation.rec_analyze import *
 
 

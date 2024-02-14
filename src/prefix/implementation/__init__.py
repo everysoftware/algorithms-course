@@ -12,5 +12,5 @@ __all__ = [
     "count_subsequence_naive",
     "count_subsequence_ps",
     "count_subsequence_ps",
-    "sales_sum"
+    "sales_sum",
 ]
