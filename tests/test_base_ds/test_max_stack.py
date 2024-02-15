@@ -1,6 +1,6 @@
 import pytest
 
-from base_ds.implementation import MaxStack
+from base_ds import MaxStack
 
 
 @pytest.mark.parametrize(

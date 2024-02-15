@@ -1,6 +1,6 @@
 import pytest
 
-from base_ds.application import average_waiting_time
+from base_ds import average_waiting_time
 
 
 @pytest.mark.parametrize(

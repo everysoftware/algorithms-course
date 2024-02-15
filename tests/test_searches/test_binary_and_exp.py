@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from searches.implementation import binary_search, lower_bound, upper_bound, exp_search
+from searches import binary_search, lower_bound, upper_bound, exp_search
 
 
 @pytest.mark.parametrize("f", [binary_search, exp_search])

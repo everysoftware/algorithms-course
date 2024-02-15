@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from two_pointers.implementation import (
+from two_pointers import (
     sum_of_two_numbers_tp,
     sum_of_two_numbers_naive,
 )

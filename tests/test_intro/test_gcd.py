@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from intro.implementation import gcd_naive, gcd_euclid, gcd_euclid_rec
+from intro import gcd_naive, gcd_euclid, gcd_euclid_rec
 
 
 @pytest.mark.parametrize("f", [gcd_naive, gcd_euclid, gcd_euclid_rec])

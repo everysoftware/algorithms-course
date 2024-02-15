@@ -1,7 +1,10 @@
+"""Сортировка функций по скорости роста"""
+
 from math import log, sqrt, factorial
 
 
 def calculate(n: int) -> list[tuple[str, float]]:
+    """Сортировка функций по скорости роста"""
     time = {
         # '2^(2^n)': 2 ** (2 ** n)
         "n!": factorial(n),

@@ -1,6 +1,6 @@
 import pytest
 
-from prefix.implementation import count_zero_sum
+from prefix import count_zero_sum
 
 
 @pytest.mark.parametrize(

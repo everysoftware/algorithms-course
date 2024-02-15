@@ -1,6 +1,6 @@
 import pytest
 
-from greedy.implementation import min_set_of_points
+from greedy import min_set_of_points
 
 
 @pytest.mark.parametrize(

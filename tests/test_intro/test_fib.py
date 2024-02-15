@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from intro.implementation import (
+from intro import (
     fib_rec,
     fib_cache,
     fib_dp,

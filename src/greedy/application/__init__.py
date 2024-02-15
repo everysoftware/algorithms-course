@@ -12,6 +12,7 @@ from .huffman import (
 )
 from .max_terms import max_terms
 from .greed_stone import greed_stone
+from .convex_hull import convex_hull
 
 __all__ = [
     "act_sel",
@@ -28,4 +29,5 @@ __all__ = [
     "is_prefix_code",
     "max_terms",
     "greed_stone",
+    "convex_hull",
 ]

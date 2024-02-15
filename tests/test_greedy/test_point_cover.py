@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from greedy.implementation import points_cover, points_cover_enhanced
+from greedy import points_cover, points_cover_enhanced
 
 
 @pytest.mark.parametrize("f", [points_cover, points_cover_enhanced])

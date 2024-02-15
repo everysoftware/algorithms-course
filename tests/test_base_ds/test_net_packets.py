@@ -1,6 +1,6 @@
 import pytest
 
-from base_ds.application import net_packets
+from base_ds import net_packets
 
 
 @pytest.mark.parametrize(

@@ -1,3 +1,5 @@
+"""Быстрая сортировка."""
+
 from sortings.implementation import partition2, partition3
 
 

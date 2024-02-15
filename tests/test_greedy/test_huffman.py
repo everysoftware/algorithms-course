@@ -1,6 +1,6 @@
 import pytest
 
-from greedy.implementation import (
+from greedy import (
     huffman_tree,
     huffman_encode,
     is_prefix_code,

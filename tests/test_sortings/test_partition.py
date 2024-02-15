@@ -1,6 +1,6 @@
 import pytest
 
-from sortings.implementation import partition2, partition3
+from sortings import partition2, partition3
 
 
 @pytest.mark.parametrize(

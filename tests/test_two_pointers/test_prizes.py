@@ -1,6 +1,6 @@
 import pytest
 
-from two_pointers.implementation import prizes
+from two_pointers import prizes
 
 
 @pytest.mark.parametrize(

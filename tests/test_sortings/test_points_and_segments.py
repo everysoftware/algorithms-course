@@ -2,14 +2,14 @@ from typing import Callable
 
 import pytest
 
-from sortings.application import (
+from sortings import (
     points_and_segments_binary_search,
-    points_and_segments_events,
+    points_and_segments_event_sorting,
 )
 
 
 @pytest.mark.parametrize(
-    "f", [points_and_segments_binary_search, points_and_segments_events]
+    "f", [points_and_segments_binary_search, points_and_segments_event_sorting]
 )
 @pytest.mark.parametrize(
     "segments, points, expected",

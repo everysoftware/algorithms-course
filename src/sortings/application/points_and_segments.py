@@ -36,7 +36,7 @@ def points_and_segments_binary_search(
     return result
 
 
-def points_and_segments_events(
+def points_and_segments_event_sorting(
     segments: list[tuple[int, int]], points: list[int]
 ) -> list[int]:
     """Решает задачу о количестве отрезков, которым принадлежит каждая точка. Сложность O((N + M)log(N + M))."""

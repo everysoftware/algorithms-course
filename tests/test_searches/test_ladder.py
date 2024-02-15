@@ -1,6 +1,6 @@
 import pytest
 
-from searches.implementation import ladder_search
+from searches import ladder_search
 
 
 @pytest.mark.parametrize(

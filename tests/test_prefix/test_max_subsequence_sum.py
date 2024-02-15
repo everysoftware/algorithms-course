@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from prefix.implementation import max_subsequence_sum_naive, max_subsequence_sum_ps
+from prefix import max_subsequence_sum_naive, max_subsequence_sum_ps
 
 
 @pytest.mark.parametrize(

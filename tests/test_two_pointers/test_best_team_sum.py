@@ -1,6 +1,6 @@
 import pytest
 
-from two_pointers.implementation import best_team_sum
+from two_pointers import best_team_sum
 
 
 @pytest.mark.parametrize(

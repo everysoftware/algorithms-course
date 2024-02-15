@@ -20,7 +20,7 @@ def counting_sort(
     for i in range(1, m + 1):
         b[i] += b[i - 1]
 
-    # Cортируем массив
+    # Сортируем массив
     result = [0] * n
     for i in range(n - 1, -1, -1):
         result[b[keys[i]] - 1] = a[i]

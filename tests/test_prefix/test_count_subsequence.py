@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from prefix.implementation import count_subsequence_ps, count_subsequence_naive
+from prefix import count_subsequence_ps, count_subsequence_naive
 
 
 @pytest.mark.parametrize(

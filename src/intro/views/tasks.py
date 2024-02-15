@@ -1,4 +1,4 @@
-from intro.implementation import calculate, fib_two_last, fib_mod_pisano, gcd_euclid
+from intro.tasks import calculate, fib_two_last, fib_mod_pisano, gcd_euclid
 
 
 def solve_fib() -> None:
