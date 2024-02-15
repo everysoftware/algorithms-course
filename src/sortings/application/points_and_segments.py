@@ -1,5 +1,5 @@
 """
-https://stepik.org/lesson/13249/step/6?thread=solutions&unit=3434
+https://stepik.org/lesson/13249/step/6
 
 Даны отрезки на прямой и точки на прямой. Для каждой точки подсчитать, скольким отрезкам она принадлежит.
 

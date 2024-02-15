@@ -1,10 +1,9 @@
 from binary_search import *
-from divide_and_conquer.implementation.integer_multiplication import *
-from divide_and_conquer.implementation.matrix_multiplication import *
+from dnc.application.multiply import *
+from dnc.application.matrix_multiplication import *
 from src.sortings.sorting import *
-from divide_and_conquer.implementation.inv_count import *
-from sortings.application.points_and_segments import *
-from divide_and_conquer.implementation.rec_analyze import *
+from sortings.application.count_inverse import *
+from dnc.application.master_theorem import *
 
 
 def test_rec_solve():
@@ -48,7 +47,7 @@ def test_points_and_segments():
 def test_inverse_count():
     n = int(input())
     a = list(map(int, input().split()))
-    print(inverse_count(a))
+    print(count_inverse(a))
 
 
 def test_sorting():
@@ -107,7 +106,7 @@ def test_multiply():
     # x, y = map(int, input().split())
     x, y = 9874563256487921, 152458796389852357456
     print(f"Naive:\n{x} * {y} = {multiply_naive(x, y)}")
-    print(f"Intermediate:\n{x} * {y} = {multiply_intermediate(x, y)}")
+    print(f"Intermediate:\n{x} * {y} = {multiply_dnc(x, y)}")
     print(f"Karatsuba:\n{x} * {y} = {karatsuba(x, y)}")
 
 

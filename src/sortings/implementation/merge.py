@@ -11,7 +11,6 @@ def merge(a: list[int], b: list[int]) -> list[int]:
     res = []
     i = j = 0
 
-    # Проходим по обоим спискам и добавляем наименьший элемент в объединенный список
     while i < n and j < m:
         if a[i] <= b[j]:
             res.append(a[i])
@@ -20,7 +19,6 @@ def merge(a: list[int], b: list[int]) -> list[int]:
             res.append(b[j])
             j += 1
 
-    # Если один из списков закончился, добавляем оставшиеся элементы другого списка
     while i < n:
         res.append(a[i])
         i += 1
