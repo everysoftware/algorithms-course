@@ -2,8 +2,7 @@ from fib import *
 from lis import *
 from editing import *
 from knapsack import *
-from dp.implementation.matrix_seq_mult import *
-from src.dp import *
+from dp2.application.matrix_seq_mult import *
 
 
 def test_calc():

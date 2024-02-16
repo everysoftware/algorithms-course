@@ -18,5 +18,5 @@ def fast_power(a: int, n: int) -> int:
     elif n % 2 == 1:
         return a * fast_power(a, n - 1)
     else:
-        b = fast_power(a, n // 2)
+        b = fast_power(a, n >> 1)
         return b * b

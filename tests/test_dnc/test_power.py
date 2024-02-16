@@ -28,4 +28,4 @@ from dnc import power, fast_power
     ],
 )
 def test_power(f: Callable[[int, int], int], x: int, y: int) -> None:
-    assert f(x, y) == x ** y
+    assert f(x, y) == x**y
