@@ -1,7 +1,5 @@
 """Вычисление чисел Фибоначчи различными способами."""
 
-from functools import lru_cache
-
 
 def fib_rec(n: int) -> int:
     """Рекурсивное вычисление числа Фибоначчи. Сложность O(2^N)."""
@@ -9,41 +7,6 @@ def fib_rec(n: int) -> int:
         return n
     else:
         return fib_rec(n - 1) + fib_rec(n - 2)
-
-
-def fib_cache_helper(n: int, cache: dict[int, int]) -> int:
-    if n < 2:
-        return n
-
-    if n not in cache:
-        cache[n] = fib_cache_helper(n - 1, cache) + fib_cache_helper(n - 2, cache)
-
-    return cache[n]
-
-
-def fib_cache(n: int) -> int:
-    """Рекурсивное вычисление числа Фибоначчи с кэшированием. Сложность O(N)."""
-    return fib_cache_helper(n, {})
-
-
-@lru_cache(None)
-def fib_lru_cache(n: int) -> int:
-    """Рекурсивное вычисление числа Фибоначчи с кэшированием с помощью lru_cache. Сложность O(N)."""
-    if n < 2:
-        return n
-    else:
-        return fib_lru_cache(n - 1) + fib_lru_cache(n - 2)
-
-
-def fib_dp(n: int) -> int:
-    """Вычисление числа Фибоначчи методом динамического программирования. Сложность O(N)."""
-    a = [0] * (n + 1)
-    a[1] = 1
-
-    for i in range(2, n + 1):
-        a[i] = a[i - 1] + a[i - 2]
-
-    return a[n]
 
 
 def fib_two_last(n: int) -> int:
