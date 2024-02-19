@@ -2,14 +2,14 @@ from typing import Callable
 
 import pytest
 
-from prefix import count_subsequence_ps, count_subsequence_naive
+from prefix import count_subsequences_ps, count_subsequences_naive
 
 
 @pytest.mark.parametrize(
-    "f",
+    "func",
     [
-        count_subsequence_naive,
-        count_subsequence_ps,
+        count_subsequences_naive,
+        count_subsequences_ps,
     ],
 )
 @pytest.mark.parametrize(
@@ -19,35 +19,35 @@ from prefix import count_subsequence_ps, count_subsequence_naive
     ],
 )
 def test_subsequence_count(
-    f: Callable[[int, list[int]], int], k: int, a: list[int], expected: int
+    func: Callable[[int, list[int]], int], k: int, a: list[int], expected: int
 ):
-    assert f(k, a) == expected
+    assert func(k, a) == expected
 
 
 @pytest.mark.parametrize(
-    "file, expected",
+    "path, expected",
     [
-        ("2363-A.txt", 34),
+        ("../tests/data/2363-A.txt", 34),
     ],
 )
-def test_subsequence_count_naive(file: str, expected: int):
-    with open(f"../tests/data/{file}") as f:
+def test_subsequence_count_naive(path: str, expected: int):
+    with open(path) as f:
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
 
-    assert count_subsequence_naive(k, a) == expected
+    assert count_subsequences_naive(k, a) == expected
 
 
 @pytest.mark.parametrize(
-    "file, expected",
+    "path, expected",
     [
-        ("2363-A.txt", 34),
-        ("2363-B.txt", 42729434),
+        ("../tests/data/2363-A.txt", 34),
+        ("../tests/data/2363-B.txt", 42729434),
     ],
 )
-def test_subsequence_count_ps(file: str, expected: int):
-    with open(f"../tests/data/{file}") as f:
+def test_subsequence_count_ps(path: str, expected: int):
+    with open(path) as f:
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
 
-    assert count_subsequence_ps(k, a) == expected
+    assert count_subsequences_ps(k, a) == expected

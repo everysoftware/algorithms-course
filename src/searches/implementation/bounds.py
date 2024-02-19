@@ -11,7 +11,7 @@ def lower_bound(
     left: int | None = None,
     right: int | None = None,
     *,
-    key: Callable[[int], Any] = None,
+    key: Callable[[int], Any] | None = None,
 ) -> int:
     """
     Возвращает индекс первого элемента в диапазоне [left, right], который больше или равен x.
@@ -39,7 +39,7 @@ def upper_bound(
     left: int | None = None,
     right: int | None = None,
     *,
-    key: Callable[[int], Any] = None,
+    key: Callable[[int], Any] | None = None,
 ) -> int:
     """
     Возвращает индекс первого элемента в диапазоне [left, right], который больше x.

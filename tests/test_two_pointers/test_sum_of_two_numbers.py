@@ -9,7 +9,7 @@ from two_pointers import (
 
 
 @pytest.mark.parametrize(
-    "f",
+    "func",
     [
         sum_of_two_numbers_naive,
         sum_of_two_numbers_tp,
@@ -24,9 +24,9 @@ from two_pointers import (
     ],
 )
 def test_sum_of_two_numbers(
-    f: Callable[[list[int], int], tuple[int, int]],
+    func: Callable[[list[int], int], tuple[int, int]],
     arr: list[int],
     target: int,
     expected: tuple[int, int],
 ):
-    assert f(arr, target) == expected
+    assert func(arr, target) == expected

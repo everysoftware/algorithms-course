@@ -5,7 +5,7 @@ import pytest
 from numbers_theory import is_prime, is_prime_naive
 
 
-@pytest.mark.parametrize("f", [is_prime_naive, is_prime])
+@pytest.mark.parametrize("func", [is_prime_naive, is_prime])
 @pytest.mark.parametrize(
     "x, expected",
     [
@@ -36,5 +36,5 @@ from numbers_theory import is_prime, is_prime_naive
         (25, False),
     ],
 )
-def test_is_prime(f: Callable[[int], bool], x: int, expected: bool) -> None:
-    assert f(x) == expected
+def test_is_prime(func: Callable[[int], bool], x: int, expected: bool) -> None:
+    assert func(x) == expected

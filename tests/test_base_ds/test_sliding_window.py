@@ -5,7 +5,7 @@ import pytest
 from base_ds import sliding_window_naive, sliding_window_deque
 
 
-@pytest.mark.parametrize("f", [sliding_window_naive, sliding_window_deque])
+@pytest.mark.parametrize("func", [sliding_window_naive, sliding_window_deque])
 @pytest.mark.parametrize(
     "m, a, expected",
     [
@@ -18,6 +18,6 @@ from base_ds import sliding_window_naive, sliding_window_deque
     ],
 )
 def test_sliding_window(
-    f: Callable[[int, list[int]], list[int]], m: int, a: list[int], expected: list[int]
+    func: Callable[[int, list[int]], list[int]], m: int, a: list[int], expected: list[int]
 ):
-    assert f(m, a) == expected
+    assert func(m, a) == expected

@@ -9,7 +9,7 @@ from sortings import (
 
 
 @pytest.mark.parametrize(
-    "f", [points_and_segments_binary_search, points_and_segments_event_sorting]
+    "func", [points_and_segments_binary_search, points_and_segments_event_sorting]
 )
 @pytest.mark.parametrize(
     "segments, points, expected",
@@ -28,9 +28,9 @@ from sortings import (
     ],
 )
 def test_points_and_segments(
-    f: Callable[[list[tuple[int, int]], list[int]], list[int]],
+    func: Callable[[list[tuple[int, int]], list[int]], list[int]],
     segments: list[tuple[int, int]],
     points: list[int],
     expected: list[int],
 ):
-    assert f(segments, points) == expected
+    assert func(segments, points) == expected

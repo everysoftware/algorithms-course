@@ -5,7 +5,7 @@ import pytest
 from base_ds import tree_height_naive, tree_height_stack
 
 
-@pytest.mark.parametrize("f", [tree_height_naive, tree_height_stack])
+@pytest.mark.parametrize("func", [tree_height_naive, tree_height_stack])
 @pytest.mark.parametrize(
     "tree, expected",
     [
@@ -47,6 +47,6 @@ from base_ds import tree_height_naive, tree_height_stack
     ],
 )
 def test_tree_height(
-    f: Callable[[list[int]], int], tree: list[int], expected: int
+    func: Callable[[list[int]], int], tree: list[int], expected: int
 ) -> None:
-    assert f(tree) == expected
+    assert func(tree) == expected

@@ -6,7 +6,7 @@ from dnc import power, fast_power
 
 
 @pytest.mark.parametrize(
-    "f",
+    "func",
     [power, fast_power],
 )
 @pytest.mark.parametrize(
@@ -27,5 +27,5 @@ from dnc import power, fast_power
         (123, 987),
     ],
 )
-def test_power(f: Callable[[int, int], int], x: int, y: int) -> None:
-    assert f(x, y) == x**y
+def test_power(func: Callable[[int, int], int], x: int, y: int) -> None:
+    assert func(x, y) == x**y

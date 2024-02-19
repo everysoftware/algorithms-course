@@ -5,7 +5,7 @@ import pytest
 from numbers_theory import divisors_naive, divisors
 
 
-@pytest.mark.parametrize("f", [divisors_naive, divisors])
+@pytest.mark.parametrize("func", [divisors_naive, divisors])
 @pytest.mark.parametrize(
     "x, expected",
     [
@@ -36,5 +36,5 @@ from numbers_theory import divisors_naive, divisors
         (25, [1, 5, 25]),
     ],
 )
-def test_is_prime(f: Callable[[int], list[int]], x: int, expected: list[int]) -> None:
-    assert f(x) == expected
+def test_is_prime(func: Callable[[int], list[int]], x: int, expected: list[int]) -> None:
+    assert func(x) == expected

@@ -6,7 +6,7 @@ from dnc import multiply_dnc, multiply_naive, karatsuba
 
 
 @pytest.mark.parametrize(
-    "f",
+    "func",
     [multiply_naive, multiply_dnc, karatsuba],
 )
 @pytest.mark.parametrize(
@@ -31,5 +31,5 @@ from dnc import multiply_dnc, multiply_naive, karatsuba
         (9874563256487921, 152458796389852357456),
     ],
 )
-def test_multiply(f: Callable[[int, int], int], x: int, y: int) -> None:
-    assert f(x, y) == x * y
+def test_multiply(func: Callable[[int, int], int], x: int, y: int) -> None:
+    assert func(x, y) == x * y

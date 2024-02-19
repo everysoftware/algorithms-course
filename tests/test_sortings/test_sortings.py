@@ -20,7 +20,7 @@ def couting_sort_10(a: list[int]) -> list[int]:
 
 
 @pytest.mark.parametrize(
-    "f",
+    "func",
     [
         bubble_sort,
         insertion_sort,
@@ -45,8 +45,8 @@ def couting_sort_10(a: list[int]) -> list[int]:
         [1],
     ],
 )
-def test_sortings(f: Callable[[list[int]], list[int] | None], a: list[int]):
-    result = f(a)
+def test_sortings(func: Callable[[list[int]], list[int] | None], a: list[int]):
+    result = func(a)
     expected = sorted(a)
 
     if result is None:

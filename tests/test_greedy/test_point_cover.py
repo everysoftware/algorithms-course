@@ -5,7 +5,7 @@ import pytest
 from greedy import points_cover, points_cover_enhanced
 
 
-@pytest.mark.parametrize("f", [points_cover, points_cover_enhanced])
+@pytest.mark.parametrize("func", [points_cover, points_cover_enhanced])
 @pytest.mark.parametrize(
     "points, expected",
     [
@@ -18,8 +18,8 @@ from greedy import points_cover, points_cover_enhanced
     ],
 )
 def test_point_cover(
-    f: Callable[[list[float]], list[tuple[float, float]]],
+    func: Callable[[list[float]], list[tuple[float, float]]],
     points: list[float],
     expected: list[tuple[float, float]],
 ):
-    assert f(points) == expected
+    assert func(points) == expected

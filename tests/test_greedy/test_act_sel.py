@@ -5,7 +5,7 @@ import pytest
 from greedy import act_sel, act_sel_other_approach
 
 
-@pytest.mark.parametrize("f", [act_sel, act_sel_other_approach])
+@pytest.mark.parametrize("func", [act_sel, act_sel_other_approach])
 @pytest.mark.parametrize(
     "acts, expected",
     [
@@ -67,8 +67,8 @@ from greedy import act_sel, act_sel_other_approach
     ],
 )
 def test_act_sel(
-    f: Callable[[list[tuple[int, int]]], list[tuple[int, int]]],
+    func: Callable[[list[tuple[int, int]]], list[tuple[int, int]]],
     acts: list[tuple[int, int]],
     expected: list[tuple[int, int]],
 ):
-    assert act_sel(acts) == expected
+    assert func(acts) == expected
