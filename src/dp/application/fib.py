@@ -3,6 +3,8 @@
 from functools import lru_cache
 
 """
+Это всего лишь рекуррентная формула для чисел Фибоначчи, это не динамическое программирование.
+
 def fib_rec(n: int) -> int:
     if n < 2:
         return n

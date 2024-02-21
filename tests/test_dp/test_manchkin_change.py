@@ -16,7 +16,7 @@ from dp.application import manchkin_change
         (8, 2),
         (9, 3),
         (10, 1),
-        (4242, 426)
+        (4242, 426),
     ],
 )
 def test_manchkin_change(n: int, expected: int):

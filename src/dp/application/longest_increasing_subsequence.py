@@ -29,9 +29,6 @@ def get_path(a: list[int], prev: list[int], tail_idx: list[int]) -> list[int]:
         path.append(a[t])
         t = prev[t]
 
-        # print(f"{a=},{prev=},{tail_idx=},{path=},{t=}")
-        # input()
-
     return path[::-1]
 
 

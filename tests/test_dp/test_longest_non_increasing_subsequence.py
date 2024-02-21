@@ -13,8 +13,8 @@ from dp import lns
         ([1], [1]),
         ([1, 1, 1, 1], [1, 1, 1, 1]),
         ([1, 2, 3, 4], [4]),
-        ([4, 3, 2, 1], [4, 3, 2, 1])
-    ]
+        ([4, 3, 2, 1], [4, 3, 2, 1]),
+    ],
 )
 def test_lns(a: list[int], expected: list[int]):
     assert lns(a) == expected
