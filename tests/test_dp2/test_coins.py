@@ -3,7 +3,7 @@ from typing import Callable
 
 import pytest
 
-from dp2 import coins_path, coins_recursive, coins_cache, coins_dp
+from dp2 import coins_path, coins_rec, coins_cache, coins_dp
 
 
 def generate_field() -> tuple[int, int, list[list[int]]]:
@@ -17,7 +17,7 @@ def generate_field() -> tuple[int, int, list[list[int]]]:
 @pytest.mark.parametrize(
     "func",
     [
-        coins_recursive,
+        coins_rec,
         coins_cache,
         coins_dp,
     ],
@@ -59,7 +59,7 @@ def test_coins_random(
     j_start: int,
     coins: list[list[int]],
 ):
-    assert func(i_start, j_start, coins) == coins_recursive(i_start, j_start, coins)
+    assert func(i_start, j_start, coins) == coins_rec(i_start, j_start, coins)
 
 
 @pytest.mark.parametrize(

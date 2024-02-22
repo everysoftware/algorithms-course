@@ -1,6 +1,6 @@
 import pytest
 
-from dp.application import manchkin_change
+from dp import manchkin_change
 
 
 @pytest.mark.parametrize(
