@@ -14,11 +14,12 @@ https://contest.yandex.ru/contest/32588/problems/B/
 разделителя внутри строки.
 
 Пример
-Ввод	Вывод
+Ввод
 76 50
 40 14
 37 47
 45 20
+Вывод
 Convex Hull is:
 37 47
 40 14

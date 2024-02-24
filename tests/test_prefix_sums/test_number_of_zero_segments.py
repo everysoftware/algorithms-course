@@ -1,6 +1,6 @@
 import pytest
 
-from prefix_sums import count_zero_sum
+from prefix_sums import number_of_zero_segments
 
 
 @pytest.mark.parametrize(
@@ -19,5 +19,5 @@ from prefix_sums import count_zero_sum
         ([1, -1, 1, -1, 1], 6),  # 6 отрезков с нулевой суммой
     ],
 )
-def test_zero_sum(a: list[int], expected: int):
-    assert count_zero_sum(a) == expected
+def test_number_of_zero_segments(a: list[int], expected: int):
+    assert number_of_zero_segments(a) == expected

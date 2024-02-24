@@ -8,6 +8,18 @@ from base_ds import MaxStack
     [
         (
             [
+                ("push", 2),
+                ("push", 1),
+                ("get_max",),
+                ("pop",),
+                ("get_max",),
+                ("push", 3),
+                ("get_max",),
+            ],
+            [2, 2, 3],
+        ),
+        (
+            [
                 ("push", 1),
                 ("push", 2),
                 ("push", 3),

@@ -10,6 +10,13 @@ https://contest.yandex.ru/contest/31463/problems/?nc=cwKgF8vK
 Формат вывода
 Результат: Результатом работы алгоритма является вычисленное значение входного выражения.
 Помимо результата необходимо вывести запись исходного выражения в постфиксной записи (обратной польской записи).
+
+Пример:
+Ввод:
+(1+2)*4+3
+Вывод:
+1 2 + 4 * 3 +
+15
 """
 
 priority = {
@@ -102,3 +109,11 @@ def evaluate_postfix(expression: str) -> float:
             stack.append(float(token))
 
     return stack[0] if stack else 0.0
+
+
+def calculator(expression: str) -> tuple[str, float]:
+    """Решение задачи. Сложность O(N)."""
+    postfix_notation = get_postfix_notation(expression)
+    result = evaluate_postfix(postfix_notation)
+
+    return postfix_notation, result

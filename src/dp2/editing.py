@@ -45,6 +45,8 @@ polderboy
 Задача сводится к поиску расстояния редактирования исходной строки и кандидатов.
 """
 
+from enum import Enum, auto
+
 INF = 10**20
 
 """
@@ -105,12 +107,14 @@ def get_distance(n: int, m: int, a: str, b: str) -> list[list[int]]:
 
     for i in range(1, n + 1):
         for j in range(1, m + 1):
-            c = a[i - 1] != b[j - 1]
-            distance[i][j] = min(
-                distance[i - 1][j] + 1,
-                distance[i][j - 1] + 1,
-                distance[i - 1][j - 1] + c,
-            )
+            if a[i - 1] == b[j - 1]:
+                distance[i][j] = distance[i - 1][j - 1]
+            else:
+                distance[i][j] = 1 + min(
+                    distance[i - 1][j],  # Удаление
+                    distance[i][j - 1],  # Вставка
+                    distance[i - 1][j - 1],  # Замена
+                )
 
     return distance
 
@@ -123,39 +127,72 @@ def edit_distance_dp(a: str, b: str) -> int:
     return distance[n][m]
 
 
-def get_path(n: int, m: int, distance: list[list[int]]) -> list[tuple[int, int, int]]:
+class EditOperation(Enum):
+    DELETE = auto()
+    INSERT = auto()
+    REPLACE = auto()
+
+
+def get_path(
+    n: int, m: int, a: str, b: str, distance: list[list[int]]
+) -> list[tuple[EditOperation, int, str, str]]:
     """
     Восстановление пути. Сложность O(N + M)
-
-    Принцип работы: чтобы восстановить решение, пойдём обратно от ячейки distance[n - 1][m - 1] к ячейке
-    distance[0][0].
-
-    Если distance[i][j] = distance[i - 1][j] + 1, то была произведено удаление
-    Если distance[i][j] = distance[i][j - 1] + 1, то было произведена вставка
-    Если distance[i][j] = distance[i - 1][j - 1] + isDiff(a[i], b[j]), то было (не)соответствие
     """
+    path = []
+    i, j = n, m
 
-    i, j = n - 1, m - 1
-    result = []
-
-    while i >= 0 and j >= 0:
-        if i > 0 and distance[i][j] == distance[i - 1][j] + 1:
-            result.append((0, i - 1, j))
+    while i > 0 and j > 0:
+        # Совпадение
+        if a[i - 1] == b[j - 1]:
             i -= 1
-        elif j > 0 and distance[i][j] == distance[i][j - 1] + 1:
-            result.append((1, i, j))
             j -= 1
         else:
-            if i > 0 and j > 0 and distance[i][j] == distance[i - 1][j - 1] + 1:
-                result.append((2, i, j))
-            i -= 1
-            j -= 1
+            # Замена
+            if distance[i][j] == distance[i - 1][j - 1] + 1:
+                path.append((EditOperation.REPLACE, i, a[i - 1], b[j - 1]))
+                i -= 1
+                j -= 1
+            # Вставка
+            elif distance[i][j] == distance[i][j - 1] + 1:
+                path.append((EditOperation.INSERT, i + 1, b[j - 1], -1))
+                j -= 1
+            # Удаление
+            else:
+                path.append((EditOperation.DELETE, i, a[i - 1], -1))
+                i -= 1
 
-    return result[::-1]
+    # Если осталась строка A, удаляем лишние символы
+    while i > 0:
+        path.append((EditOperation.DELETE, i, a[i - 1], -1))
+        i -= 1
+
+    # Если осталась строка B, вставляем недостающие символы
+    while j > 0:
+        path.append((EditOperation.INSERT, 1, b[j - 1], -1))
+        j -= 1
+
+    return path[::-1]
 
 
-def edit_path(a: str, b: str) -> list[tuple[int, int, int]]:
+def edit_path(a: str, b: str) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
+    """Путь редактирования. Сложность O(NM)"""
     n, m = len(a), len(b)
     distance = get_distance(n, m, a, b)
 
-    return get_path(n, m, distance)
+    return distance[n][m], get_path(n, m, a, b, distance)
+
+
+def editing(a: str, words: list[str]) -> tuple[int, list[str]]:
+    """
+    Вычисляет расстояние редактирования между строкой a и каждой строкой из списка words.
+    Возвращает список строк, расстояние редактирования которых минимально.
+    Сложность O(QNM), где N - длина строки a, M - длина самой длинной строки из списка words.
+    """
+    distances = [edit_distance_dp(a, word) for word in words]
+    min_distance = min(distances)
+    result = [
+        word for word, distance in zip(words, distances) if distance == min_distance
+    ]
+
+    return min_distance, result

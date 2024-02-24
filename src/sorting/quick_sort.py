@@ -26,5 +26,5 @@ def quick_sort3_helper(a: list[int], left: int, right: int) -> None:
 
 
 def quick_sort3(a: list[int]) -> None:
-    """Быстрая сортировка 3. Сложность O(NlogN)."""
+    """Быстрая сортировка 3. Сложность в среднем O(NlogN), в худшем O(N^2)."""
     quick_sort3_helper(a, 0, len(a) - 1)

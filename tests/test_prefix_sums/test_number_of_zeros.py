@@ -1,6 +1,6 @@
 import pytest
 
-from prefix_sums import count_zero
+from prefix_sums import number_of_zeros
 
 
 @pytest.mark.parametrize(
@@ -19,5 +19,5 @@ from prefix_sums import count_zero
         ([1, 0, 0, 1, 0, 1, 0, 1], [(3, 3)], [0]),
     ],
 )
-def test_count_zero(a, requests, expected):
-    assert count_zero(a, requests) == expected
+def test_number_of_zeros(a, requests, expected):
+    assert number_of_zeros(a, requests) == expected

@@ -4,7 +4,7 @@ from .fib import (
     fib_formula,
 )
 from .fib_mod import fib_mod_two_last, fib_mod_pisano
-from .gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
+from number_theory.gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
 
 __all__ = [
     "fib_rec",

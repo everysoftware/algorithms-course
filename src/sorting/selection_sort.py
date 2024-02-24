@@ -9,6 +9,7 @@ def selection_sort(a: list[int]) -> None:
     n = len(a)
 
     for i in range(n):
+        # Ищем минимум в оставшейся части массива
         k = i
         for j in range(i + 1, n):
             if a[j] < a[k]:

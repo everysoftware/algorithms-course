@@ -1,4 +1,6 @@
 """
+https://www.youtube.com/watch?v=de28y8Dcvkg
+
 Дана последовательность N целых ненулевых чисел. Необходимо найти количество отрезков с нулевой суммой.
 
 Пример 1:
@@ -8,7 +10,7 @@ a = [1, 2, 3, -3, 1, 2, 3]
 """
 
 
-def count_zero_sum(a: list[int]) -> int:
+def number_of_zero_segments(a: list[int]) -> int:
     """Префиксные суммы. Сложность O(N)."""
     count = 0
     prefix_sums = {}

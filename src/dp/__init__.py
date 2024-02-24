@@ -5,7 +5,6 @@ from .grades import grades
 from .lms import lms
 from .lis import lis
 from .lnis import lnis
-from sequences.pairs import pairs_naive, pairs_dp, pairs_dp_imperfect
 from .manchkin_change import manchkin_change
 
 __all__ = [
@@ -18,8 +17,5 @@ __all__ = [
     "lms",
     "lis",
     "lnis",
-    "pairs_naive",
-    "pairs_dp",
-    "pairs_dp_imperfect",
     "manchkin_change",
 ]
