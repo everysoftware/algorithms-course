@@ -1,5 +1,5 @@
 """
-Авторская задача (И. Стасевич), на основе: https://leetcode.com/problems/maximize-win-from-two-segments/description/
+На основе: https://leetcode.com/problems/maximize-win-from-two-segments/description/
 
 Дан отсортированный по неубыванию массив позиций призов на прямой OX и число k.
 Определить максимальное количество призов, которое можно выйграть, выбрав отрезок длиной k.
