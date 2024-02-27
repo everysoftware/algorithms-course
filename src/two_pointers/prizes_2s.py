@@ -11,7 +11,7 @@ https://leetcode.com/problems/maximize-win-from-two-segments/description/
 """
 
 
-def prizes_two_segments(prize_positions: list[int], k: int) -> int:
+def prizes_hard(prize_positions: list[int], k: int) -> int:
     """Решает задачу методом двух указателей. Сложность O(N)."""
     n = len(prize_positions)
 

@@ -1,6 +1,6 @@
 import pytest
 
-from prefix_sums import number_of_zero_segments
+from prefix_sums import investment_balance
 
 
 @pytest.mark.parametrize(
@@ -19,5 +19,5 @@ from prefix_sums import number_of_zero_segments
         ([1, -1, 1, -1, 1], 6),  # 6 отрезков с нулевой суммой
     ],
 )
-def test_number_of_zero_segments(a: list[int], expected: int):
-    assert number_of_zero_segments(a) == expected
+def test_investment_balance(a: list[int], expected: int):
+    assert investment_balance(a) == expected

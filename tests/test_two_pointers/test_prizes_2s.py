@@ -1,6 +1,6 @@
 import pytest
 
-from two_pointers import prizes_two_segments
+from two_pointers import prizes_hard
 
 
 @pytest.mark.parametrize(
@@ -19,4 +19,4 @@ from two_pointers import prizes_two_segments
     ],
 )
 def test_prizes_two_segments(prize_positions: list[int], k: int, expected: int):
-    assert prizes_two_segments(prize_positions, k) == expected
+    assert prizes_hard(prize_positions, k) == expected

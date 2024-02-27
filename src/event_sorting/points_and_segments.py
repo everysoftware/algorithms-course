@@ -23,7 +23,7 @@ https://stepik.org/lesson/13249/step/6
 from bisect import bisect_right, bisect_left
 
 
-def points_and_segments_binary_search(
+def points_and_segments_bs(
     segments: list[tuple[int, int]], points: list[int]
 ) -> list[int]:
     """Решает задачу о количестве отрезков, которым принадлежит каждая точка. Сложность O((N + M)logN)."""
@@ -46,7 +46,7 @@ def points_and_segments_binary_search(
     return result
 
 
-def points_and_segments_event_sorting(
+def points_and_segments_es(
     segments: list[tuple[int, int]], points: list[int]
 ) -> list[int]:
     """Решает задачу о количестве отрезков, которым принадлежит каждая точка. Сложность O((N + M)log(N + M))."""
