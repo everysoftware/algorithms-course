@@ -4,8 +4,7 @@
 экзаменам, олимпиадам и собеседованиям. Здесь вы найдете дорожную карту, **12** конспектов, **65** задач и решений к ним и **848** тестов
 для проверки решений.  
 
-![Designer (1)](https://github.com/everysoftware/algorithms-course/assets/22497421/a9fe8ac5-a122-4705-9aba-20ac37b0b9f9)
-
+![Designer (2)](https://github.com/everysoftware/algorithms-course/assets/22497421/d21c86d5-bd80-48dc-92ef-236f8e20a042)
 
 
 ## Преимущества курса
