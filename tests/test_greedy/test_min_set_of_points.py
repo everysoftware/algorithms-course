@@ -12,5 +12,7 @@ from greedy import min_set_of_points
         ([(1, 2), (2, 3), (3, 4), (4, 5)], [2, 4]),
     ],
 )
-def test_min_set_of_points(segments: list[tuple[int, int]], expected: list[int]):
+def test_min_set_of_points(
+    segments: list[tuple[int, int]], expected: list[int]
+):
     assert min_set_of_points(segments) == expected

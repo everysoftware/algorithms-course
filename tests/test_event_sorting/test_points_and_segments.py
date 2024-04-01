@@ -8,7 +8,9 @@ from event_sorting import (
 )
 
 
-@pytest.mark.parametrize("func", [points_and_segments_bs, points_and_segments_es])
+@pytest.mark.parametrize(
+    "func", [points_and_segments_bs, points_and_segments_es]
+)
 @pytest.mark.parametrize(
     "segments, points, expected",
     [

@@ -2,7 +2,13 @@ from typing import Callable
 
 import pytest
 
-from dp2 import edit_distance_dp, edit_distance_rec, edit_path, EditOperation, editing
+from dp2 import (
+    edit_distance_dp,
+    edit_distance_rec,
+    edit_path,
+    EditOperation,
+    editing,
+)
 
 
 @pytest.mark.parametrize("func", [edit_distance_rec, edit_distance_dp])

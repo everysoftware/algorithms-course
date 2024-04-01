@@ -21,7 +21,9 @@
 """
 
 
-def partition2(a: list[int], left: int | None = None, right: int | None = None) -> int:
+def partition2(
+    a: list[int], left: int | None = None, right: int | None = None
+) -> int:
     """
     Разбиение массива на две части: меньшие опорного и большие опорного. В качестве опорного берётся первый элемент.
     Возвращает индекс опорного элемента. Сложность O(N).

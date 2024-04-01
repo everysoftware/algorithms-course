@@ -12,7 +12,11 @@ from dp2 import gold_storage, gold_storage_enhanced
 @pytest.mark.parametrize(
     "w, weight, expected",
     [
-        (10, [1, 4, 8], 9),  # рюкзак может вместить все предметы, но не все вместятся
+        (
+            10,
+            [1, 4, 8],
+            9,
+        ),  # рюкзак может вместить все предметы, но не все вместятся
         (10, [1, 2, 3, 4, 5], 10),  # рюкзак может вместить все предметы
         (
             5,
@@ -26,6 +30,9 @@ from dp2 import gold_storage, gold_storage_enhanced
     ],
 )
 def test_gold_storage(
-    func: Callable[[int, list[int]], int], w: int, weight: list[int], expected: int
+    func: Callable[[int, list[int]], int],
+    w: int,
+    weight: list[int],
+    expected: int,
 ):
     assert func(w, weight) == expected

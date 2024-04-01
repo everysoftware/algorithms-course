@@ -13,7 +13,10 @@ from number_theory import generate_keypair, encrypt
     ],
 )
 def test_generate_keypair(
-    p: int, q: int, e_start: int, expected: tuple[tuple[int, int], tuple[int, int]]
+    p: int,
+    q: int,
+    e_start: int,
+    expected: tuple[tuple[int, int], tuple[int, int]],
 ):
     assert generate_keypair(p, q, e_start) == expected
 
@@ -28,5 +31,7 @@ def test_generate_keypair(
         ("abc", (5, 551), [1, 101]),
     ],
 )
-def test_encrypt(plaintext: str, public_key: tuple[int, int], expected: list[int]):
+def test_encrypt(
+    plaintext: str, public_key: tuple[int, int], expected: list[int]
+):
     assert encrypt(plaintext, public_key) == expected

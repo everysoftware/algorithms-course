@@ -19,7 +19,7 @@ from prefix_sums import k_subarray_naive, k_subarray_ps
     ],
 )
 def test_subsequence_count(
-        func: Callable[[int, list[int]], int], k: int, a: list[int], expected: int
+    func: Callable[[int, list[int]], int], k: int, a: list[int], expected: int
 ):
     assert func(k, a) == expected
 
@@ -34,10 +34,12 @@ def test_subsequence_count(
 @pytest.mark.parametrize(
     "path, expected",
     [
-        ("../tests/data/2363-A.txt", 34),
+        ("tests/data/2363-A.txt", 34),
     ],
 )
-def test_k_subarray_a(func: Callable[[int, list[int]], int], path: str, expected: int):
+def test_k_subarray_a(
+    func: Callable[[int, list[int]], int], path: str, expected: int
+):
     with open(path) as f:
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
@@ -48,8 +50,8 @@ def test_k_subarray_a(func: Callable[[int, list[int]], int], path: str, expected
 @pytest.mark.parametrize(
     "path, expected",
     [
-        ("../tests/data/2363-A.txt", 34),
-        ("../tests/data/2363-B.txt", 42729434),
+        ("tests/data/2363-A.txt", 34),
+        ("tests/data/2363-B.txt", 42729434),
     ],
 )
 def test_k_subarray_b(path: str, expected: int):

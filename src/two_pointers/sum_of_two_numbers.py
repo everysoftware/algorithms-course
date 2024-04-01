@@ -20,8 +20,8 @@ https://www.youtube.com/watch?v=de28y8Dcvkg
 
 
 def sum_of_two_numbers_naive(arr: list[int], target: int) -> tuple[int, int]:
-    n = len(arr)
     """Решение задачи перебором всех возможных комбинаций чисел в массиве. Сложность O(N^2)."""
+    n = len(arr)
     for i in range(n):
         for j in range(i + 1, n):
             if arr[i] + arr[j] == target:

@@ -17,10 +17,20 @@ from dp2 import max_score
             [15, 25, 100],
             2,
         ),  # Некоторые монстры слишком сильные
-        (10, [10, 20, 30], [1, 2, 3], [60], 0),  # Равенство сил монстра и манчкина
+        (
+            10,
+            [10, 20, 30],
+            [1, 2, 3],
+            [60],
+            0,
+        ),  # Равенство сил монстра и манчкина
     ],
 )
 def test_max_score(
-    budget: int, strength: list[int], gold: list[int], monster: list[int], expected: int
+    budget: int,
+    strength: list[int],
+    gold: list[int],
+    monster: list[int],
+    expected: int,
 ):
     assert max_score(budget, strength, gold, monster) == expected

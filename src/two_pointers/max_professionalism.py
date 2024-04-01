@@ -32,7 +32,9 @@ def max_professionalism(p: list) -> int:
     for left in range(n):
         # Выбираем самого сильного игрока right, который не может играть в одной команде с игроком left.
         # Вместе с тем суммируем профессионализм игроков, которые входят в текущую команду.
-        while right < n and (left == right or p[left] + p[left + 1] >= p[right]):
+        while right < n and (
+            left == right or p[left] + p[left + 1] >= p[right]
+        ):
             s += p[right]
             right += 1
         best_sum = max(best_sum, s)

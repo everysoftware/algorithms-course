@@ -80,7 +80,10 @@ def coins_cache_helper(
 
     if current not in cache:
         moves = [(i + 1, j), (i, j + 1)]
-        sums = [coins_cache_helper(size, start, coins, move, cache) for move in moves]
+        sums = [
+            coins_cache_helper(size, start, coins, move, cache)
+            for move in moves
+        ]
 
         cache[current] = max(sums) + coins[i][j]
 
@@ -117,7 +120,9 @@ def get_coin_sum(
     # Заполняем ответы для остальных ячеек
     for i in range(i_start + 1, n):
         for j in range(j_start + 1, m):
-            coin_sum[i][j] = max(coin_sum[i - 1][j], coin_sum[i][j - 1]) + coins[i][j]
+            coin_sum[i][j] = (
+                max(coin_sum[i - 1][j], coin_sum[i][j - 1]) + coins[i][j]
+            )
 
     return coin_sum
 

@@ -44,7 +44,9 @@ def left_index(points: list[tuple[int, int]]) -> int:
     return left_most
 
 
-def orientation(p: tuple[int, int], q: tuple[int, int], r: tuple[int, int]) -> int:
+def orientation(
+    p: tuple[int, int], q: tuple[int, int], r: tuple[int, int]
+) -> int:
     """
     Определяет ориентацию тройки точек (p, q, r)
     """

@@ -34,7 +34,8 @@ def test_huffman_tree(string: str):
 
 
 @pytest.mark.parametrize(
-    "string", ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world"]
+    "string",
+    ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world"],
 )
 def test_huffman_encode_decode(string: str):
     tree = huffman_tree(string)

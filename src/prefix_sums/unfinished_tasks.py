@@ -37,7 +37,9 @@ L_i <= R_i <= N).
 """
 
 
-def unfinished_tasks(a: list[int], requests: list[tuple[int, int]]) -> list[int]:
+def unfinished_tasks(
+    a: list[int], requests: list[tuple[int, int]]
+) -> list[int]:
     """Префиксные суммы. Сложность O(N + M)."""
     n = len(a)
 

@@ -25,5 +25,7 @@ def test_gcd_naive(a, b, expected):
         (14159572, 63967072, 4),
     ],
 )
-def test_gcd_huge(func: Callable[[int, int], int], a: int, b: int, expected: int):
+def test_gcd_huge(
+    func: Callable[[int, int], int], a: int, b: int, expected: int
+):
     assert func(a, b) == expected

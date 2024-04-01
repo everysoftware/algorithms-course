@@ -1,6 +1,11 @@
 import pytest
 
-from base_ds import split_by_tokens, get_postfix_notation, evaluate_postfix, calculator
+from base_ds import (
+    split_by_tokens,
+    get_postfix_notation,
+    evaluate_postfix,
+    calculator,
+)
 
 
 @pytest.mark.parametrize(

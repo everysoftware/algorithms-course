@@ -20,7 +20,7 @@ https://stepik.org/lesson/13249/step/6
 1 0 0
 """
 
-from bisect import bisect_right, bisect_left
+from bisect import bisect_right
 
 
 def points_and_segments_bs(
@@ -39,8 +39,11 @@ def points_and_segments_bs(
     result = []
 
     for point in points:
-        x = bisect_right(x_all, point)  # сколько x >= point
-        y = bisect_left(y_all, point)  # сколько y > point
+        # Сколько отрезков начинаются позже точки point или ровно в ней
+        x = bisect_right(x_all, point)
+        # Сколько отрезков заканчиваются позже точки point
+        y = bisect_right(y_all, point - 1)
+
         result.append(x - y)
 
     return result

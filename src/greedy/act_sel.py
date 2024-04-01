@@ -36,7 +36,9 @@ def act_sel(acts: list[tuple[int, int]]) -> list[tuple[int, int]]:
     return selection
 
 
-def act_sel_other_approach(acts: list[tuple[int, int]]) -> list[tuple[int, int]]:
+def act_sel_other_approach(
+    acts: list[tuple[int, int]],
+) -> list[tuple[int, int]]:
     """
     Решает задачу о выборе заявок. Сложность: O(NlogN).
     """

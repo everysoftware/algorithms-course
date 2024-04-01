@@ -37,7 +37,9 @@ def fib_cache_helper(n: int, cache: dict[int, int]) -> int:
         return n
 
     if n not in cache:
-        cache[n] = fib_cache_helper(n - 1, cache) + fib_cache_helper(n - 2, cache)
+        cache[n] = fib_cache_helper(n - 1, cache) + fib_cache_helper(
+            n - 2, cache
+        )
 
     return cache[n]
 

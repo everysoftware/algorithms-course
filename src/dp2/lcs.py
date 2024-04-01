@@ -44,7 +44,9 @@ def lcs_rec_helper(a: str, b: str, n: int, m: int) -> int:
         return 1 + lcs_rec_helper(a, b, n - 1, m - 1)
     # Иначе берем максимум из двух вариантов:
     else:
-        return max(lcs_rec_helper(a, b, n, m - 1), lcs_rec_helper(a, b, n - 1, m))
+        return max(
+            lcs_rec_helper(a, b, n, m - 1), lcs_rec_helper(a, b, n - 1, m)
+        )
 
 
 def lcs_rec(a: str, b: str) -> int:

@@ -19,7 +19,10 @@ def prizes(prize_positions: list[int], k: int) -> int:
 
     while right < n:
         # Если текущий приз в пределах k от первого приза в окне, просто увеличиваем правый указатель
-        if prize_positions[right] - prize_positions[left] <= k or right - left <= k:
+        if (
+            prize_positions[right] - prize_positions[left] <= k
+            or right - left <= k
+        ):
             right += 1
         # Иначе, если в окне уже есть k+1 призов, увеличиваем левый указатель
         else:

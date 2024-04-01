@@ -28,7 +28,9 @@ Best combo is: 0 1 2
 """
 
 
-def get_path(grade: list[int], length: list[int], prev: list[int]) -> list[int]:
+def get_path(
+    grade: list[int], length: list[int], prev: list[int]
+) -> list[int]:
     """Восстановление пути. Сложность O(N)"""
     max_length_idx = 0
     for i, x in enumerate(length):

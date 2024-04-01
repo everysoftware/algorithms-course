@@ -18,7 +18,10 @@ from search import binary_search, exp_search
     ],
 )
 def test_searches(
-    func: Callable[[list[int], int], int], a: list[int], target: int, expected: int
+    func: Callable[[list[int], int], int],
+    a: list[int],
+    target: int,
+    expected: int,
 ):
     assert func(a, target) == expected
 
@@ -31,6 +34,9 @@ def test_searches(
     ],
 )
 def test_repeating_sequence(
-    func: Callable[[list[int], int], int], a: list[int], target: int, expected: int
+    func: Callable[[list[int], int], int],
+    a: list[int],
+    target: int,
+    expected: int,
 ):
     assert func(a, target) == expected

@@ -175,7 +175,9 @@ def get_path(
     return path[::-1]
 
 
-def edit_path(a: str, b: str) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
+def edit_path(
+    a: str, b: str
+) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
     """Путь редактирования. Сложность O(NM)"""
     n, m = len(a), len(b)
     distance = get_distance(n, m, a, b)
@@ -192,7 +194,9 @@ def editing(a: str, words: list[str]) -> tuple[int, list[str]]:
     distances = [edit_distance_dp(a, word) for word in words]
     min_distance = min(distances)
     result = [
-        word for word, distance in zip(words, distances) if distance == min_distance
+        word
+        for word, distance in zip(words, distances)
+        if distance == min_distance
     ]
 
     return min_distance, result
