@@ -1,6 +1,6 @@
 import pytest
 
-from dp import lis
+from src.dp import lis
 
 
 @pytest.mark.parametrize(

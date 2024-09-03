@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from search import binary_search, exp_search
+from src.search import binary_search, exp_search
 
 
 @pytest.mark.parametrize("func", [binary_search, exp_search])

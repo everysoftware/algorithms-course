@@ -1,6 +1,6 @@
 import pytest
 
-from number_theory import sieve
+from src.number_theory import sieve
 
 
 @pytest.mark.parametrize(

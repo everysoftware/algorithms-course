@@ -33,7 +33,7 @@ Coins: 1
 INF = 10**20
 
 
-def coins_recursive_helper(
+def _coins_rec(
     size: tuple[int, int],
     start: tuple[int, int],
     field: list[list[int]],
@@ -48,7 +48,7 @@ def coins_recursive_helper(
         return -INF
 
     moves = [(i + 1, j), (i, j + 1)]
-    sums = [coins_recursive_helper(size, start, field, move) for move in moves]
+    sums = [_coins_rec(size, start, field, move) for move in moves]
 
     return max(sums) + field[i][j]
 
@@ -60,10 +60,10 @@ def coins_rec(i_start: int, j_start: int, coins: list[list[int]]) -> int:
 
     coins[i_start][j_start] = 0
 
-    return coins_recursive_helper(size, start, coins, start)
+    return _coins_rec(size, start, coins, start)
 
 
-def coins_cache_helper(
+def _coins_cache(
     size: tuple[int, int],
     start: tuple[int, int],
     coins: list[list[int]],
@@ -81,8 +81,7 @@ def coins_cache_helper(
     if current not in cache:
         moves = [(i + 1, j), (i, j + 1)]
         sums = [
-            coins_cache_helper(size, start, coins, move, cache)
-            for move in moves
+            _coins_cache(size, start, coins, move, cache) for move in moves
         ]
 
         cache[current] = max(sums) + coins[i][j]
@@ -97,10 +96,10 @@ def coins_cache(i_start: int, j_start: int, coins: list[list[int]]) -> int:
 
     coins[i_start][j_start] = 0
 
-    return coins_cache_helper(size, start, coins, start, {})
+    return _coins_cache(size, start, coins, start, {})
 
 
-def get_coin_sum(
+def _coins_dp(
     n: int, m: int, i_start: int, j_start: int, coins: list[list[int]]
 ) -> list[list[int]]:
     """Построение матрицы ответов. Сложность O(NM)"""
@@ -131,7 +130,7 @@ def coins_dp(i_start: int, j_start: int, coins: list[list[int]]) -> int:
     """Решение с помощью динамического программирования. Сложность O(NM)"""
     n, m = len(coins), len(coins[0])
 
-    coin_sum = get_coin_sum(n, m, i_start, j_start, coins)
+    coin_sum = _coins_dp(n, m, i_start, j_start, coins)
     return coin_sum[-1][-1]
 
 
@@ -168,7 +167,7 @@ def coins_path(
     """Решение с восстановлением пути. Сложность O(NM)"""
     n, m = len(coins), len(coins[0])
 
-    coin_sum = get_coin_sum(n, m, i_start, j_start, coins)
+    coin_sum = _coins_dp(n, m, i_start, j_start, coins)
     path = get_path(n, m, i_start, j_start, coin_sum)
 
     return (

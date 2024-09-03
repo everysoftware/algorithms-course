@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from greedy import act_sel, act_sel_other_approach
+from src.greedy import act_sel, act_sel_other_approach
 
 
 @pytest.mark.parametrize("func", [act_sel, act_sel_other_approach])

@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from event_sorting import (
+from src.event_sorting import (
     points_and_segments_bs,
     points_and_segments_es,
 )

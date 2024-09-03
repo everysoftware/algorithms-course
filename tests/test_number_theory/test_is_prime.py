@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from number_theory import is_prime, is_prime_naive
+from src.number_theory import is_prime, is_prime_naive
 
 
 @pytest.mark.parametrize("func", [is_prime_naive, is_prime])

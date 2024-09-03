@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from prefix_sums import box_filter_naive, box_filter_ps
+from src.prefix_sums import box_filter_naive, box_filter_ps
 
 
 @pytest.mark.parametrize(

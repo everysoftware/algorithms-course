@@ -1,6 +1,6 @@
 import pytest
 
-from sorting import merge
+from src.sorting import merge
 
 
 @pytest.mark.parametrize(

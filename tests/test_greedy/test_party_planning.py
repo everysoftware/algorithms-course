@@ -1,6 +1,6 @@
 import pytest
 
-from greedy import party_planning
+from src.greedy import party_planning
 
 
 @pytest.mark.parametrize(

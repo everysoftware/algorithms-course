@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from sorting import (
+from src.sorting import (
     bubble_sort,
     insertion_sort,
     selection_sort,

@@ -1,6 +1,6 @@
 import pytest
 
-from dp2 import max_score
+from src.dp2 import max_score
 
 
 @pytest.mark.parametrize(

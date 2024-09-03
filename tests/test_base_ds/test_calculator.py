@@ -1,6 +1,6 @@
 import pytest
 
-from base_ds import (
+from src.base_ds import (
     split_by_tokens,
     get_postfix_notation,
     evaluate_postfix,

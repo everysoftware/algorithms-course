@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from prefix_sums import k_subarray_naive, k_subarray_ps
+from src.prefix_sums import k_subarray_naive, k_subarray_ps
 
 
 @pytest.mark.parametrize(

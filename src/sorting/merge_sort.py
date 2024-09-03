@@ -5,21 +5,21 @@ from collections import deque
 from .merge import merge
 
 
-def merge_sort_helper(a: list[int], left: int, right: int) -> list[int]:
+def _merge_sort(a: list[int], left: int, right: int) -> list[int]:
     if left >= right:
         return [a[left]] if len(a) > 0 else []
 
     m = (left + right) // 2
     # Производим слияние двух отсортированных кусков
-    left_part = merge_sort_helper(a, left, m)
-    right_part = merge_sort_helper(a, m + 1, right)
+    left_part = _merge_sort(a, left, m)
+    right_part = _merge_sort(a, m + 1, right)
 
     return merge(left_part, right_part)
 
 
 def merge_sort(a: list[int]) -> list[int]:
     """Сортировка слиянием. Сложность O(NlogN)."""
-    return merge_sort_helper(a, 0, len(a) - 1)
+    return _merge_sort(a, 0, len(a) - 1)
 
 
 def iterative_merge_sort(a: list[int]) -> list[int]:

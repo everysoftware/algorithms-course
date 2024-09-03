@@ -3,7 +3,7 @@ from typing import Callable
 
 import pytest
 
-from dp2 import coins_path, coins_rec, coins_cache, coins_dp
+from src.dp2 import coins_path, coins_rec, coins_cache, coins_dp
 
 
 def generate_field() -> tuple[int, int, list[list[int]]]:

@@ -62,7 +62,7 @@ A = "Saturday", B = "Sunday"
 """
 
 
-def edit_distance_rec_helper(a: str, b: str, m: int, n: int) -> int:
+def _ed_rec(a: str, b: str, m: int, n: int) -> int:
     # Если первая строка пуста, то расстояние редактирования равно длине второй строки
     if m == 0:
         return n
@@ -73,26 +73,26 @@ def edit_distance_rec_helper(a: str, b: str, m: int, n: int) -> int:
 
     # Если последние символы строк совпадают, то они игнорируются и рекурсия продолжается для оставшихся строк
     if a[m - 1] == b[n - 1]:
-        return edit_distance_rec_helper(a, b, m - 1, n - 1)
+        return _ed_rec(a, b, m - 1, n - 1)
 
     # Если последние символы строк не совпадают, то рассматриваются все три операции на последнем символе первой строки,
     # рекурсивно вычисляется минимальное значение и к нему добавляется 1
     return 1 + min(
-        edit_distance_rec_helper(a, b, m, n - 1),  # Вставка
-        edit_distance_rec_helper(a, b, m - 1, n),  # Удаление
-        edit_distance_rec_helper(a, b, m - 1, n - 1),  # Замена
+        _ed_rec(a, b, m, n - 1),  # Вставка
+        _ed_rec(a, b, m - 1, n),  # Удаление
+        _ed_rec(a, b, m - 1, n - 1),  # Замена
     )
 
 
-def edit_distance_rec(a: str, b: str) -> int:
+def ed_rec(a: str, b: str) -> int:
     """
     Вычисляет расстояние редактирования методом рекурсии.
     Сложность O(3^(N + M)), где N и M - длины строк.
     """
-    return edit_distance_rec_helper(a, b, len(a), len(b))
+    return _ed_rec(a, b, len(a), len(b))
 
 
-def get_distance(n: int, m: int, a: str, b: str) -> list[list[int]]:
+def _ed_dp(n: int, m: int, a: str, b: str) -> list[list[int]]:
     """Построение матрицы расстояний методом динамического программирования. Сложность O(NM)"""
     distance = [[INF] * (m + 1) for _ in range(n + 1)]
     """distance[i][j] - расстояние редактирования для строк a[:i] и b[:j]"""
@@ -119,10 +119,10 @@ def get_distance(n: int, m: int, a: str, b: str) -> list[list[int]]:
     return distance
 
 
-def edit_distance_dp(a: str, b: str) -> int:
+def ed_dp(a: str, b: str) -> int:
     """Вычисляет расстояние редактирования методом динамического программирования. Сложность O(NM)"""
     n, m = len(a), len(b)
-    distance = get_distance(n, m, a, b)
+    distance = _ed_dp(n, m, a, b)
 
     return distance[n][m]
 
@@ -180,7 +180,7 @@ def edit_path(
 ) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
     """Путь редактирования. Сложность O(NM)"""
     n, m = len(a), len(b)
-    distance = get_distance(n, m, a, b)
+    distance = _ed_dp(n, m, a, b)
 
     return distance[n][m], get_path(n, m, a, b, distance)
 
@@ -191,7 +191,7 @@ def editing(a: str, words: list[str]) -> tuple[int, list[str]]:
     Возвращает список строк, расстояние редактирования которых минимально.
     Сложность O(QNM), где N - длина строки a, M - длина самой длинной строки из списка words.
     """
-    distances = [edit_distance_dp(a, word) for word in words]
+    distances = [ed_dp(a, word) for word in words]
     min_distance = min(distances)
     result = [
         word

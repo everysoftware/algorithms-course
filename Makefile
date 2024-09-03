@@ -1,7 +1,6 @@
 .PHONY: test
 test:
 	@echo "Running tests..."
-	set PYTHONPATH="src"
 	pytest -s -v tests
 
 

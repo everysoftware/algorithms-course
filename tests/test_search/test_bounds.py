@@ -1,6 +1,6 @@
 import pytest
 
-from search import lower_bound, upper_bound
+from src.search import lower_bound, upper_bound
 
 
 @pytest.mark.parametrize(

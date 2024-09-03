@@ -35,18 +35,16 @@ BDCAB
 """
 
 
-def lcs_rec_helper(a: str, b: str, n: int, m: int) -> int:
+def _lcs_rec(a: str, b: str, n: int, m: int) -> int:
     # Если одна из строк пустая, то длина общей подпоследовательности равна 0
     if n == 0 or m == 0:
         return 0
     # Если последние символы совпадают, то уменьшаем обе строки на 1
     elif a[n - 1] == b[m - 1]:
-        return 1 + lcs_rec_helper(a, b, n - 1, m - 1)
+        return 1 + _lcs_rec(a, b, n - 1, m - 1)
     # Иначе берем максимум из двух вариантов:
     else:
-        return max(
-            lcs_rec_helper(a, b, n, m - 1), lcs_rec_helper(a, b, n - 1, m)
-        )
+        return max(_lcs_rec(a, b, n, m - 1), _lcs_rec(a, b, n - 1, m))
 
 
 def lcs_rec(a: str, b: str) -> int:
@@ -54,7 +52,7 @@ def lcs_rec(a: str, b: str) -> int:
     Находит длину наибольшей общей подпоследовательности двух строк рекурсией.
     Сложность O(2^(min(N, M))), где N и M - длины строк A и B соответственно.
     """
-    return lcs_rec_helper(a, b, len(a), len(b))
+    return _lcs_rec(a, b, len(a), len(b))
 
 
 def lcs_dp(a: str, b: str) -> int:

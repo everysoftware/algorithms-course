@@ -1,6 +1,6 @@
 import pytest
 
-from prefix_sums import unfinished_tasks
+from src.prefix_sums import unfinished_tasks
 
 
 @pytest.mark.parametrize(

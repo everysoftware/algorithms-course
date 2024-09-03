@@ -1,6 +1,6 @@
 import pytest
 
-from greedy import convex_hull
+from src.greedy import convex_hull
 
 
 @pytest.mark.parametrize(

@@ -3,8 +3,8 @@ from .gold_storage import gold_storage, gold_storage_enhanced
 from .manchkin_score import max_score
 from .lcs import lcs_dp, lcs_rec
 from .editing import (
-    edit_distance_dp,
-    edit_distance_rec,
+    ed_dp,
+    ed_rec,
     edit_path,
     EditOperation,
     editing,
@@ -21,8 +21,8 @@ __all__ = [
     "max_score",
     "lcs_dp",
     "lcs_rec",
-    "edit_distance_dp",
-    "edit_distance_rec",
+    "ed_dp",
+    "ed_rec",
     "edit_path",
     "EditOperation",
     "editing",

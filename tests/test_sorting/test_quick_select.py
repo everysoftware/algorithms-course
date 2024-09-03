@@ -1,6 +1,6 @@
 import pytest
 
-from sorting import quick_select
+from src.sorting import quick_select
 
 
 @pytest.mark.parametrize(

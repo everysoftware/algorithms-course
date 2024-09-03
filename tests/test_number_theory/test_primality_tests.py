@@ -1,6 +1,6 @@
 import pytest
 
-from number_theory import primality_tests, decompose
+from src.number_theory import primality_tests, decompose
 
 
 @pytest.mark.parametrize(

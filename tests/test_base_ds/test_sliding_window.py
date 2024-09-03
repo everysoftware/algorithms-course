@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from base_ds import sliding_window_naive, sliding_window_deque
+from src.base_ds import sliding_window_naive, sliding_window_deque
 
 
 @pytest.mark.parametrize("func", [sliding_window_naive, sliding_window_deque])

@@ -1,6 +1,6 @@
 import pytest
 
-from prefix_sums import investment_balance
+from src.prefix_sums import investment_balance
 
 
 @pytest.mark.parametrize(

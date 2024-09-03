@@ -1,6 +1,6 @@
 import pytest
 
-from greedy import max_terms
+from src.greedy import max_terms
 
 
 @pytest.mark.parametrize(

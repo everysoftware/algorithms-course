@@ -1,6 +1,6 @@
 import pytest
 
-from sorting import count_inverse
+from src.sorting import count_inverse
 
 
 @pytest.mark.parametrize(

@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from number_theory import divisors_naive, divisors
+from src.number_theory import divisors_naive, divisors
 
 
 @pytest.mark.parametrize("func", [divisors_naive, divisors])

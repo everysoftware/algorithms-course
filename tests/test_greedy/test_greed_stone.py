@@ -1,6 +1,6 @@
 import pytest
 
-from greedy import greed_stone
+from src.greedy import greed_stone
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,6 @@
 import pytest
 
-from greedy import cargo_delivery
+from src.greedy import cargo_delivery
 
 
 @pytest.mark.parametrize(

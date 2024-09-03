@@ -32,21 +32,19 @@ def fib_rec(n: int) -> int:
 """
 
 
-def fib_cache_helper(n: int, cache: dict[int, int]) -> int:
+def _fib_cache(n: int, cache: dict[int, int]) -> int:
     if n < 2:
         return n
 
     if n not in cache:
-        cache[n] = fib_cache_helper(n - 1, cache) + fib_cache_helper(
-            n - 2, cache
-        )
+        cache[n] = _fib_cache(n - 1, cache) + _fib_cache(n - 2, cache)
 
     return cache[n]
 
 
 def fib_cache(n: int) -> int:
     """Рекурсивное вычисление числа Фибоначчи с кэшированием. Сложность O(N)."""
-    return fib_cache_helper(n, {})
+    return _fib_cache(n, {})
 
 
 @lru_cache(None)

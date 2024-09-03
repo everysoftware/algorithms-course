@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from dnc import power, fast_power
+from src.dnc import power, fast_power
 
 
 @pytest.mark.parametrize(

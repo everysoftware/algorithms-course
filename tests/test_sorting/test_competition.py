@@ -1,6 +1,6 @@
 import pytest
 
-from sorting import competition
+from src.sorting import competition
 
 
 @pytest.mark.parametrize(
