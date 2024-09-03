@@ -1,4 +1,4 @@
-from number_theory import primality_tests
+from src.number_theory import primality_tests
 
 
 def primality_tests_view():

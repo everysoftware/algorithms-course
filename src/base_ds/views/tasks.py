@@ -1,4 +1,4 @@
-from base_ds import MaxStack
+from src.base_ds import MaxStack
 
 
 def max_stack_view() -> None:
