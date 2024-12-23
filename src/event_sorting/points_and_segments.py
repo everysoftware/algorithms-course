@@ -54,11 +54,11 @@ def points_and_segments_es(
 ) -> list[int]:
     """Решает задачу о количестве отрезков, которым принадлежит каждая точка. Сложность O((N + M)log(N + M))."""
     m = len(points)
-    events = []
+    events: list[tuple[int, int, int]] = []
 
     for left, right in segments:
-        events.append((left, -1, None))
-        events.append((right, 1, None))
+        events.append((left, -1, 0))
+        events.append((right, 1, 0))
 
     for i, point in enumerate(points):
         events.append((point, 0, i))

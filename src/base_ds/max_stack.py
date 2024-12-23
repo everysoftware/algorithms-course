@@ -33,7 +33,7 @@ class MaxStack:
     stack: list[int]
     max_stack: list[int]
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.stack = []
         self.max_stack = []
 

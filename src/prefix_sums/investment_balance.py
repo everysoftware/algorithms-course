@@ -24,7 +24,7 @@
 def investment_balance(a: list[int]) -> int:
     """Префиксные суммы. Сложность O(N)."""
     count = 0
-    prefix_sums = {}
+    prefix_sums: dict[int, int] = {}
     """prefix_sums[i] - количество непрерывных периодов, когда сумма транзакций равна i."""
     curr_sum = 0
 

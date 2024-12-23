@@ -53,7 +53,7 @@ def merge_and_count(a: list[int], b: list[int]) -> tuple[list[int], int]:
 
 def count_inverse(a: list[int]) -> int:
     n = len(a)
-    queue = deque()
+    queue: deque[list[int]] = deque()
 
     # Добиваем кол-во элементов до степени двойки
     while not math.log2(n).is_integer():

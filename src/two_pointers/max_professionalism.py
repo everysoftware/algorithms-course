@@ -23,8 +23,10 @@ https://www.youtube.com/watch?v=de28y8Dcvkg
 с профессионализмом 7 и 9.
 """
 
+from typing import Any
 
-def max_professionalism(p: list) -> int:
+
+def max_professionalism(p: list[Any]) -> int:
     """Решает задачу методом двух указателей. Сложность O(N)."""
     n = len(p)
 

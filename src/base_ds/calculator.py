@@ -60,7 +60,8 @@ def split_by_tokens(expression: str) -> list[str]:
 
 def get_postfix_notation(expression: str) -> str:
     """Преобразует инфиксное выражение в постфиксное. Сложность O(N)."""
-    notation, stack = [], []
+    notation: list[str] = []
+    stack: list[str] = []
     tokens = split_by_tokens(expression)
 
     for token in tokens:
@@ -97,13 +98,13 @@ def get_postfix_notation(expression: str) -> str:
 
 def evaluate_postfix(expression: str) -> float:
     """Вычисляет значение выражения, записанного в обратной польской нотации. Сложность O(N)."""
-    stack = []
+    stack: list[float] = []
 
     for token in expression.split():
         if token in operators:
             operand2 = stack.pop()
             operand1 = stack.pop()
-            result = operators[token](operand1, operand2)
+            result = operators[token](operand1, operand2)  # type: ignore[no-untyped-call]
             stack.append(result)
         else:
             stack.append(float(token))

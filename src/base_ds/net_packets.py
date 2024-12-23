@@ -29,9 +29,8 @@ from collections import deque
 
 def net_packets(size: int, packets: list[tuple[int, int]]) -> list[int]:
     """Решение задачи о симуляторе обработки сетевых пакетов. Сложность O(N)"""
-    queue = deque()
+    queue: deque[int] = deque()
     start_times = []
-
     for i, (arrival, duration) in enumerate(packets):
         # Удаляем из очереди пакеты, которые уже обработаны
         while queue and queue[0] <= arrival:

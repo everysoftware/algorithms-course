@@ -61,7 +61,7 @@ def k_subarray_ps(k: int, a: list[int]) -> int:
     s = 0
 
     # Заполняем очередь первыми 4 префиксами
-    queue = deque()
+    queue: deque[int] = deque()
     for i in range(4):
         s += a[i]
         queue.append(s)

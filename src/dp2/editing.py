@@ -46,6 +46,7 @@ polderboy
 """
 
 from enum import Enum, auto
+from typing import Any
 
 INF = 10**20
 
@@ -135,11 +136,11 @@ class EditOperation(Enum):
 
 def get_path(
     n: int, m: int, a: str, b: str, distance: list[list[int]]
-) -> list[tuple[EditOperation, int, str, str]]:
+) -> list[Any]:
     """
     Восстановление пути. Сложность O(N + M)
     """
-    path = []
+    path: list[Any] = []
     i, j = n, m
 
     while i > 0 and j > 0:

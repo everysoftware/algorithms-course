@@ -45,9 +45,9 @@ def lnis(a: list[int]) -> list[int]:
     """
     n = len(a)
 
-    tail = []
+    tail: list[int] = []
     """tail[i] - последний элемент ННП длины i"""
-    tail_idx = []
+    tail_idx: list[int] = []
     """tail_idx[i] - индекс последнего элемента ННП длины i"""
     prev = [-1] * n
     """prev[i] - индекс предыдущего элемента ННП, которая заканчивается на элементе i"""

@@ -33,7 +33,7 @@ def build_tree(a: list[int]) -> tuple[int, list[list[int]]]:
     """Построение дерева. Сложность O(N)."""
     n = len(a)
     root = -1
-    adjacency_list = [[] for _ in range(n)]
+    adjacency_list: list[list[int]] = [[] for _ in range(n)]
 
     for i in range(n):
         if a[i] == -1:

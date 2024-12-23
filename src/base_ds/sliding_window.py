@@ -36,7 +36,7 @@ def sliding_window_naive(m: int, a: list[int]) -> list[int]:
 def sliding_window_deque(m: int, a: list[int]) -> list[int]:
     """Решение с использованием дека. Сложность O(N)"""
     n = len(a)
-    d = deque()
+    d: deque[int] = deque()
 
     # Заполняем очередь для первого окна
     for i in range(m):
