@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Any
 
 import pytest
 
@@ -19,9 +19,9 @@ from src.base_ds import sliding_window_naive, sliding_window_deque
     ],
 )
 def test_sliding_window(
-    func: Callable[[int, list[int]], list[int]],
+    func: Any,
     m: int,
     a: list[int],
     expected: list[int],
 ):
-    assert func(m, a) == expected
+    assert func(len(a), a, m) == expected

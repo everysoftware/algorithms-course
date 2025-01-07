@@ -1,8 +1,7 @@
-"""Быстрая сортировка."""
-
 from .partition import partition2, partition3
 
 
+# O(N^2), O(NlogN) in average
 def _quick_sort2(a: list[int], left: int, right: int) -> None:
     if left < right:
         m = partition2(a, left, right)
@@ -11,10 +10,10 @@ def _quick_sort2(a: list[int], left: int, right: int) -> None:
 
 
 def quick_sort2(a: list[int]) -> None:
-    """Быстрая сортировка. Сложность в среднем O(NlogN), в худшем O(N^2)."""
     _quick_sort2(a, 0, len(a) - 1)
 
 
+# O(N^2), O(NlogN) in average
 def _quick_sort3(a: list[int], left: int, right: int) -> None:
     if left < right:
         k = (left + right) // 2
@@ -26,5 +25,4 @@ def _quick_sort3(a: list[int], left: int, right: int) -> None:
 
 
 def quick_sort3(a: list[int]) -> None:
-    """Быстрая сортировка 3. Сложность в среднем O(NlogN), в худшем O(N^2)."""
     _quick_sort3(a, 0, len(a) - 1)

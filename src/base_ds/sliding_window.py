@@ -1,41 +1,16 @@
-"""
-https://stepik.org/lesson/41234/step/5?unit=19818
-
-Найти максимум в каждом окне размера m данного массива чисел A[1...n].
-
-Вход. Массив чисел A[1...n] и число 1 ≤ m ≤ n.
-Выход. Максимум подмассива A[i...i + m − 1] для всех 1 ≤ i ≤ n − m + 1.
-
-Формат входа. Первая строка входа содержит число n, вторая — массив A[1...n], третья — число m.
-Формат выхода. n − m + 1 максимумов, разделенных пробелами.
-
-Пример.
-Вход:
-8
-2 7 3 1 5 2 6 2
-4
-
-Выход:
-7 7 5 6 6
-"""
-
 from collections import deque
 
 
-def sliding_window_naive(m: int, a: list[int]) -> list[int]:
-    """Наивное решение. Сложность O(NM)"""
-    n = len(a)
+# O(N)
+def sliding_window_naive(n: int, a: list[int], m: int) -> list[int]:
     result = []
-
     for i in range(n - m + 1):
         result.append(max(a[i : i + m]))
-
     return result
 
 
-def sliding_window_deque(m: int, a: list[int]) -> list[int]:
-    """Решение с использованием дека. Сложность O(N)"""
-    n = len(a)
+# O(N)
+def sliding_window_deque(n: int, a: list[int], m: int) -> list[int]:
     d: deque[int] = deque()
 
     # Заполняем очередь для первого окна

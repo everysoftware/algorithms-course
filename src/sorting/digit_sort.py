@@ -1,10 +1,8 @@
-"""Цифровая сортировка."""
-
 from .counting_sort import counting_sort
 
 
+# O(D), D - number of digits
 def get_d(x: int) -> int:
-    """Возвращает количество разрядов числа. Сложность O(D)."""
     d = 0
     while x > 0:
         d += 1
@@ -12,8 +10,8 @@ def get_d(x: int) -> int:
     return d
 
 
+# O(DN), D - max number of digits
 def digit_sort(a: list[int]) -> list[int]:
-    """Цифровая сортировка. Сложность O(DN), D - макс. число разрядов."""
     d = get_d(max(a))
     power = 1
 

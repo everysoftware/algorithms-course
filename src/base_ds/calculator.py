@@ -1,24 +1,3 @@
-"""
-https://contest.yandex.ru/contest/31463/problems/?nc=cwKgF8vK
-
-Задача: Реализовать алгоритм разбора арифметического выражения. Допустимые операции в выражении: "+", "-", "*", "/",
-числовые литералы, круглые скобки для задания приоритетности.
-
-Формат ввода
-Входные данные: В качестве входа для алгоритма задана единственная строка - записанное арифметическое выражение.
-
-Формат вывода
-Результат: Результатом работы алгоритма является вычисленное значение входного выражения.
-Помимо результата необходимо вывести запись исходного выражения в постфиксной записи (обратной польской записи).
-
-Пример:
-Ввод:
-(1+2)*4+3
-Вывод:
-1 2 + 4 * 3 +
-15
-"""
-
 priority = {
     "(": 0,
     ")": 0,
@@ -38,8 +17,8 @@ operators = {
 }
 
 
+# O(N)
 def split_by_tokens(expression: str) -> list[str]:
-    """Разбивает строку на токены. Сложность O(N)."""
     tokens = []
     token = ""
 
@@ -58,8 +37,8 @@ def split_by_tokens(expression: str) -> list[str]:
     return tokens
 
 
+# O(N)
 def get_postfix_notation(expression: str) -> str:
-    """Преобразует инфиксное выражение в постфиксное. Сложность O(N)."""
     notation: list[str] = []
     stack: list[str] = []
     tokens = split_by_tokens(expression)
@@ -96,8 +75,8 @@ def get_postfix_notation(expression: str) -> str:
     return " ".join(notation)
 
 
+# O(N)
 def evaluate_postfix(expression: str) -> float:
-    """Вычисляет значение выражения, записанного в обратной польской нотации. Сложность O(N)."""
     stack: list[float] = []
 
     for token in expression.split():
@@ -112,8 +91,8 @@ def evaluate_postfix(expression: str) -> float:
     return stack[0] if stack else 0.0
 
 
+# O(N)
 def calculator(expression: str) -> tuple[str, float]:
-    """Решение задачи. Сложность O(N)."""
     postfix_notation = get_postfix_notation(expression)
     result = evaluate_postfix(postfix_notation)
 

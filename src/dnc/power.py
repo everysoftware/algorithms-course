@@ -1,6 +1,7 @@
 """Быстрое возведение числа в степень"""
 
 
+# https://leetcode.com/problems/powx-n/solutions/
 def power(a: int, n: int) -> int:
     """Возведение числа в степень. Сложность O(N)."""
     result = 1

@@ -26,4 +26,4 @@ from src.base_ds import net_packets
 def test_net_packets(
     size: int, packets: list[tuple[int, int]], expected: list[int]
 ):
-    assert net_packets(size, packets) == expected
+    assert net_packets(len(packets), packets, size) == expected

@@ -5,7 +5,7 @@ from .calculator import (
     get_postfix_notation,
     split_by_tokens,
     evaluate_postfix,
-    calculator
+    calculator,
 )
 from .max_stack import MaxStack
 from .net_packets import net_packets
