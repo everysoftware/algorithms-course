@@ -1,4 +1,4 @@
-from src.trees.tree_height import tree_height_naive, tree_height_stack
+from src.search_trees.tree_height import tree_height_naive, tree_height_stack
 from .bank_queue import average_waiting_time
 from .brackets import brackets
 from .calculator import (

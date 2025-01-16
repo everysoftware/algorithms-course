@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.trees.dfs import dfs, dfs_iterative
+from src.search_trees.dfs import dfs, dfs_iterative
 
 tree = {
     "A": ["B", "C"],
