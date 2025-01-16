@@ -36,10 +36,11 @@
 
 ## Источники
 
-* [Алгоритмы: теория и практика. Методы (Stepik)](https://stepik.org/course/217)
+* [LeetCode - The World's Leading Online Programming Learning Platform](https://leetcode.com/)
+* [Алгоритмы: теория и практика. Методы - Stepik](https://stepik.org/course/217)
+* [Алгоритмы: теория и практика. Структуры данных - Stepik](https://stepik.org/course/1547)
 * [Тренировки по алгоритмам от Яндекса](https://yandex.ru/yaintern/algorithm-training_2)
-* [Платформа для программистов LeetCode](https://leetcode.com/)
-* [Ютуб-канал AlekOS](https://www.youtube.com/@AlekOS/videos)
+* [AlekOS - YouTube](https://www.youtube.com/@AlekOS/videos)
 
 Выражаю благодарность преподавателю НИУ ВШЭ Илье Сергеевичу Бычкову за прекрасный и всеобъемлющий курс по алгоритмам.
 
