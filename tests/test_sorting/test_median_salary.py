@@ -1,6 +1,6 @@
 import pytest
 
-from src.sorting import competition
+from src.sorting.median_salary import median_salary
 
 
 @pytest.mark.parametrize(
@@ -17,4 +17,4 @@ from src.sorting import competition
     ],
 )
 def test_competition(scores: list[int], expected: float):
-    assert competition(scores) == expected
+    assert median_salary(scores) == expected

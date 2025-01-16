@@ -2,21 +2,15 @@ from typing import Callable
 
 import pytest
 
-from src.sorting import (
-    bubble_sort,
-    insertion_sort,
-    selection_sort,
+from src.sorting.sort_array import (
     merge_sort,
     iterative_merge_sort,
-    quick_sort2,
+    quick_sort,
     quick_sort3,
     counting_sort,
-    digit_sort,
+    radix_sort,
 )
-
-
-def couting_sort_10(a: list[int]) -> list[int]:
-    return counting_sort(a, 10)
+from src.sorting.sort_colors import bubble_sort, insertion_sort, selection_sort
 
 
 @pytest.mark.parametrize(
@@ -25,12 +19,12 @@ def couting_sort_10(a: list[int]) -> list[int]:
         bubble_sort,
         insertion_sort,
         selection_sort,
-        quick_sort2,
+        quick_sort,
         quick_sort3,
         merge_sort,
         iterative_merge_sort,
-        couting_sort_10,
-        digit_sort,
+        counting_sort,
+        radix_sort,
     ],
 )
 @pytest.mark.parametrize(
@@ -45,7 +39,10 @@ def couting_sort_10(a: list[int]) -> list[int]:
         [1],
     ],
 )
-def test_sortings(func: Callable[[list[int]], list[int] | None], a: list[int]):
+def test_sortings(
+    func: Callable[[list[int]], list[int] | None], a: list[int]
+) -> None:
+    a = a.copy()
     result = func(a)
     expected = sorted(a)
 

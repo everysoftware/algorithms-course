@@ -7,11 +7,11 @@ from src.intro import (
     fib_two_last,
     fib_mod_two_last,
     fib_mod_pisano,
-    fib_formula,
+    fib_bine,
 )
 
 
-@pytest.mark.parametrize("func", [fib_rec, fib_two_last, fib_formula])
+@pytest.mark.parametrize("func", [fib_rec, fib_two_last, fib_bine])
 @pytest.mark.parametrize(
     ["n", "expected"],
     zip([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 1, 2, 3, 5, 8, 13, 21, 34]),

@@ -1,6 +1,6 @@
 import pytest
 
-from src.sorting import partition2, partition3
+from src.sorting.partition import partition2, partition3
 
 
 @pytest.mark.parametrize(
@@ -14,7 +14,7 @@ from src.sorting import partition2, partition3
         ([1], 0),
     ],
 )
-def test_partition2(a: list[int], expected: int):
+def test_partition2(a: list[int], expected: int) -> None:
     assert partition2(a) == expected
 
 
@@ -29,5 +29,5 @@ def test_partition2(a: list[int], expected: int):
         ([1], (0, 0)),
     ],
 )
-def test_partition3(a: list[int], expected: tuple[int, int]):
+def test_partition3(a: list[int], expected: tuple[int, int]) -> None:
     assert partition3(a) == expected

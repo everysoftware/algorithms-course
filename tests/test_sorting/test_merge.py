@@ -1,6 +1,6 @@
 import pytest
 
-from src.sorting import merge
+from src.sorting.merge import merge, merge_inplace
 
 
 @pytest.mark.parametrize(
@@ -21,5 +21,29 @@ from src.sorting import merge
         ],
     ],
 )
-def test_merge(a: list[int], b: list[int], expected: list[int]):
+def test_merge(a: list[int], b: list[int], expected: list[int]) -> None:
     assert merge(a, b) == expected
+
+
+@pytest.mark.parametrize(
+    ["a", "n", "b", "m", "expected"],
+    [
+        [[1, 5, 0, 0, 0], 2, [2, 4, 7], 3, [1, 2, 4, 5, 7]],
+        [[1, 2, 3, 0, 0, 0], 3, [4, 5, 6], 3, [1, 2, 3, 4, 5, 6]],
+        [[1, 3, 5, 0, 0, 0], 3, [2, 4, 6], 3, [1, 2, 3, 4, 5, 6]],
+        [[1, 2, 3, 0, 0, 0], 3, [1, 2, 3], 3, [1, 1, 2, 2, 3, 3]],
+        [[-3, -2, -1, 0, 0, 0], 3, [1, 2, 3], 3, [-3, -2, -1, 1, 2, 3]],
+        [
+            [1, 1, 2, 2, 3, 3, 0, 0, 0, 0, 0, 0],
+            6,
+            [2, 2, 3, 3, 4, 4],
+            6,
+            [1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4],
+        ],
+    ],
+)
+def test_merge_inplace(
+    a: list[int], n: int, b: list[int], m: int, expected: list[int]
+) -> None:
+    merge_inplace(a, n, b, m)
+    assert a == expected

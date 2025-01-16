@@ -1,6 +1,6 @@
 # O(2^N)
 def fib_rec(n: int) -> int:
-    """Рекурсивное вычисление числа Фибоначчи"""
+    # Рекурсивное вычисление числа Фибоначчи
     if n < 2:
         return n
     else:
@@ -9,18 +9,16 @@ def fib_rec(n: int) -> int:
 
 # O(N)
 def fib_two_last(n: int) -> int:
-    """Вычисление числа Фибоначчи методом двух последних чисел"""
+    # Вычисление числа Фибоначчи методом двух последних чисел
     fib1 = 0
     fib2 = 1
-
     for i in range(2, n + 1):
         fib1, fib2 = fib2, fib1 + fib2
-
     return fib2
 
 
 # O(1)
-def fib_formula(n: int) -> int:
+def fib_bine(n: int) -> int:
     """
     Вычисление числа Фибоначчи по формуле Бине.
 

@@ -1,6 +1,6 @@
 import pytest
 
-from src.search import lower_bound, upper_bound
+from src.search.search_range import lower_bound, upper_bound, search_range
 
 
 @pytest.mark.parametrize(
@@ -23,23 +23,8 @@ from src.search import lower_bound, upper_bound
         ([1], 1, 0),
     ],
 )
-def test_lower_bound(a: list[int], target: int, expected: int):
+def test_lower_bound(a: list[int], target: int, expected: int) -> None:
     assert lower_bound(a, target) == expected
-
-
-@pytest.mark.parametrize(
-    "a, target, expected",
-    [
-        # Убывающая последовательность
-        ([9, 7, 5, 3, 1], 6, 2),
-        ([9, 7, 5, 3, 1], 0, 5),
-        # Невозрастающая последовательность
-        ([5, 5, 4, 4, 3, 3], 4, 2),
-        ([5, 5, 4, 4, 3, 3], 2, 6),
-    ],
-)
-def test_lower_bound_decreasing(a: list[int], target: int, expected: int):
-    assert lower_bound(a, -target, key=lambda x: -x) == expected
 
 
 @pytest.mark.parametrize(
@@ -60,20 +45,25 @@ def test_lower_bound_decreasing(a: list[int], target: int, expected: int):
         ([1], 1, 1),
     ],
 )
-def test_upper_bound(a: list[int], target: int, expected: int):
+def test_upper_bound(a: list[int], target: int, expected: int) -> None:
     assert upper_bound(a, target) == expected
 
 
 @pytest.mark.parametrize(
     "a, target, expected",
     [
-        # Убывающая последовательность
-        ([9, 7, 5, 3, 1], 6, 2),
-        ([9, 7, 5, 3, 1], 0, 5),
-        # Невозрастающая последовательность
-        ([5, 5, 4, 4, 3, 3], 4, 4),
-        ([5, 5, 4, 4, 3, 3], 2, 6),
+        ([1, 2, 3, 4, 5], 3, [2, 2]),
+        ([1, 2, 3, 4, 5], 1, [0, 0]),
+        ([1, 2, 3, 4, 5], 5, [4, 4]),
+        ([1, 2, 3, 4, 5], 6, [-1, -1]),
+        ([1, 2, 3, 4, 5], 0, [-1, -1]),
+        ([1, 3, 5, 7, 9], 6, [-1, -1]),
+        ([1, 3, 5, 7, 9], 10, [-1, -1]),
+        ([1, 1, 2, 2, 3, 3], 2, [2, 3]),
+        ([1, 1, 2, 2, 3, 3], 4, [-1, -1]),
+        ([1, 1, 1, 1, 1], 1, [0, 4]),
+        ([1], 1, [0, 0]),
     ],
 )
-def test_upper_bound_decreasing(a: list[int], target: int, expected: int):
-    assert upper_bound(a, -target, key=lambda x: -x) == expected
+def test_search_range(a: list[int], target: int, expected: list[int]) -> None:
+    assert search_range(a, target) == expected
