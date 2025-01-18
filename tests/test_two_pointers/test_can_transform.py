@@ -1,6 +1,6 @@
 import pytest
 
-from src.two_pointers import can_transform
+from src.two_pointers.can_trasform import can_transform
 
 
 @pytest.mark.parametrize(
@@ -16,5 +16,5 @@ from src.two_pointers import can_transform
         ("pie", "apple", False),
     ],
 )
-def test_can_transform(a: str, b: str, expected: bool):
+def test_can_transform(a: str, b: str, expected: bool) -> None:
     assert can_transform(a, b) == expected

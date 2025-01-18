@@ -1,7 +1,7 @@
 from collections import deque
 
 
-# O(NM)
+# O(n*m)
 def average_waiting_time(n: int, clients: list[tuple[int, int]]) -> float:
     queue = deque(clients)
     windows = [0] * n  # Время окончания обслуживания в каждом окне

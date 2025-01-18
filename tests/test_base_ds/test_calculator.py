@@ -23,7 +23,7 @@ from src.base_ds import (
         ("", []),
     ],
 )
-def test_split_by_tokens(expression: str, expected: list[str]):
+def test_split_by_tokens(expression: str, expected: list[str]) -> None:
     assert split_by_tokens(expression) == expected
 
 
@@ -40,7 +40,7 @@ def test_split_by_tokens(expression: str, expected: list[str]):
         ("", ""),
     ],
 )
-def test_get_postfix_notation(expression: str, expected: str):
+def test_get_postfix_notation(expression: str, expected: str) -> None:
     assert get_postfix_notation(expression) == expected
 
 
@@ -57,7 +57,7 @@ def test_get_postfix_notation(expression: str, expected: str):
         ("", 0.0),
     ],
 )
-def test_evaluate_postfix(expression: str, expected: float):
+def test_evaluate_postfix(expression: str, expected: float) -> None:
     assert evaluate_postfix(expression) == expected
 
 
@@ -76,5 +76,5 @@ def test_evaluate_postfix(expression: str, expected: float):
         ("", ("", 0.0)),
     ],
 )
-def test_calculator(expression: str, expected: tuple[str, float]):
+def test_calculator(expression: str, expected: tuple[str, float]) -> None:
     assert calculator(expression) == expected

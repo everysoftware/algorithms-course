@@ -1,7 +1,11 @@
 from .partition import partition3
 
 
-# O(N) in average, O(N^2) the worst
+# O(n) в среднем, O(n^2) в худшем
+def kth_largest(nums: list[int], k: int) -> int:
+    return quick_select(nums, len(nums) - k + 1)
+
+
 def quick_select(a: list[int], k: int) -> int:
     if len(a) == 1:
         return a[0]
@@ -16,7 +20,3 @@ def quick_select(a: list[int], k: int) -> int:
             high = left_idx - 1
         else:
             low = right_idx + 1
-
-
-def kth_largest(nums: list[int], k: int) -> int:
-    return quick_select(nums, len(nums) - k + 1)

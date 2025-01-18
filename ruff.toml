@@ -1,6 +1,6 @@
-line-length = 79
+line-length = 120
 
 [format]
 # Enable reformatting of code snippets in docstrings.
 docstring-code-format = true
-docstring-code-line-length = 79
+docstring-code-line-length = 120

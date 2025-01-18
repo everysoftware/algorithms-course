@@ -1,3 +1,10 @@
+# O(n)
+def calculator(expression: str) -> tuple[str, float]:
+    postfix_notation = get_postfix_notation(expression)
+    result = evaluate_postfix(postfix_notation)
+    return postfix_notation, result
+
+
 priority = {
     "(": 0,
     ")": 0,
@@ -17,11 +24,10 @@ operators = {
 }
 
 
-# O(N)
+# O(n)
 def split_by_tokens(expression: str) -> list[str]:
     tokens = []
     token = ""
-
     for c in expression:
         if c.isdigit() or c in ".":
             token += c
@@ -30,19 +36,16 @@ def split_by_tokens(expression: str) -> list[str]:
                 tokens.append(token)
                 token = ""
             tokens.append(c)
-
     if token:
         tokens.append(token)
-
     return tokens
 
 
-# O(N)
+# O(n)
 def get_postfix_notation(expression: str) -> str:
     notation: list[str] = []
     stack: list[str] = []
     tokens = split_by_tokens(expression)
-
     for token in tokens:
         if token in priority:
             # Открытие скобочного выражения.
@@ -51,7 +54,6 @@ def get_postfix_notation(expression: str) -> str:
             # Закрытие скобочного выражения.
             elif token == ")":
                 top = stack.pop()
-
                 while top != "(":
                     notation.append(top)
                     top = stack.pop()
@@ -59,26 +61,21 @@ def get_postfix_notation(expression: str) -> str:
             elif priority[token] <= priority[stack[-1]]:
                 top = stack.pop()
                 notation.append(top)
-
                 while stack and priority[top] != priority[token]:
                     top = stack.pop()
                     notation.append(top)
-
                 stack.append(token)
             else:
                 stack.append(token)
         else:
             notation.append(token)
-
     notation += stack
-
     return " ".join(notation)
 
 
-# O(N)
+# O(n)
 def evaluate_postfix(expression: str) -> float:
     stack: list[float] = []
-
     for token in expression.split():
         if token in operators:
             operand2 = stack.pop()
@@ -87,13 +84,4 @@ def evaluate_postfix(expression: str) -> float:
             stack.append(result)
         else:
             stack.append(float(token))
-
     return stack[0] if stack else 0.0
-
-
-# O(N)
-def calculator(expression: str) -> tuple[str, float]:
-    postfix_notation = get_postfix_notation(expression)
-    result = evaluate_postfix(postfix_notation)
-
-    return postfix_notation, result

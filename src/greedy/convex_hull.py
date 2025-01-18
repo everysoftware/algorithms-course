@@ -1,6 +1,8 @@
 """
 https://contest.yandex.ru/contest/32588/problems/B/
 
+https://leetcode.com/problems/erect-the-fence/description/
+
 Даны N точек на плоскости. Построить их выпуклую оболочку, т.е. наименьший выпуклый многоугольник, содержащий
 все эти точки.
 
@@ -44,9 +46,7 @@ def left_index(points: list[tuple[int, int]]) -> int:
     return left_most
 
 
-def orientation(
-    p: tuple[int, int], q: tuple[int, int], r: tuple[int, int]
-) -> int:
+def orientation(p: tuple[int, int], q: tuple[int, int], r: tuple[int, int]) -> int:
     """
     Определяет ориентацию тройки точек (p, q, r)
     """

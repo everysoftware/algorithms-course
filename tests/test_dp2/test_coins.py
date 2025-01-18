@@ -50,9 +50,7 @@ def test_coins(
         coins_dp,
     ],
 )
-@pytest.mark.parametrize(
-    "i_start, j_start, coins", [generate_field() for _ in range(10)]
-)
+@pytest.mark.parametrize("i_start, j_start, coins", [generate_field() for _ in range(10)])
 def test_coins_random(
     func: Callable[[int, int, list[list[int]]], int],
     i_start: int,

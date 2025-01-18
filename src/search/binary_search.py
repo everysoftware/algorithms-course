@@ -1,7 +1,7 @@
 import bisect
 
 
-# O(log(N))
+# O(log n)
 def binary_search(a: list[int], target: int) -> int:
     low, high = 0, len(a) - 1
     while low <= high:
@@ -19,7 +19,7 @@ def binary_search(a: list[int], target: int) -> int:
     return -1
 
 
-# O(log(i)), i - index of target
+# O(log n)
 def exp_search(a: list[int], target: int) -> int:
     n = len(a)
     end = 1

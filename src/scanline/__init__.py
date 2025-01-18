@@ -1,6 +1,6 @@
 from src.scanline.points_and_segments import (
-    points_and_segments_bs,
-    points_and_segments_es,
+    count_segments_bisect,
+    count_segments,
 )
 
-__all__ = ["points_and_segments_bs", "points_and_segments_es"]
+__all__ = ["count_segments_bisect", "count_segments"]

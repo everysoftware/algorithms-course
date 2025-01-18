@@ -30,9 +30,7 @@
 """
 
 
-def max_score(
-    budget: int, strength: list[int], gold: list[int], monster: list[int]
-) -> int:
+def max_score(budget: int, strength: list[int], gold: list[int], monster: list[int]) -> int:
     n, k = len(strength), len(monster)
     max_strength = [0 for _ in range(budget + 1)]
     """max_strength[i] - максимальная сила, которую можно получить, потратив i золота."""
@@ -40,9 +38,7 @@ def max_score(
     for i in range(n):
         item_cost, item_strength = gold[i], strength[i]
         for j in range(budget, item_cost - 1, -1):
-            max_strength[j] = max(
-                max_strength[j], item_strength + max_strength[j - item_cost]
-            )
+            max_strength[j] = max(max_strength[j], item_strength + max_strength[j - item_cost])
 
     manchkin_strength = max_strength[budget]
     monsters = 0

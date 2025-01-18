@@ -18,7 +18,5 @@ from src.prefix_sums import unfinished_tasks
         ([1, 0, 0, 1, 0, 1, 0, 1], [(3, 3)], [1]),
     ],
 )
-def test_unfinished_tasks(
-    a: list[int], requests: list[tuple[int, int]], expected: list[int]
-):
+def test_unfinished_tasks(a: list[int], requests: list[tuple[int, int]], expected: list[int]):
     assert unfinished_tasks(a, requests) == expected

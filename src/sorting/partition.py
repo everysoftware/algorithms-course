@@ -1,4 +1,4 @@
-# O(N)
+# O(n)
 def partition2(a: list[int], low: int = 0, high: int | None = None) -> int:
     # Все элементы, меньшие или равные опорному, перемещаются влево.
     high = high if high is not None else len(a) - 1
@@ -12,10 +12,8 @@ def partition2(a: list[int], low: int = 0, high: int | None = None) -> int:
     return j
 
 
-# O(N)
-def partition3(
-    a: list[int], low: int = 0, high: int | None = None
-) -> tuple[int, int]:
+# O(n)
+def partition3(a: list[int], low: int = 0, high: int | None = None) -> tuple[int, int]:
     # Если элемент меньше опорного, он перемещается влево.
     # Если больше опорного — вправо.
     # Если равен опорному, оставляется на месте.

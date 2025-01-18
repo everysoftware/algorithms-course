@@ -12,10 +12,10 @@ def ladder_search(a: list[list[int]], target: int) -> tuple[int, int]:
 
     while i < n and j >= 0:
         if a[i][j] < target:
-            # Идём вниз
+            # идём вниз
             i += 1
         elif a[i][j] > target:
-            # Идём влево
+            # идём влево
             j -= 1
         else:
             return i, j

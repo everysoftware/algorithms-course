@@ -3,14 +3,12 @@ from typing import Callable
 import pytest
 
 from src.scanline import (
-    points_and_segments_bs,
-    points_and_segments_es,
+    count_segments_bisect,
+    count_segments,
 )
 
 
-@pytest.mark.parametrize(
-    "func", [points_and_segments_bs, points_and_segments_es]
-)
+@pytest.mark.parametrize("func", [count_segments_bisect, count_segments])
 @pytest.mark.parametrize(
     "segments, points, expected",
     [
@@ -32,5 +30,5 @@ def test_points_and_segments(
     segments: list[tuple[int, int]],
     points: list[int],
     expected: list[int],
-):
+) -> None:
     assert func(segments, points) == expected

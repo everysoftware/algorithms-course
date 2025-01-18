@@ -2,17 +2,17 @@ from typing import Callable
 
 import pytest
 
-from src.two_pointers import (
-    sum_of_two_numbers_tp,
-    sum_of_two_numbers_naive,
+from src.two_pointers.two_sum import (
+    two_sum_tp,
+    two_sum_naive,
 )
 
 
 @pytest.mark.parametrize(
     "func",
     [
-        sum_of_two_numbers_naive,
-        sum_of_two_numbers_tp,
+        two_sum_naive,
+        two_sum_tp,
     ],
 )
 @pytest.mark.parametrize(

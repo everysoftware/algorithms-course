@@ -1,9 +1,7 @@
 """ """
 
 
-def dfs_wrapper(
-    tree: dict[str, list[str]], node: str, visited: set[str], result: list[str]
-) -> list[str]:
+def dfs_wrapper(tree: dict[str, list[str]], node: str, visited: set[str], result: list[str]) -> list[str]:
     # посещение вершины
     visited.add(node)
     result.append(node)

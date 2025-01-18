@@ -36,7 +36,5 @@ from src.number_theory import divisors_naive, divisors
         (25, [1, 5, 25]),
     ],
 )
-def test_is_prime(
-    func: Callable[[int], list[int]], x: int, expected: list[int]
-) -> None:
+def test_is_prime(func: Callable[[int], list[int]], x: int, expected: list[int]) -> None:
     assert func(x) == expected

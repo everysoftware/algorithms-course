@@ -14,7 +14,5 @@ from src.search.matrix_search import ladder_search
         ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 10, (-1, -1)),
     ],
 )
-def test_ladder_search(
-    a: list[list[int]], target: int, expected: tuple[int, int]
-):
+def test_ladder_search(a: list[list[int]], target: int, expected: tuple[int, int]):
     assert ladder_search(a, target) == expected

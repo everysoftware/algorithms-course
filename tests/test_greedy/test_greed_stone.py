@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import greed_stone
+from src.greedy.greed_stone import greed_stone
 
 
 @pytest.mark.parametrize(
@@ -47,7 +47,5 @@ from src.greedy import greed_stone
         ),
     ],
 )
-def test_greed_stone(
-    matrix: list[list[int]], expected: tuple[int, list[int]] | None
-) -> None:
+def test_greed_stone(matrix: list[list[int]], expected: tuple[int, list[int]] | None) -> None:
     assert greed_stone(matrix) == expected

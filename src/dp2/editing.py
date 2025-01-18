@@ -54,7 +54,7 @@ INF = 10**20
 Расстояние редактирования (расстояние Левенштейна) - минимальное количество операций вставки, удаления и замены,
 необходимое для преобразования одной строки в другую.
 
-Пример: 
+Пример:
 A = "kitten", B = "sitting"
 Расстояние редактирования = 3
 
@@ -134,9 +134,7 @@ class EditOperation(Enum):
     REPLACE = auto()
 
 
-def get_path(
-    n: int, m: int, a: str, b: str, distance: list[list[int]]
-) -> list[Any]:
+def get_path(n: int, m: int, a: str, b: str, distance: list[list[int]]) -> list[Any]:
     """
     Восстановление пути. Сложность O(N + M)
     """
@@ -176,9 +174,7 @@ def get_path(
     return path[::-1]
 
 
-def edit_path(
-    a: str, b: str
-) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
+def edit_path(a: str, b: str) -> tuple[int, list[tuple[EditOperation, int, str, str]]]:
     """Путь редактирования. Сложность O(NM)"""
     n, m = len(a), len(b)
     distance = _ed_dp(n, m, a, b)
@@ -194,10 +190,6 @@ def editing(a: str, words: list[str]) -> tuple[int, list[str]]:
     """
     distances = [ed_dp(a, word) for word in words]
     min_distance = min(distances)
-    result = [
-        word
-        for word, distance in zip(words, distances)
-        if distance == min_distance
-    ]
+    result = [word for word, distance in zip(words, distances) if distance == min_distance]
 
     return min_distance, result

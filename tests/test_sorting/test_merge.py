@@ -42,8 +42,6 @@ def test_merge(a: list[int], b: list[int], expected: list[int]) -> None:
         ],
     ],
 )
-def test_merge_inplace(
-    a: list[int], n: int, b: list[int], m: int, expected: list[int]
-) -> None:
+def test_merge_inplace(a: list[int], n: int, b: list[int], m: int, expected: list[int]) -> None:
     merge_inplace(a, n, b, m)
     assert a == expected

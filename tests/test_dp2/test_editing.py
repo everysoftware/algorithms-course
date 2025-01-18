@@ -24,9 +24,7 @@ from src.dp2 import (
         ("a", "a", 0),
     ],
 )
-def test_edit_distance_dp(
-    func: Callable[[str, str], int], a: str, b: str, expected: int
-):
+def test_edit_distance_dp(func: Callable[[str, str], int], a: str, b: str, expected: int):
     assert func(a, b) == expected
 
 

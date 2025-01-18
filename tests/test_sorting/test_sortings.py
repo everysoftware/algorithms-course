@@ -39,9 +39,7 @@ from src.sorting.sort_colors import bubble_sort, insertion_sort, selection_sort
         [1],
     ],
 )
-def test_sortings(
-    func: Callable[[list[int]], list[int] | None], a: list[int]
-) -> None:
+def test_sortings(func: Callable[[list[int]], list[int] | None], a: list[int]) -> None:
     a = a.copy()
     result = func(a)
     expected = sorted(a)

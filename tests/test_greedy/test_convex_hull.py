@@ -30,7 +30,5 @@ from src.greedy import convex_hull
         ),
     ],
 )
-def test_convex_hull(
-    points: list[tuple[int, int]], expected: list[tuple[int, int]]
-):
+def test_convex_hull(points: list[tuple[int, int]], expected: list[tuple[int, int]]):
     assert convex_hull(points) == expected

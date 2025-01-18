@@ -80,9 +80,7 @@ def _coins_cache(
 
     if current not in cache:
         moves = [(i + 1, j), (i, j + 1)]
-        sums = [
-            _coins_cache(size, start, coins, move, cache) for move in moves
-        ]
+        sums = [_coins_cache(size, start, coins, move, cache) for move in moves]
 
         cache[current] = max(sums) + coins[i][j]
 
@@ -99,9 +97,7 @@ def coins_cache(i_start: int, j_start: int, coins: list[list[int]]) -> int:
     return _coins_cache(size, start, coins, start, {})
 
 
-def _coins_dp(
-    n: int, m: int, i_start: int, j_start: int, coins: list[list[int]]
-) -> list[list[int]]:
+def _coins_dp(n: int, m: int, i_start: int, j_start: int, coins: list[list[int]]) -> list[list[int]]:
     """Построение матрицы ответов. Сложность O(NM)"""
     coin_sum = [[0] * m for _ in range(n)]
 
@@ -119,9 +115,7 @@ def _coins_dp(
     # Заполняем ответы для остальных ячеек
     for i in range(i_start + 1, n):
         for j in range(j_start + 1, m):
-            coin_sum[i][j] = (
-                max(coin_sum[i - 1][j], coin_sum[i][j - 1]) + coins[i][j]
-            )
+            coin_sum[i][j] = max(coin_sum[i - 1][j], coin_sum[i][j - 1]) + coins[i][j]
 
     return coin_sum
 
@@ -134,9 +128,7 @@ def coins_dp(i_start: int, j_start: int, coins: list[list[int]]) -> int:
     return coin_sum[-1][-1]
 
 
-def get_path(
-    n: int, m: int, i_start: int, j_start: int, coin_sum: list[list[int]]
-) -> list[tuple[int, int]]:
+def get_path(n: int, m: int, i_start: int, j_start: int, coin_sum: list[list[int]]) -> list[tuple[int, int]]:
     """Восстановление пути по матрице ответов. Сложность O(N + M)"""
     moves = []
     i, j = n - 1, m - 1
@@ -161,9 +153,7 @@ def get_path(
     return moves[::-1]
 
 
-def coins_path(
-    i_start: int, j_start: int, coins: list[list[int]]
-) -> tuple[int, list[tuple[int, int]]]:
+def coins_path(i_start: int, j_start: int, coins: list[list[int]]) -> tuple[int, list[tuple[int, int]]]:
     """Решение с восстановлением пути. Сложность O(NM)"""
     n, m = len(coins), len(coins[0])
 

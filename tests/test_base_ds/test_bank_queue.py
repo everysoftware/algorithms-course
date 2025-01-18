@@ -12,7 +12,5 @@ from src.base_ds import average_waiting_time
         (2, [(1, 0), (2, 0), (3, 0)], 0),
     ],
 )
-def test_average_waiting_time(
-    n: int, clients: list[tuple[int, int]], expected: float
-) -> None:
+def test_average_waiting_time(n: int, clients: list[tuple[int, int]], expected: float) -> None:
     assert average_waiting_time(n, clients) == expected

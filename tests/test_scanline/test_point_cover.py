@@ -2,10 +2,10 @@ from typing import Callable
 
 import pytest
 
-from src.greedy import points_cover, points_cover_enhanced
+from src.scanline.points_cover import points_cover_naive, points_cover_scanline
 
 
-@pytest.mark.parametrize("func", [points_cover, points_cover_enhanced])
+@pytest.mark.parametrize("func", [points_cover_naive, points_cover_scanline])
 @pytest.mark.parametrize(
     "points, expected",
     [
@@ -31,5 +31,5 @@ def test_point_cover(
     func: Callable[[list[float]], list[tuple[float, float]]],
     points: list[float],
     expected: list[tuple[float, float]],
-):
+) -> None:
     assert func(points) == expected

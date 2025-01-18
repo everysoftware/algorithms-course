@@ -37,9 +37,7 @@ def gold_storage(w: int, weight: list[int]) -> int:
 
             # Если предмет помещается в рюкзак
             if item_weight <= i:
-                weight_with_item = (
-                    max_weight[i - item_weight][j - 1] + item_weight
-                )
+                weight_with_item = max_weight[i - item_weight][j - 1] + item_weight
                 max_weight[i][j] = max(weight_without_item, weight_with_item)
 
     return max_weight[w][n]
@@ -52,8 +50,6 @@ def gold_storage_enhanced(w: int, weight: list[int]) -> int:
 
     for item_weight in weight:
         for i in range(w, item_weight - 1, -1):
-            max_weight[i] = max(
-                max_weight[i], max_weight[i - item_weight] + item_weight
-            )
+            max_weight[i] = max(max_weight[i], max_weight[i - item_weight] + item_weight)
 
     return max_weight[w]

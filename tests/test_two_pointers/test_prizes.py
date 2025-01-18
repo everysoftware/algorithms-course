@@ -1,6 +1,6 @@
 import pytest
 
-from src.two_pointers import prizes
+from src.two_pointers.prizes import prizes
 
 
 @pytest.mark.parametrize(
@@ -12,11 +12,11 @@ from src.two_pointers import prizes
         ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3, 4),
         ([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 0, 10),
         ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0, 1),
-        ([1, 3, 5, 7, 9, 11, 13, 15, 17, 19], 1, 2),
+        ([1, 3, 5, 7, 9, 11, 13, 15, 17, 19], 1, 1),
         ([1, 1, 1, 1, 1, 1, 1, 1, 1, 10], 9, 10),
         ([1, 1, 1, 1, 1, 1, 1, 1, 1, 10], 8, 9),
         ([], 5, 0),
     ],
 )
-def test_prizes(prize_positions: list[int], k: int, expected: int):
+def test_prizes(prize_positions: list[int], k: int, expected: int) -> None:
     assert prizes(prize_positions, k) == expected

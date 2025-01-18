@@ -41,9 +41,7 @@ Encrypted bytes: 158
 from math import gcd
 
 
-def generate_keypair(
-    p: int, q: int, e_start: int
-) -> tuple[tuple[int, int], tuple[int, int]]:
+def generate_keypair(p: int, q: int, e_start: int) -> tuple[tuple[int, int], tuple[int, int]]:
     """Генерация пары ключей (открытый, закрытый) для алгоритма RSA. Сложность: O(PQ)"""
     n = p * q
     phi = (p - 1) * (q - 1)

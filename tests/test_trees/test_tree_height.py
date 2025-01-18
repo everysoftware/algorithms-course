@@ -46,7 +46,5 @@ from src.base_ds import tree_height_naive, tree_height_stack
         ),
     ],
 )
-def test_tree_height(
-    func: Callable[[list[int]], int], tree: list[int], expected: int
-) -> None:
+def test_tree_height(func: Callable[[list[int]], int], tree: list[int], expected: int) -> None:
     assert func(tree) == expected

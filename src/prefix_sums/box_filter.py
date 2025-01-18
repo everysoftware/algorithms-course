@@ -75,12 +75,7 @@ def box_filter_ps(m: int, image: list[list[int]]) -> list[list[int]]:
     # Вычисление префиксных сумм
     for i in range(n):
         for j in range(n):
-            prefix_sums[i + 1][j + 1] = (
-                image[i][j]
-                + prefix_sums[i][j + 1]
-                + prefix_sums[i + 1][j]
-                - prefix_sums[i][j]
-            )
+            prefix_sums[i + 1][j + 1] = image[i][j] + prefix_sums[i][j + 1] + prefix_sums[i + 1][j] - prefix_sums[i][j]
 
     # Размытие изображения
     for i in range(n):
@@ -90,12 +85,7 @@ def box_filter_ps(m: int, image: list[list[int]]) -> list[list[int]]:
             x2, y2 = min(n, i + m + 1), min(n, j + m + 1)
 
             # Вычисление суммы и количества пикселей
-            total = (
-                prefix_sums[x2][y2]
-                - prefix_sums[x1][y2]
-                - prefix_sums[x2][y1]
-                + prefix_sums[x1][y1]
-            )
+            total = prefix_sums[x2][y2] - prefix_sums[x1][y2] - prefix_sums[x2][y1] + prefix_sums[x1][y1]
             count = (x2 - x1) * (y2 - y1)
             blurred_image[i][j] = total // count
 

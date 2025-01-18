@@ -1,7 +1,4 @@
-# O(N^2)
-from typing import Literal
-
-
+# O(n^2)
 def bubble_sort(a: list[int]) -> None:
     n = len(a)
     # Проходим по массиву n раз, на каждом проходе сдвигая максимальный элемент в конец
@@ -14,7 +11,7 @@ def bubble_sort(a: list[int]) -> None:
                 a[j], a[j + 1] = a[j + 1], a[j]
 
 
-# O(N^2)
+# O(n^2)
 def selection_sort(a: list[int]) -> None:
     # Находим минимум, ставим его первым, находим 2-й минимум, ставим его вторым и т. д.
     n = len(a)
@@ -27,7 +24,7 @@ def selection_sort(a: list[int]) -> None:
         a[i], a[k] = a[k], a[i]
 
 
-# O(N^2)
+# O(n^2)
 def insertion_sort(a: list[int]) -> None:
     n = len(a)
     for i in range(1, n):
@@ -36,18 +33,3 @@ def insertion_sort(a: list[int]) -> None:
         while j > 0 and a[j] < a[j - 1]:
             a[j], a[j - 1] = a[j - 1], a[j]
             j -= 1
-
-
-def sort_colors(
-    a: list[int],
-    method: Literal["bubble", "selection", "insertion"] = "bubble",
-) -> None:
-    match method:
-        case "bubble":
-            bubble_sort(a)
-        case "selection":
-            selection_sort(a)
-        case "insertion":
-            insertion_sort(a)
-        case _:
-            raise ValueError("Invalid sorting method")

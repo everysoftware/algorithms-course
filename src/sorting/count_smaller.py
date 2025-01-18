@@ -3,7 +3,7 @@ import math
 from collections import deque
 
 
-# O(N^2)
+# O(n^2)
 def count_smaller_bisect(nums: list[int]) -> list[int]:
     sorted_list: list[int] = []
     result: list[int] = []
@@ -20,7 +20,7 @@ def count_smaller_bisect(nums: list[int]) -> list[int]:
 Item = tuple[int, int]
 
 
-# O(N)
+# O(n)
 def count(a: list[Item], b: list[Item], counts: list[int]) -> list[Item]:
     n, m = len(a), len(b)
     res = []
@@ -45,7 +45,7 @@ def count(a: list[Item], b: list[Item], counts: list[int]) -> list[Item]:
     return res
 
 
-# O(NlogN)
+# O(n log n)
 def count_smaller_merge(a: list[int]) -> list[int]:
     # Добиваем кол-во элементов до степени двойки
     n = len(a)

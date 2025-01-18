@@ -2,10 +2,10 @@ from typing import Callable
 
 import pytest
 
-from src.greedy import act_sel, act_sel_other_approach
+from src.scanline.act_sel import act_sel
 
 
-@pytest.mark.parametrize("func", [act_sel, act_sel_other_approach])
+@pytest.mark.parametrize("func", [act_sel])
 @pytest.mark.parametrize(
     "acts, expected",
     [
@@ -70,5 +70,5 @@ def test_act_sel(
     func: Callable[[list[tuple[int, int]]], list[tuple[int, int]]],
     acts: list[tuple[int, int]],
     expected: list[tuple[int, int]],
-):
+) -> None:
     assert func(acts) == expected

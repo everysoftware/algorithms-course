@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import min_set_of_points
+from src.scanline.min_set_of_points import min_set_of_points
 
 
 @pytest.mark.parametrize(
@@ -12,7 +12,5 @@ from src.greedy import min_set_of_points
         ([(1, 2), (2, 3), (3, 4), (4, 5)], [2, 4]),
     ],
 )
-def test_min_set_of_points(
-    segments: list[tuple[int, int]], expected: list[int]
-):
+def test_min_set_of_points(segments: list[tuple[int, int]], expected: list[int]) -> None:
     assert min_set_of_points(segments) == expected

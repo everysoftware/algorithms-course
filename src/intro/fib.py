@@ -1,4 +1,4 @@
-# O(2^N)
+# O(2^n)
 def fib_rec(n: int) -> int:
     # Рекурсивное вычисление числа Фибоначчи
     if n < 2:
@@ -7,7 +7,7 @@ def fib_rec(n: int) -> int:
         return fib_rec(n - 1) + fib_rec(n - 2)
 
 
-# O(N)
+# O(n)
 def fib_two_last(n: int) -> int:
     # Вычисление числа Фибоначчи методом двух последних чисел
     fib1 = 0
