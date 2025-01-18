@@ -2,14 +2,14 @@ from typing import Callable
 
 import pytest
 
-from src.prefix_sums import k_subarray_naive, k_subarray_ps
+from src.prefix_sums.count_subsequences import count_subsequences_naive, count_subsequences_ps
 
 
 @pytest.mark.parametrize(
     "func",
     [
-        k_subarray_naive,
-        k_subarray_ps,
+        count_subsequences_naive,
+        count_subsequences_ps,
     ],
 )
 @pytest.mark.parametrize(
@@ -25,8 +25,8 @@ def test_subsequence_count(func: Callable[[int, list[int]], int], k: int, a: lis
 @pytest.mark.parametrize(
     "func",
     [
-        k_subarray_naive,
-        k_subarray_ps,
+        count_subsequences_naive,
+        count_subsequences_ps,
     ],
 )
 @pytest.mark.parametrize(
@@ -55,4 +55,4 @@ def test_k_subarray_b(path: str, expected: int):
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
 
-    assert k_subarray_ps(k, a) == expected
+    assert count_subsequences_ps(k, a) == expected

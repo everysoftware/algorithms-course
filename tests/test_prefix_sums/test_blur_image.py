@@ -1,8 +1,8 @@
-from typing import Callable
+from typing import Any
 
 import pytest
 
-from src.prefix_sums import box_filter_naive, box_filter_ps
+from src.prefix_sums.blur_image import box_filter_naive, box_filter_ps
 
 
 @pytest.mark.parametrize(
@@ -89,9 +89,9 @@ from src.prefix_sums import box_filter_naive, box_filter_ps
     ],
 )
 def test_box_filter(
-    func: Callable[[int, list[list[int]]], list[list[int]]],
+    func: Any,
     m: int,
     image: list[list[int]],
     expected: list[list[int]],
-):
-    assert func(m, image) == expected
+) -> None:
+    assert func(image, m) == expected

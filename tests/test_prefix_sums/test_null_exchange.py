@@ -1,6 +1,6 @@
 import pytest
 
-from src.prefix_sums import investment_balance
+from src.prefix_sums.null_exchange import null_exchange
 
 
 @pytest.mark.parametrize(
@@ -22,5 +22,5 @@ from src.prefix_sums import investment_balance
         ([1, -1, 1, -1, 1], 6),  # 6 отрезков с нулевой суммой
     ],
 )
-def test_investment_balance(a: list[int], expected: int):
-    assert investment_balance(a) == expected
+def test_investment_balance(a: list[int], expected: int) -> None:
+    assert null_exchange(a) == expected
