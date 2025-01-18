@@ -1,6 +1,6 @@
 import pytest
 
-from src.number_theory import generate_keypair, encrypt
+from src.number_theory.rsa import generate_keypair, encrypt
 
 
 @pytest.mark.parametrize(
@@ -17,19 +17,18 @@ def test_generate_keypair(
     q: int,
     e_start: int,
     expected: tuple[tuple[int, int], tuple[int, int]],
-):
+) -> None:
     assert generate_keypair(p, q, e_start) == expected
 
 
 @pytest.mark.parametrize(
-    "plaintext, public_key, expected",
+    "p, q, e_start, plaintext, expected",
     [
-        ("a", (5, 247), [184]),
-        ("a", (5, 299), [158]),
-        ("abc", (3, 391), [1, 90]),
-        ("abc", (3, 551), [122]),
-        ("abc", (5, 551), [1, 101]),
+        (13, 19, 2, "a", [184]),
+        (13, 23, 2, "a", [158]),
+        (17, 23, 2, "abc", [1, 90]),
+        (19, 29, 2, "abc", [1, 101]),
     ],
 )
-def test_encrypt(plaintext: str, public_key: tuple[int, int], expected: list[int]):
-    assert encrypt(plaintext, public_key) == expected
+def test_encrypt(p: int, q: int, e_start: int, plaintext: str, expected: list[int]) -> None:
+    assert encrypt(p, q, e_start, plaintext) == expected

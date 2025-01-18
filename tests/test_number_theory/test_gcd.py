@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.number_theory import gcd_naive, gcd_euclid, gcd_euclid_rec
+from src.number_theory.array_gcd import gcd_naive, gcd_euclid, gcd_euclid_rec
 
 
 @pytest.mark.parametrize(
@@ -13,7 +13,7 @@ from src.number_theory import gcd_naive, gcd_euclid, gcd_euclid_rec
         (100, 200, 50),
     ],
 )
-def test_gcd_naive(a, b, expected):
+def test_gcd_naive(a: int, b: int, expected: int) -> None:
     assert gcd_naive(a, b) == expected
 
 
@@ -25,5 +25,5 @@ def test_gcd_naive(a, b, expected):
         (14159572, 63967072, 4),
     ],
 )
-def test_gcd_huge(func: Callable[[int, int], int], a: int, b: int, expected: int):
+def test_gcd_huge(func: Callable[[int, int], int], a: int, b: int, expected: int) -> None:
     assert func(a, b) == expected

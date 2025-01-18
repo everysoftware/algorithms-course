@@ -2,39 +2,47 @@ from typing import Callable
 
 import pytest
 
-from src.number_theory import divisors_naive, divisors
+from src.number_theory.divisors import closest_divisors
+from src.number_theory.divisors import divisors_naive, divisors_sqrt
 
 
-@pytest.mark.parametrize("func", [divisors_naive, divisors])
+@pytest.mark.parametrize("func", [divisors_naive, divisors_sqrt])
 @pytest.mark.parametrize(
     "x, expected",
     [
-        (1, [1]),
-        (2, [1, 2]),
-        (3, [1, 3]),
-        (4, [1, 2, 4]),
-        (5, [1, 5]),
-        (6, [1, 2, 3, 6]),
-        (7, [1, 7]),
-        (8, [1, 2, 4, 8]),
-        (9, [1, 3, 9]),
-        (10, [1, 2, 5, 10]),
-        (11, [1, 11]),
-        (12, [1, 2, 3, 4, 6, 12]),
-        (13, [1, 13]),
-        (14, [1, 2, 7, 14]),
-        (15, [1, 3, 5, 15]),
-        (16, [1, 2, 4, 8, 16]),
-        (17, [1, 17]),
-        (18, [1, 2, 3, 6, 9, 18]),
-        (19, [1, 19]),
-        (20, [1, 2, 4, 5, 10, 20]),
-        (21, [1, 3, 7, 21]),
-        (22, [1, 2, 11, 22]),
-        (23, [1, 23]),
-        (24, [1, 2, 3, 4, 6, 8, 12, 24]),
-        (25, [1, 5, 25]),
+        (1, False),  # [1]
+        (2, False),  # [1, 2]
+        (3, False),  # [1, 3]
+        (4, True),  # [1, 2, 4]
+        (5, False),  # [1, 5]
+        (6, False),  # [1, 2, 3, 6]
+        (7, False),  # [1, 7]
+        (8, False),  # [1, 2, 4, 8]
+        (9, True),  # [1, 3, 9]
+        (10, False),  # [1, 2, 5, 10]
+        (11, False),  # [1, 11]
+        (12, False),  # [1, 2, 3, 4, 6, 12]
+        (13, False),  # [1, 13]
+        (14, False),  # [1, 2, 7, 14]
+        (15, False),  # [1, 3, 5, 15]
+        (16, False),  # [1, 2, 4, 8, 16]
+        (17, False),  # [1, 17]
+        (18, False),  # [1, 2, 3, 6, 9, 18]
+        (19, False),  # [1, 19]
+        (20, False),  # [1, 2, 4, 5, 10, 20]
     ],
 )
-def test_is_prime(func: Callable[[int], list[int]], x: int, expected: list[int]) -> None:
+def test_three_divisors(func: Callable[[int], list[int]], x: int, expected: list[int]) -> None:
     assert func(x) == expected
+
+
+@pytest.mark.parametrize(
+    "x, expected",
+    [
+        (8, [3, 3]),  # 9 = 3 * 3
+        (123, [5, 25]),  # 125 = 5 * 25
+        (999, [25, 40]),  # 1000 = 40 * 25
+    ],
+)
+def test_closest_divisors(x: int, expected: list[int]) -> None:
+    assert closest_divisors(x) == expected
