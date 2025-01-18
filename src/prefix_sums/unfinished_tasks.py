@@ -37,20 +37,16 @@ L_i <= R_i <= N).
 """
 
 
+# O(n + m)
 def unfinished_tasks(a: list[int], requests: list[tuple[int, int]]) -> list[int]:
-    """Префиксные суммы. Сложность O(N + M)."""
     n = len(a)
-
-    # Подсчитываем префиксные суммы
-    prefix_sum = [0] * (n + 1)
-    """prefix_sum[i] - количество нулей на первых i элементах [1, i]."""
+    # Подсчитываем префиксные суммы: p[i] - количество нулей на первых i элементах [1, i].
+    p = [0] * (n + 1)
     for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + (a[i - 1] == 0)
-
+        p[i] = p[i - 1] + (a[i - 1] == 0)
     # Подсчитываем ответы на запросы
     answers = []
     for left, right in requests:
         # Стартовый день включается, поэтому данные за него мы не вычитаем.
-        answers.append(prefix_sum[right] - prefix_sum[left - 1])
-
+        answers.append(p[right] - p[left - 1])
     return answers

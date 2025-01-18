@@ -1,4 +1,6 @@
 """
+https://leetcode.com/problems/image-smoother/description/
+
 Чёрно-белое изображение представляется как матрица пикселей, где значение каждого пикселя может быть от нуля
 (чёрный цвет) до 255 (белый цвет).
 
@@ -42,51 +44,42 @@ Box filter - один из алгоритмов в компьютерном зр
 """
 
 
+# O(n^2 * m^2)
 def box_filter_naive(m: int, image: list[list[int]]) -> list[list[int]]:
-    """Прямоугольное размытие изображения. Сложность O(N^2 * M^2)."""
     n = len(image)
     blurred_image = [[0] * n for _ in range(n)]
-
     for i in range(n):
         for j in range(n):
             # Размытие пикселя
             total = 0
             count = 0
-
             for di in range(-m, m + 1):
                 for dj in range(-m, m + 1):
                     ni, nj = i + di, j + dj
-
                     if 0 <= ni < n and 0 <= nj < n:
                         total += image[ni][nj]
                         count += 1
-
             blurred_image[i][j] = total // count
-
     return blurred_image
 
 
+# o(n^2)
 def box_filter_ps(m: int, image: list[list[int]]) -> list[list[int]]:
-    """Прямоугольное размытие изображения с использованием префиксных сумм. Сложность O(N^2)."""
     n = len(image)
     prefix_sums = [[0] * (n + 1) for _ in range(n + 1)]
     blurred_image = [[0] * n for _ in range(n)]
-
     # Вычисление префиксных сумм
     for i in range(n):
         for j in range(n):
             prefix_sums[i + 1][j + 1] = image[i][j] + prefix_sums[i][j + 1] + prefix_sums[i + 1][j] - prefix_sums[i][j]
-
     # Размытие изображения
     for i in range(n):
         for j in range(n):
             # Координаты начала и конца прямоугольника
             x1, y1 = max(0, i - m), max(0, j - m)
             x2, y2 = min(n, i + m + 1), min(n, j + m + 1)
-
             # Вычисление суммы и количества пикселей
             total = prefix_sums[x2][y2] - prefix_sums[x1][y2] - prefix_sums[x2][y1] + prefix_sums[x1][y1]
             count = (x2 - x1) * (y2 - y1)
             blurred_image[i][j] = total // count
-
     return blurred_image

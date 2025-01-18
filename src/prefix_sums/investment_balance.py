@@ -21,26 +21,21 @@
 """
 
 
+# O(n)
 def investment_balance(a: list[int]) -> int:
-    """Префиксные суммы. Сложность O(N)."""
     count = 0
+    # prefix_sums[i] - количество подмассивов, когда сумма транзакций равна i.
     prefix_sums: dict[int, int] = {}
-    """prefix_sums[i] - количество непрерывных периодов, когда сумма транзакций равна i."""
     curr_sum = 0
-
     for num in a:
         # Обновляем текущую сумму
         curr_sum += num
-
         # Если текущая сумма равна нулю, то увеличиваем счетчик на один
         if curr_sum == 0:
             count += 1
-
         # Если текущая сумма уже встречалась ранее, то увеличиваем счетчик на количество ее появлений
         if curr_sum in prefix_sums:
             count += prefix_sums[curr_sum]
-
         # Добавляем текущую сумму в словарь или увеличиваем ее счетчик на один
         prefix_sums[curr_sum] = prefix_sums.get(curr_sum, 0) + 1
-
     return count

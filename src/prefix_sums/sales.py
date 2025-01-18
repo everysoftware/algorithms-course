@@ -23,20 +23,17 @@
 """
 
 
+# O(n + m)
 def sales_sum(sales: list[int], queries: list[tuple[int, int]]) -> list[int]:
-    """Префиксные суммы. Сложность O(N + M)."""
     n = len(sales)
-
-    # Подсчитываем префиксные суммы
-    prefix_sum = [0] * (n + 1)
-    """prefix_sum[i] - общая сумма продаж за первые i день [1, i]."""
+    # Подсчитываем префиксные суммы: p[i] = общая сумма продаж за первые i день [1, i].
+    p = [0] * (n + 1)
+    """prefix_sum[i] - """
     for i in range(1, n + 1):
-        prefix_sum[i] = prefix_sum[i - 1] + sales[i - 1]
-
+        p[i] = p[i - 1] + sales[i - 1]
     # Подсчитываем ответы на запросы
     answers = []
     for start_day, end_day in queries:
         # Стартовый день включается, поэтому данные за него мы не вычитаем.
-        answers.append(prefix_sum[end_day] - prefix_sum[start_day - 1])
-
+        answers.append(p[end_day] - p[start_day - 1])
     return answers
