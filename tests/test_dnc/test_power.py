@@ -1,13 +1,13 @@
-from typing import Callable
+from typing import Any
 
 import pytest
 
-from src.dnc import power, fast_power
+from src.dnc.power import fast_power
 
 
 @pytest.mark.parametrize(
     "func",
-    [power, fast_power],
+    [fast_power],
 )
 @pytest.mark.parametrize(
     "x, y",
@@ -25,7 +25,9 @@ from src.dnc import power, fast_power
         (10, 100),
         (100, 10),
         (123, 987),
+        (2.1, 3),
+        (2, -2),
     ],
 )
-def test_power(func: Callable[[int, int], int], x: int, y: int) -> None:
+def test_power(func: Any, x: float, y: int) -> None:
     assert func(x, y) == x**y

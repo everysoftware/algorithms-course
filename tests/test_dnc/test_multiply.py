@@ -2,12 +2,12 @@ from typing import Callable
 
 import pytest
 
-from src.dnc import multiply_dnc, multiply_naive, karatsuba
+from src.dnc.multiply import mul_dnc, mul_naive, mul_karatsuba
 
 
 @pytest.mark.parametrize(
     "func",
-    [multiply_naive, multiply_dnc, karatsuba],
+    [mul_naive, mul_dnc, mul_karatsuba],
 )
 @pytest.mark.parametrize(
     "x, y",
