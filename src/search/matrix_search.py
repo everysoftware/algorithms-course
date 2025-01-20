@@ -9,7 +9,6 @@ def ladder_search(a: list[list[int]], target: int) -> tuple[int, int]:
     n, m = len(a), len(a[0])
     i = 0
     j = m - 1
-
     while i < n and j >= 0:
         if a[i][j] < target:
             # идём вниз
@@ -19,5 +18,4 @@ def ladder_search(a: list[list[int]], target: int) -> tuple[int, int]:
             j -= 1
         else:
             return i, j
-
     return -1, -1
