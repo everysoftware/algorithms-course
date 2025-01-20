@@ -1,6 +1,6 @@
 import pytest
 
-from src.sorting.median_salary import median_salary
+from src.dnc.median_salary import median_salary
 
 
 @pytest.mark.parametrize(

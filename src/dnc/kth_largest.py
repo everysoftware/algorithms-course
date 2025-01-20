@@ -1,4 +1,4 @@
-from .partition import partition3
+from src.sorting.partition import partition3
 
 
 # O(n) в среднем, O(n^2) в худшем

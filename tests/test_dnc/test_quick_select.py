@@ -1,6 +1,6 @@
 import pytest
 
-from src.sorting.kth_largest import quick_select
+from src.dnc.kth_largest import quick_select
 
 
 @pytest.mark.parametrize(
@@ -14,5 +14,5 @@ from src.sorting.kth_largest import quick_select
         ([1], 1),
     ],
 )
-def test_quick_select(a: list[int], k: int):
+def test_quick_select(a: list[int], k: int) -> None:
     assert quick_select(a, k) == sorted(a)[k - 1]
