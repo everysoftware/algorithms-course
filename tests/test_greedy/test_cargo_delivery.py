@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import cargo_delivery
+from src.greedy.knapsack import greedy_knapsack
 
 
 @pytest.mark.parametrize(
@@ -26,5 +26,5 @@ from src.greedy import cargo_delivery
         ),  # Вместимость рюкзака больше суммарного веса всех предметов
     ],
 )
-def test_cargo_delivery(w: int, items: list[tuple[int, int]], expected: float):
-    assert round(cargo_delivery(w, items), 3) == expected
+def test_cargo_delivery(w: int, items: list[tuple[int, int]], expected: float) -> None:
+    assert round(greedy_knapsack(w, items), 3) == expected

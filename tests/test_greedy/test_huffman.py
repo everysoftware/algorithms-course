@@ -1,11 +1,21 @@
 import pytest
 
-from src.greedy import (
+from src.greedy.huffman import (
     huffman_tree,
     huffman_encode,
-    is_prefix_code,
     huffman_decode,
 )
+
+
+# O(n)
+def is_prefix_code(tree: dict[str, str]) -> bool:
+    codes = list(tree.values())
+    for i in range(len(codes)):
+        for j in range(i + 1, len(codes)):
+            # Если один код является префиксом другого, то это не префиксный код.
+            if codes[i].startswith(codes[j]) or codes[j].startswith(codes[i]):
+                return False
+    return True
 
 
 @pytest.mark.parametrize(
@@ -20,26 +30,25 @@ from src.greedy import (
         ({"a": "0", "b": "01"}, False),  # 'a' является префиксом 'b'.
     ],
 )
-def test_is_prefix_code(tree: dict[str, str], expected: bool):
+def test_is_prefix_code(tree: dict[str, str], expected: bool) -> None:
     assert is_prefix_code(tree) == expected
 
 
 @pytest.mark.parametrize(
     "string",
-    ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world"],
+    ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world", "aaaaaabbcccddddeeeee"],
 )
-def test_huffman_tree(string: str):
+def test_huffman_tree(string: str) -> None:
     tree = huffman_tree(string)
     assert is_prefix_code(tree)
 
 
 @pytest.mark.parametrize(
     "string",
-    ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world"],
+    ["a", "ab", "abc", "aabbcc", "aabbccdd", "aabbccddeeff", "hello world", "aaaaaabbcccddddeeeee"],
 )
-def test_huffman_encode_decode(string: str):
-    tree = huffman_tree(string)
-    encoded = huffman_encode(string, tree)
+def test_huffman_encode_decode(string: str) -> None:
+    encoded, tree = huffman_encode(string)
 
     assert len(encoded) <= 8 * len(string)
     assert all(char in "01" for char in encoded)

@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import max_terms
+from src.greedy.max_terms import max_terms
 
 
 @pytest.mark.parametrize(
@@ -38,5 +38,5 @@ from src.greedy import max_terms
         (31, [1, 2, 3, 4, 5, 6, 10]),
     ],
 )
-def test_max_terms(n: int, expected: list[int]):
+def test_max_terms(n: int, expected: list[int]) -> None:
     assert max_terms(n) == expected

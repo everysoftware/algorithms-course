@@ -1,111 +1,106 @@
 """
-Кодирование Хаффмана.
-"""
+Визуализация:
+
+s = "aaaaaabbcccddddeeeee"
+
+Считаем частоту встречаемости каждого символа в строке:
+freq = {a: 6, b: 2, c: 3, d: 4, e: 5}
+
+Создаем очередь:
+queue = [(a, 6), (b, 2), (c, 3), (d, 4), (e, 5)]
+
+Объединяем два узла с минимальной частотой, пока не останется один узел:
+queue = [(a, 6), (d, 4), (e, 5), (bc, 5)]
+queue = [(a, 6), (bc, 5), (de, 9)]
+queue = [(abc, 11), (de, 9)]
+queue = [(abcde, 20)]
+
+Дерево:
+
+    abcde
+    /    |
+   de    abc
+  /  |   /  |
+ d   e  bc  a
+        / |
+       b   c
+
+Коды:
+a -> 11
+b -> 100
+c -> 101
+d -> 00
+e -> 01
+
+encoded = "111111111111100100101101101000000000101010101"
+"""  # noqa
 
 
-def is_prefix_code(tree: dict[str, str]) -> bool:
-    """Проверяет, является ли дерево Хаффмана префиксным кодом. Сложность: O(N^2)."""
-    codes = list(tree.values())
-
-    for i in range(len(codes)):
-        for j in range(i + 1, len(codes)):
-            # Если один код является префиксом другого, то это не префиксный код.
-            if codes[i].startswith(codes[j]) or codes[j].startswith(codes[i]):
-                return False
-
-    return True
+# O(n)
+def huffman_encode(s: str) -> tuple[str, dict[str, str]]:
+    result = ""
+    tree = huffman_tree(s)
+    for c in s:
+        result += tree[c]
+    return result, tree
 
 
+# O(n)
+def huffman_decode(s: str, tree: dict[str, str]) -> str:
+    result = ""
+    code = ""
+    for c in s:
+        code += c
+        if code in tree:
+            result += tree[code]
+            code = ""
+    return result
+
+
+# O(n^2)
+def huffman_tree(s: str) -> dict[str, str]:
+    # Считаем частоту встречаемости каждого символа в строке.
+    freq = count_chars(s)
+    # Создаем очередь: каждый элемент очереди представляет собой кортеж (символ, частота).
+    queue = list(freq.items())
+    # Создаем словарь для хранения кодов Хаффмана.
+    tree = {c: "" for c in freq}
+    # Если в строке есть только один символ, то кодируем его как "0".
+    if len(freq) == 1:
+        tree[s[0]] = "0"
+    # Пока в очереди есть хотя бы два узла.
+    while len(queue) >= 2:
+        # Извлекаем два узла с минимальной частотой - их нужно закодировать в первую очередь.
+        left = extract_min(queue)
+        right = extract_min(queue)
+        # Добавляем новый узел в очередь:
+        # его название равно конкатенации названий двух извлеченных узлов (a + b = ab),
+        # а его частота равна сумме частот двух извлеченных узлов (1 + 2 = 3).
+        queue.append((left[0] + right[0], left[1] + right[1]))
+        # Обновляем предков: добавляем "0" к коду левого узла и "1" к коду правого узла.
+        for ancestor in left[0]:
+            tree[ancestor] = "0" + tree[ancestor]
+        for ancestor in right[0]:
+            tree[ancestor] = "1" + tree[ancestor]
+    return tree
+
+
+# O(n)
+def count_chars(s: str) -> dict[str, int]:
+    freq = {}
+    for c in s:
+        if c not in freq:
+            freq[c] = 0
+        freq[c] += 1
+    return freq
+
+
+# O(n)
 def extract_min(queue: list[tuple[str, int]]) -> tuple[str, int]:
-    """Извлекает минимальный элемент из очереди. Сложность: O(N)."""
     idx = 0
     mn = queue[0][1]
-
     for i, x in enumerate(queue):
         if mn > x[1]:
             mn = x[1]
             idx = i
-
     return queue.pop(idx)
-
-
-def get_freq(string: str) -> dict[str, int]:
-    """Подсчитывает частоту символов в строке. Сложность: O(N)."""
-    freq = {}
-
-    for c in string:
-        if c not in freq:
-            freq[c] = 0
-        freq[c] += 1
-
-    return freq
-
-
-"""
-В данном коде обновление предков происходит на каждой итерации цикла while. 
-На каждой итерации мы обрабатываем все символы в left_node[0] и right_node[0], 
-которые являются строками, содержащими символы текущего узла дерева Хаффмана.
-
-Однако, важно отметить, что каждый символ обрабатывается только один раз в процессе построения дерева 
-Хаффмана. То есть, хотя на каждой итерации мы обрабатываем все символы в left_node[0] и right_node[0], 
-общее количество обработанных символов на протяжении всего алгоритма ограничено O(N), 
-где N - это общее количество символов во входной строке.
-
-Таким образом, хотя каждая операция обновления предков может занимать время O(N) на каждой итерации, 
-общее количество таких операций на протяжении всего алгоритма ограничено O(N), что делает общую сложность
-алгоритма O(N^2). Это следует из того, что функция extract_min вызывается дважды на каждой итерации,
-и каждый вызов занимает время O(N), поскольку она проходит по всем элементам в очереди для поиска
-минимального элемента.
-"""
-
-
-def huffman_tree(string: str) -> dict[str, str]:
-    """Строит дерево Хаффмана. Сложность: O(N^2)."""
-    freq = get_freq(string)
-    queue = list(freq.items())
-    tree = {c: "" for c in freq}
-
-    if len(freq) == 1:
-        tree[string[0]] = "0"
-        return tree
-
-    while len(queue) > 1:
-        # Извлекаем два узла с минимальной частотой.
-        left = extract_min(queue)
-        right = extract_min(queue)
-        # Добавляем новый узел в очередь.
-        queue.append((left[0] + right[0], left[1] + right[1]))
-
-        # Обновляем предков.
-        for ancestor in left[0]:
-            tree[ancestor] = "0" + tree[ancestor]
-
-        for ancestor in right[0]:
-            tree[ancestor] = "1" + tree[ancestor]
-
-    return tree
-
-
-def huffman_encode(string: str, tree: dict[str, str]) -> str:
-    """Кодирует строку с помощью дерева Хаффмана. Сложность: O(N)."""
-    result = ""
-
-    for c in string:
-        result += tree[c]
-
-    return result
-
-
-def huffman_decode(string: str, tree: dict[str, str]) -> str:
-    """Декодирует строку с помощью таблицы Хаффмана. Сложность: O(N)."""
-    result = ""
-    code = ""
-
-    for c in string:
-        code += c
-
-        if code in tree:
-            result += tree[code]
-            code = ""
-
-    return result

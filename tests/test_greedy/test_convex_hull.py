@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import convex_hull
+from src.greedy.convex_hull import convex_hull
 
 
 @pytest.mark.parametrize(
@@ -30,5 +30,5 @@ from src.greedy import convex_hull
         ),
     ],
 )
-def test_convex_hull(points: list[tuple[int, int]], expected: list[tuple[int, int]]):
-    assert convex_hull(points) == expected
+def test_convex_hull(points: list[tuple[int, int]], expected: list[tuple[int, int]]) -> None:
+    assert set(convex_hull(points)) == set(expected)

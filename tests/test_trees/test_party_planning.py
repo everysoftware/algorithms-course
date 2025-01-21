@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy import party_planning
+from src.search_trees.party_planning import party_planning
 
 
 @pytest.mark.parametrize(
