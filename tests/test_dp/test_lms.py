@@ -1,6 +1,6 @@
 import pytest
 
-from src.dp import lms
+from src.k_dp import lms
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,6 @@
 import pytest
 
-from src.dp import ladder
+from src.k_dp import ladder
 
 
 @pytest.mark.parametrize(

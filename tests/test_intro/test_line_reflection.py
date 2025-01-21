@@ -1,6 +1,6 @@
 import pytest
 
-from src.intro.line_reflection import is_reflected
+from src.a_intro.line_reflection import is_reflected
 
 
 @pytest.mark.parametrize(

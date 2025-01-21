@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.dp2 import (
+from src.l_dp2 import (
     ed_dp,
     ed_rec,
     edit_path,

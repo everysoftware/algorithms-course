@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.scanline import (
+from src.f_scanline import (
     count_segments_bisect,
     count_segments,
 )

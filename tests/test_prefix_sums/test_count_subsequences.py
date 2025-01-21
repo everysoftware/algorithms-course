@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.prefix_sums.count_subsequences import count_subsequences_naive, count_subsequences_ps
+from src.g_prefix_sums.count_subsequences import count_subsequences_naive, count_subsequences_ps
 
 
 @pytest.mark.parametrize(

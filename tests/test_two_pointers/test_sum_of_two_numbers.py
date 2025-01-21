@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.two_pointers.two_sum import (
+from src.e_two_pointers.two_sum import (
     two_sum_tp,
     two_sum_naive,
 )

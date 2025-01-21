@@ -1,6 +1,6 @@
 import pytest
 
-from src.dp import grades
+from src.k_dp import grades
 
 
 @pytest.mark.parametrize(

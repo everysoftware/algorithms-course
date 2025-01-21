@@ -1,8 +1,8 @@
 from collections import deque
 from typing import Callable
 
-from src.sorting.merge import merge
-from src.sorting.partition import partition2, partition3
+from src.d_sorting.merge import merge
+from src.d_sorting.partition import partition2, partition3
 
 
 # O(n^2), O(n log n) в среднем, TLE на больших входах

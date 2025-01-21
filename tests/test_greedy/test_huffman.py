@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy.huffman import (
+from src.j_greedy.huffman import (
     huffman_tree,
     huffman_encode,
     huffman_decode,

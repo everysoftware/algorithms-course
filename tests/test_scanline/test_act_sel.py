@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.scanline.act_sel import act_sel
+from src.f_scanline.act_sel import act_sel
 
 
 @pytest.mark.parametrize("func", [act_sel])

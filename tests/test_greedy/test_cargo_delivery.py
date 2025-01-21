@@ -1,6 +1,6 @@
 import pytest
 
-from src.greedy.knapsack import greedy_knapsack
+from src.j_greedy.knapsack import greedy_knapsack
 
 
 @pytest.mark.parametrize(

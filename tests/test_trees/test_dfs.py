@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.search_trees.dfs import dfs, dfs_iterative
+from src.tba_trees.dfs import dfs, dfs_iterative
 
 tree = {
     "A": ["B", "C"],
@@ -14,10 +14,10 @@ tree = {
     "G": [],
 }
 """
-      A
-    /   \
+       A
+    /     |
     B     C
-   / \   / \
+   / |   / |
   D   E F   G
 """
 

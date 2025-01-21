@@ -1,6 +1,6 @@
 import pytest
 
-from src.scanline.max_profit import job_scheduling
+from src.f_scanline.max_profit import job_scheduling
 
 
 @pytest.mark.parametrize(

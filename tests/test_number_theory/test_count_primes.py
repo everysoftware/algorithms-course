@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.number_theory.count_primes import count_primes_sieve, count_primes_sqrt
+from src.h_number_theory.count_primes import count_primes_sieve, count_primes_sqrt
 
 
 @pytest.mark.parametrize("func", [count_primes_sqrt, count_primes_sieve])

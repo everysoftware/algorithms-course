@@ -1,6 +1,6 @@
 import pytest
 
-from src.intro.third_max import third_max
+from src.a_intro.third_max import third_max
 
 
 @pytest.mark.parametrize(

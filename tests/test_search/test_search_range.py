@@ -1,6 +1,6 @@
 import pytest
 
-from src.search.search_range import lower_bound, upper_bound, search_range
+from src.c_search.search_range import lower_bound, upper_bound, search_range
 
 
 @pytest.mark.parametrize(

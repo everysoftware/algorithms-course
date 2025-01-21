@@ -1,6 +1,6 @@
 import pytest
 
-from src.number_theory.primality_tests import primality_tests
+from src.h_number_theory.primality_tests import primality_tests
 
 
 @pytest.mark.parametrize(

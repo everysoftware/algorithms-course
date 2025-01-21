@@ -1,6 +1,6 @@
 import pytest
 
-from src.intro.max_power import max_power
+from src.a_intro.max_power import max_power
 
 
 @pytest.mark.parametrize(

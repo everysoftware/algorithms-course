@@ -1,6 +1,6 @@
 import pytest
 
-from src.two_pointers.can_trasform import can_transform
+from src.e_two_pointers.can_trasform import can_transform
 
 
 @pytest.mark.parametrize(

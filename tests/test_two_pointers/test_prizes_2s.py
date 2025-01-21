@@ -1,6 +1,6 @@
 import pytest
 
-from src.two_pointers.prizes_2s import prizes_hard
+from src.e_two_pointers.prizes_2s import prizes_hard
 
 
 @pytest.mark.parametrize(

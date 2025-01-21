@@ -1,6 +1,6 @@
 import pytest
 
-from src.dp2 import towers
+from src.l_dp2 import towers
 
 
 @pytest.mark.parametrize(

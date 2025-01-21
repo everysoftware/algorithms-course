@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.dp2 import gold_storage, gold_storage_enhanced
+from src.l_dp2 import gold_storage, gold_storage_enhanced
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,6 @@
 import pytest
 
-from src.scanline.min_set_of_points import min_set_of_points
+from src.f_scanline.min_set_of_points import min_set_of_points
 
 
 @pytest.mark.parametrize(

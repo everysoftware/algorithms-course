@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.dnc.multiply import mul_dnc, mul_naive, mul_karatsuba
+from src.i_dnc.multiply import mul_dnc, mul_naive, mul_karatsuba
 
 
 @pytest.mark.parametrize(

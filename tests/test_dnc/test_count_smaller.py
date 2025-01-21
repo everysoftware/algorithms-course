@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.dnc.count_smaller import count_smaller_bisect, count_smaller_merge
+from src.i_dnc.count_smaller import count_smaller_bisect, count_smaller_merge
 
 
 @pytest.mark.parametrize("func", [count_smaller_bisect, count_smaller_merge])

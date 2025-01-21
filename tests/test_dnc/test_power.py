@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.dnc.power import fast_power
+from src.i_dnc.power import fast_power
 
 
 @pytest.mark.parametrize(

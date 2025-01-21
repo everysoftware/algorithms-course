@@ -2,8 +2,8 @@ from typing import Callable
 
 import pytest
 
-from src.number_theory.divisors import closest_divisors
-from src.number_theory.divisors import divisors_naive, divisors_sqrt
+from src.h_number_theory.divisors import closest_divisors
+from src.h_number_theory.divisors import divisors_naive, divisors_sqrt
 
 
 @pytest.mark.parametrize("func", [divisors_naive, divisors_sqrt])

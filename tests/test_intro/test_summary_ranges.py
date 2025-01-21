@@ -1,6 +1,6 @@
 import pytest
 
-from src.intro.summary_ranges import summary_ranges
+from src.a_intro.summary_ranges import summary_ranges
 
 
 @pytest.mark.parametrize(

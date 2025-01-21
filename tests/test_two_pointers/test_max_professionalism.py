@@ -1,6 +1,6 @@
 import pytest
 
-from src.two_pointers.max_professionalism import max_professionalism
+from src.e_two_pointers.max_professionalism import max_professionalism
 
 
 @pytest.mark.parametrize(

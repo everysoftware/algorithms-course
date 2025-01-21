@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.dp2 import lcs_rec, lcs_dp
+from src.l_dp2 import lcs_rec, lcs_dp
 
 
 @pytest.mark.parametrize(

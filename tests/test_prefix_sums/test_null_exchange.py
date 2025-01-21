@@ -1,6 +1,6 @@
 import pytest
 
-from src.prefix_sums.null_exchange import null_exchange
+from src.g_prefix_sums.null_exchange import null_exchange
 
 
 @pytest.mark.parametrize(
