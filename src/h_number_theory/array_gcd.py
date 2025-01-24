@@ -1,3 +1,4 @@
+# O(n)
 def find_gcd(nums: list[int]) -> int:
     return gcd_euclid(min(nums), max(nums))
 

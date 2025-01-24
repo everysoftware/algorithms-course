@@ -1,4 +1,14 @@
-# O(log(N))
+# O(log n)
+def search_range(a: list[int], target: int) -> list[int]:
+    low, high = lower_bound(a, target), upper_bound(a, target) - 1
+    if low < 0 or low >= len(a) or a[low] != target:
+        low = -1
+    if high < 0 or high >= len(a) or a[high] != target:
+        high = -1
+    return [low, high]
+
+
+# O(log n)
 def lower_bound(
     a: list[int],
     target: int,
@@ -20,7 +30,7 @@ def lower_bound(
     return low
 
 
-# O(log(N))
+# O(log n)
 def upper_bound(
     a: list[int],
     target: int,
@@ -39,12 +49,3 @@ def upper_bound(
         else:
             low = m + 1
     return low
-
-
-def search_range(a: list[int], target: int) -> list[int]:
-    low, high = lower_bound(a, target), upper_bound(a, target) - 1
-    if low < 0 or low >= len(a) or a[low] != target:
-        low = -1
-    if high < 0 or high >= len(a) or a[high] != target:
-        high = -1
-    return [low, high]

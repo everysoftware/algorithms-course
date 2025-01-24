@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds import MaxStack
+from src.b_base_ds.max_stack import MaxStack
 
 
 @pytest.mark.parametrize(
@@ -44,9 +44,8 @@ from src.b_base_ds import MaxStack
         ),
     ],
 )
-def test_max_stack(operations: list[tuple], expected: list[int]):
+def test_max_stack(operations: list[tuple], expected: list[int]) -> None:
     stack = MaxStack()
-
     for op, *args in operations:
         if op == "push":
             stack.push(*args)
@@ -56,5 +55,4 @@ def test_max_stack(operations: list[tuple], expected: list[int]):
             assert stack.max() == expected.pop(0)
         else:
             raise ValueError(f"Unknown operation: {op}")
-
     assert not expected

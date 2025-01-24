@@ -1,3 +1,4 @@
+# O(n)
 def summary_ranges(nums: list[int]) -> list[str]:
     ranges: list[list[int]] = []
     for num in nums:

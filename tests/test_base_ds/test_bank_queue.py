@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds import average_waiting_time
+from src.b_base_ds.bank_queue import average_waiting_time
 
 
 @pytest.mark.parametrize(

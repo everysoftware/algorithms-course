@@ -1,3 +1,4 @@
+# O(log x)
 def sqrt(x: int) -> int:
     if x < 2:
         return x

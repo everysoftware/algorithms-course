@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp import lms
+from src.k_dp.length_of_lms import lms
 
 
 @pytest.mark.parametrize(
@@ -14,5 +14,5 @@ from src.k_dp import lms
         ([2, 3, 5, 7, 11], 1),  # Все числа - простые числа
     ],
 )
-def test_lms(a: list[int], expected: int):
+def test_lms(a: list[int], expected: int) -> None:
     assert lms(a) == expected

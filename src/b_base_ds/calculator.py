@@ -1,8 +1,8 @@
 # O(n)
-def calculator(expression: str) -> tuple[str, float]:
+def calculator(expression: str) -> float:
     postfix_notation = get_postfix_notation(expression)
     result = evaluate_postfix(postfix_notation)
-    return postfix_notation, result
+    return result
 
 
 priority = {
@@ -25,51 +25,35 @@ operators = {
 
 
 # O(n)
-def split_by_tokens(expression: str) -> list[str]:
-    tokens = []
-    token = ""
-    for c in expression:
-        if c.isdigit() or c in ".":
-            token += c
-        elif not c.isspace():
-            if token:
-                tokens.append(token)
-                token = ""
-            tokens.append(c)
-    if token:
-        tokens.append(token)
-    return tokens
-
-
-# O(n)
 def get_postfix_notation(expression: str) -> str:
     notation: list[str] = []
-    stack: list[str] = []
+    operations: list[str] = []
     tokens = split_by_tokens(expression)
-    for token in tokens:
-        if token in priority:
+    for i, token in enumerate(tokens):
+        # Число.
+        if token not in priority:
+            notation.append(token)
+        # Операция.
+        else:
             # Открытие скобочного выражения.
-            if not stack or token == "(":
-                stack.append(token)
+            if token == "(":
+                operations.append(token)
             # Закрытие скобочного выражения.
             elif token == ")":
-                top = stack.pop()
-                while top != "(":
-                    notation.append(top)
-                    top = stack.pop()
-            # При очередной операции добавляем в результат, все операции из стека с большим или равным приоритетом.
-            elif priority[token] <= priority[stack[-1]]:
-                top = stack.pop()
-                notation.append(top)
-                while stack and priority[top] != priority[token]:
-                    top = stack.pop()
-                    notation.append(top)
-                stack.append(token)
+                while operations and operations[-1] != "(":
+                    notation.append(operations.pop())
+                operations.pop()
+            # Операция.
             else:
-                stack.append(token)
-        else:
-            notation.append(token)
-    notation += stack
+                # Унарный плюс или минус.
+                if token in "+-" and (i == 0 or tokens[i - 1] in priority or tokens[i - 1] == "("):
+                    notation.append("0")
+                # Перенос операций с большим или равным приоритетом из стека в выходную строку.
+                while operations and priority[operations[-1]] >= priority[token]:
+                    notation.append(operations.pop())
+                operations.append(token)
+    # Перенос оставшихся операций из стека в выходную строку.
+    notation += operations[::-1]
     return " ".join(notation)
 
 
@@ -85,3 +69,20 @@ def evaluate_postfix(expression: str) -> float:
         else:
             stack.append(float(token))
     return stack[0] if stack else 0.0
+
+
+# O(n)
+def split_by_tokens(expression: str) -> list[str]:
+    tokens = []
+    token = ""
+    for c in expression:
+        if c.isdigit() or c == ".":
+            token += c
+        elif not c.isspace():
+            if token:
+                tokens.append(token)
+                token = ""
+            tokens.append(c)
+    if token:
+        tokens.append(token)
+    return tokens

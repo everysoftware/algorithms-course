@@ -11,5 +11,4 @@ def brackets(s: str) -> int | None:
                 stack.pop()
             else:
                 return i + 1
-    result = (stack.pop() + 1) if stack else None
-    return result
+    return (stack.pop() + 1) if stack else None

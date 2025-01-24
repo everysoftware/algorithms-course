@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp import calculator
+from src.k_dp.calculator import calculator
 
 
 @pytest.mark.parametrize(
@@ -54,5 +54,5 @@ from src.k_dp import calculator
         ),
     ],
 )
-def test_calculator(n: int, expected: list[int]):
+def test_calculator(n: int, expected: list[int]) -> None:
     assert calculator(n) == expected

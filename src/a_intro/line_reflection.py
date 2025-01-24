@@ -1,3 +1,4 @@
+# O(n)
 def is_reflected(points: list[list[int]]) -> bool:
     min_x, max_x = float("inf"), float("-inf")
     points_set = set()

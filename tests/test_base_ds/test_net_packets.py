@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds import net_packets
+from src.b_base_ds.net_packets import net_packets
 
 
 @pytest.mark.parametrize(
@@ -23,5 +23,5 @@ from src.b_base_ds import net_packets
         (5, [(9, 1), (10, 0), (10, 1), (10, 0), (10, 0)], [9, 10, 10, 11, 11]),
     ],
 )
-def test_net_packets(size: int, packets: list[tuple[int, int]], expected: list[int]):
+def test_net_packets(size: int, packets: list[tuple[int, int]], expected: list[int]) -> None:
     assert net_packets(len(packets), packets, size) == expected

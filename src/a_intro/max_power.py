@@ -1,3 +1,4 @@
+# O(n)
 def max_power(s: str) -> int:
     mx = 1
     count = 1

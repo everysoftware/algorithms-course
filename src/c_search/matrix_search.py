@@ -1,3 +1,4 @@
+# O(n + m)
 def ladder_search(a: list[list[int]], target: int) -> tuple[int, int]:
     """
     1. Начинаем с правого верхнего угла.

@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.b_base_ds import sliding_window_naive, sliding_window_deque
+from src.b_base_ds.sliding_window import sliding_window_naive, sliding_window_deque
 
 
 @pytest.mark.parametrize("func", [sliding_window_naive, sliding_window_deque])
@@ -23,5 +23,5 @@ def test_sliding_window(
     m: int,
     a: list[int],
     expected: list[int],
-):
+) -> None:
     assert func(len(a), a, m) == expected

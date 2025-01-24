@@ -1,5 +1,8 @@
 """
 Авторская задача (М. Покровский).
+https://leetcode.com/problems/longest-common-subsequence/description/
+https://leetcode.com/problems/shortest-common-supersequence/
+https://leetcode.com/problems/longest-palindromic-subsequence/
 
 Ваня и Вова собирают конструктор лего. Каждый из них строит свою башню из кубиков различных цветов. Построив башню,
 они хотят найти наибольшую общую последовательность цветов между своими башнями. Помогите им это сделать.

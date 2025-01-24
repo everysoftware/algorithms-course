@@ -2,12 +2,12 @@ from typing import Callable
 
 import pytest
 
-from src.l_dp2 import gold_storage, gold_storage_enhanced
+from src.k_dp.gold_storage_robbery import rob_gold_storage_dp2, rob_gold_storage_dp
 
 
 @pytest.mark.parametrize(
     "func",
-    [gold_storage, gold_storage_enhanced],
+    [rob_gold_storage_dp2, rob_gold_storage_dp],
 )
 @pytest.mark.parametrize(
     "w, weight, expected",
@@ -34,5 +34,5 @@ def test_gold_storage(
     w: int,
     weight: list[int],
     expected: int,
-):
+) -> None:
     assert func(w, weight) == expected

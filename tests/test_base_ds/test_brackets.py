@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds import brackets
+from src.b_base_ds.brackets import brackets
 
 
 @pytest.mark.parametrize(
@@ -16,5 +16,5 @@ from src.b_base_ds import brackets
         ("", None),
     ],
 )
-def test_brackets(s: str, expected: int):
+def test_brackets(s: str, expected: int) -> None:
     assert brackets(s) == expected
