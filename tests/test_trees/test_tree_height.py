@@ -2,7 +2,7 @@ from typing import Callable
 
 import pytest
 
-from src.tba_trees.tree_height import tree_height_naive, tree_height_stack
+from src.m_trees.tree_height import tree_height_naive, tree_height_stack
 
 
 @pytest.mark.parametrize("func", [tree_height_naive, tree_height_stack])

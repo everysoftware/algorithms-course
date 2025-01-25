@@ -2,12 +2,10 @@ def dfs_wrapper(tree: dict[str, list[str]], node: str, visited: set[str], result
     # посещение вершины
     visited.add(node)
     result.append(node)
-
     # переход к детям этой вершины
     for child in tree[node]:
         if child not in visited:
             dfs_wrapper(tree, child, visited, result)
-
     return result
 
 
