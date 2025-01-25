@@ -14,8 +14,7 @@
 | Поле      | Значение                                                             |
 |-----------|----------------------------------------------------------------------|
 | Сложность | Средняя                                                              |
-| Источник  | Собеседование в SL Soft (Senior)                                     |
-| LeetCode  | https://leetcode.com/problems/container-with-most-water/description/ |
+| Источник  | https://leetcode.com/problems/container-with-most-water/description/ |
 
 ## C. Призы
 
@@ -83,8 +82,7 @@ prize_positions = [1,1,2,2,3,3,5], k = 2
 | Поле      | Значение                                                    |
 |-----------|-------------------------------------------------------------|
 | Сложность | Средняя                                                     |
-| Источник  | Собеседование в Яндекс (Intern, II этап)                    |
-| LeetCode  | https://leetcode.com/problems/one-edit-distance/description |
+| Источник  | https://leetcode.com/problems/one-edit-distance/description |
 
 Даны две строки A и B. Необходимо определить, можно ли преобразовать строку A в строку B,
 совершив не более одной операции вставки, удаления или замены символа.
