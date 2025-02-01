@@ -7,7 +7,6 @@ def is_reflected(points: list[list[int]]) -> bool:
         min_x = min(min_x, x)
         max_x = max(max_x, x)
         points_set.add((x, y))
-    # X координата линии симметрии.
     s = min_x + max_x
     # Проверяем, что для каждой точки (x, y) существует точка (s - x, y).
     return all((s - x, y) in points_set for x, y in points)
