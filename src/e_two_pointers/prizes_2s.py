@@ -1,8 +1,8 @@
 # O(n)
 def prizes_hard(prize_positions: list[int], k: int) -> int:
     n = len(prize_positions)
-    # Максимальное число призов на подмассиве prize_positions[:i]
-    dp = [0] * (n + 1)
+    # Максимальное число призов до i-й позиции
+    dp = [0] * n
     low, ans = 0, 0
     for high in range(n):
         # Сдвигаем левый указатель, пока не удовлетворим условие
@@ -11,7 +11,7 @@ def prizes_hard(prize_positions: list[int], k: int) -> int:
         # Считаем число призов в текущем отрезке
         curr = high - low + 1
         # Обновляем максимальное число призов
-        dp[high + 1] = max(dp[high], curr)
-        # Сочетаем с лучшим отрезком до текущего
-        ans = max(ans, dp[low] + curr)
+        dp[high] = max(dp[high - 1] if high > 0 else 0, curr)
+        # Сочетаем с лучшим отрезком до текущего отрезка
+        ans = max(ans, (dp[low - 1] if low > 0 else 0) + curr)
     return ans
