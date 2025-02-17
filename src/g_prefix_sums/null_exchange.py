@@ -1,7 +1,7 @@
 # O(n)
 def null_exchange(a: list[int]) -> int:
     count = 0
-    # prefix_sums[i] - количество периодов, когда сумма транзакций равна i.
+    # p[i] - количество периодов, когда сумма транзакций равна i.
     p: dict[int, int] = {}
     curr_sum = 0
     for num in a:
@@ -14,5 +14,5 @@ def null_exchange(a: list[int]) -> int:
         if curr_sum in p:
             count += p[curr_sum]
         # Добавляем текущую сумму в словарь или увеличиваем ее счетчик на один
-        p[curr_sum] = p.get(curr_sum, 0) + 1
+        p[curr_sum] = (p[curr_sum] if curr_sum in p else 0) + 1
     return count
