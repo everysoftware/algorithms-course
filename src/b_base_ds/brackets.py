@@ -1,7 +1,7 @@
 # O(n)
 def brackets(s: str) -> int | None:
     open_brackets, close_brackets = "([{", ")]}"
-    d = dict(zip(open_brackets, close_brackets))
+    d = dict(zip(open_brackets, close_brackets, strict=False))
     stack = []
     for i, c in enumerate(s):
         if c in open_brackets:

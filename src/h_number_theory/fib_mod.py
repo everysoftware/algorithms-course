@@ -2,7 +2,7 @@
 def fib_mod_two_last(n: int, m: int) -> int:
     fib1 = 0
     fib2 = 1
-    for i in range(2, n + 1):
+    for _ in range(2, n + 1):
         fib1, fib2 = fib2, (fib1 + fib2) % m
     return fib2
 

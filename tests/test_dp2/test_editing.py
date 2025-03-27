@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
@@ -7,7 +7,7 @@ from src.l_dp2.edit_distance import (
     edit_distance_dp,
     edit_distance_rec,
 )
-from src.l_dp2.edit_path import edit_path, PathItem, Operation
+from src.l_dp2.edit_path import Operation, PathItem, edit_path
 
 
 @pytest.mark.parametrize("func", [edit_distance_rec, edit_distance_dp])

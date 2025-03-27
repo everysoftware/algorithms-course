@@ -1,8 +1,8 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
-from src.h_number_theory.array_gcd import gcd_naive, gcd_euclid, gcd_euclid_rec
+from src.h_number_theory.array_gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
 
 
 @pytest.mark.parametrize(

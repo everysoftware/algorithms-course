@@ -6,9 +6,8 @@ def greedy_knapsack(w: int, items: list[tuple[int, int]]) -> float:
     for cost, weight in items:
         # Если груз влезает, берём его целиком.
         if weight <= w:
-            amount = min(w, weight)
-            max_cost += amount * (cost / weight)
-            w -= amount
+            max_cost += weight * (cost / weight)
+            w -= weight
         # Если груз не влезает, берём его часть.
         else:
             max_cost += w * (cost / weight)

@@ -1,8 +1,8 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
-from src.i_dnc.multiply import mul_dnc, mul_naive, mul_karatsuba
+from src.i_dnc.multiply import mul_dnc, mul_karatsuba, mul_naive
 
 
 @pytest.mark.parametrize(

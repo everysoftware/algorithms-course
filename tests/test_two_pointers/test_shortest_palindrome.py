@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.e_two_pointers.shortest_palindrome import shortest_naive, shortest_kmp
+from src.e_two_pointers.shortest_palindrome import shortest_kmp, shortest_naive
 
 
 @pytest.mark.parametrize("func", [shortest_naive, shortest_kmp])

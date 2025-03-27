@@ -1,10 +1,10 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
 from src.e_two_pointers.two_sum import (
-    two_sum_tp,
     two_sum_naive,
+    two_sum_tp,
 )
 
 

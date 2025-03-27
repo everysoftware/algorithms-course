@@ -1,10 +1,10 @@
 import pytest
 
 from src.b_base_ds.calculator import (
-    split_by_tokens,
-    get_postfix_notation,
-    evaluate_postfix,
     calculator,
+    evaluate_postfix,
+    get_postfix_notation,
+    split_by_tokens,
 )
 
 

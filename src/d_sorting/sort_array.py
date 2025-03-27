@@ -1,5 +1,5 @@
 from collections import deque
-from typing import Callable
+from collections.abc import Callable
 
 from src.d_sorting.merge import merge
 from src.d_sorting.partition import partition2, partition3

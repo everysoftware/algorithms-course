@@ -9,13 +9,12 @@ def divisors_naive(n: int) -> bool:
 
 # O(sqrt(n))
 def divisors_sqrt(n: int) -> bool:
-    lower, upper = [], []
+    divisors_set = set()
     for i in range(1, int(n**0.5) + 1):
         if n % i == 0:
-            lower.append(i)
-            if i != n // i:
-                upper.append(n // i)
-    divisors = lower + upper[::-1]
+            divisors_set.add(i)
+            divisors_set.add(n // i)
+    divisors = sorted(divisors_set)
     return len(divisors) == 3
 
 

@@ -1,13 +1,13 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
 from src.d_sorting.sort_array import (
-    merge_sort,
+    counting_sort,
     iterative_merge_sort,
+    merge_sort,
     quick_sort,
     quick_sort3,
-    counting_sort,
     radix_sort,
 )
 from src.d_sorting.sort_colors import bubble_sort, insertion_sort, selection_sort

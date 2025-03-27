@@ -1,10 +1,10 @@
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 
 from src.f_scanline import (
-    count_segments_bisect,
     count_segments,
+    count_segments_bisect,
 )
 
 
