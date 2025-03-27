@@ -4,7 +4,7 @@ from src.k_dp.calculator import calculator
 
 
 @pytest.mark.parametrize(
-    "n, expected",
+    ("n", "expected"),
     [
         (1, [1]),
         (5, [1, 2, 4, 5]),

@@ -4,7 +4,7 @@ from src.c_search.sqrt import sqrt
 
 
 @pytest.mark.parametrize(
-    "x, expected",
+    ("x", "expected"),
     [
         (0, 0),  # Крайний случай: 0
         (1, 1),  # Крайний случай: 1

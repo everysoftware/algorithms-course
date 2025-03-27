@@ -7,7 +7,7 @@ from src.m_trees.tree_height import tree_height_naive, tree_height_stack
 
 @pytest.mark.parametrize("func", [tree_height_naive, tree_height_stack])
 @pytest.mark.parametrize(
-    "tree, expected",
+    ("tree", "expected"),
     [
         ([4, -1, 4, 1, 1], 3),
         ([-1, 0, 4, 0, 3], 4),

@@ -13,10 +13,23 @@ select = [
     "B",  # flake8-bugbear
     "C4",  # flake8-comprehensions
     "UP",  # pyupgrade
+    "RUF",  # ruff rules
+    "C90",  # mccabe
+    "N",  # pep8-naming
+    "ASYNC",  # flake8-async
+    "C4",  # flake8-comprehensions
+    "T20",  # flake8-print
+    "SIM",  # flake8-simplify
+    "PT",  # flake8-pytest-style
+    "PTH",  # flake8-puse-pathlib
+    "TCH",  # flake8-type-checking
+    "PERF",  # Perflint
 ]
 ignore = [
-    "E501",  # line too long, handled by ruff
+    "E501",  # line too long, handled by formatter later
     "B008",  # do not perform function calls in argument defaults
     "C901",  # too complex
     "W191",  # indentation contains tabs
+    "RUF002",  # docstring contains ambiguous letter
+    "RUF003"  # comment contains amgiuos letter
 ]

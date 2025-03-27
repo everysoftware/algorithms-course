@@ -4,7 +4,7 @@ from src.k_dp.length_of_lms import lms
 
 
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([3, 6, 7, 12], 3),  # Пример из задания
         ([1, 2, 4, 8, 16], 5),  # Полная последовательность является кратной

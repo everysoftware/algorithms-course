@@ -4,7 +4,7 @@ from src.c_search.matrix_search import ladder_search
 
 
 @pytest.mark.parametrize(
-    "a, target, expected",
+    ("a", "target", "expected"),
     [
         ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 5, (1, 1)),
         ([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 9, (2, 2)),

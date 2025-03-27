@@ -4,7 +4,7 @@ from src.b_base_ds.bank_queue import average_waiting_time
 
 
 @pytest.mark.parametrize(
-    "n, clients, expected",
+    ("n", "clients", "expected"),
     [
         (2, [(1, 10), (2, 5), (3, 7)], 1.333333),
         (1, [(1, 1), (2, 1), (3, 1)], 0),

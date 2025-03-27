@@ -7,7 +7,7 @@ from src.h_number_theory.count_primes import count_primes_sieve, count_primes_sq
 
 @pytest.mark.parametrize("func", [count_primes_sqrt, count_primes_sieve])
 @pytest.mark.parametrize(
-    "n, expected",
+    ("n", "expected"),
     [
         (1, 0),  # []
         (2, 0),  # []

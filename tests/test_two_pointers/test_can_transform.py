@@ -4,7 +4,7 @@ from src.e_two_pointers.can_trasform import can_transform
 
 
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         ("aba", "abb", True),  # замена
         ("aba", "ab", True),  # удаление

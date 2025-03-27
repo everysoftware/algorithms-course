@@ -13,7 +13,7 @@ from src.g_prefix_sums.blur_image import box_filter_naive, box_filter_ps
     ],
 )
 @pytest.mark.parametrize(
-    "m, image, expected",
+    ("m", "image", "expected"),
     [
         (
             1,

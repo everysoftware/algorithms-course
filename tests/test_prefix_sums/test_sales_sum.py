@@ -4,7 +4,7 @@ from src.g_prefix_sums.sales_sum import sales_sum
 
 
 @pytest.mark.parametrize(
-    "sales, queries, expected",
+    ("sales", "queries", "expected"),
     [
         # Тест 1: Проверка на примере
         (

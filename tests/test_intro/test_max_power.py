@@ -4,7 +4,7 @@ from src.a_intro.max_power import max_power
 
 
 @pytest.mark.parametrize(
-    "s, expected",
+    ("s", "expected"),
     [
         ("leetcode", 2),
         ("abbcccddddeeeeedcba", 5),

@@ -4,7 +4,7 @@ from src.j_greedy.convex_hull import convex_hull
 
 
 @pytest.mark.parametrize(
-    "points, expected",
+    ("points", "expected"),
     [
         (
             [(0, 3), (1, 1), (2, 2), (4, 4), (0, 0), (1, 2), (3, 1), (3, 3)],

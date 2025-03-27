@@ -7,7 +7,7 @@ from src.i_dnc.count_smaller import count_smaller_bisect, count_smaller_merge
 
 @pytest.mark.parametrize("func", [count_smaller_bisect, count_smaller_merge])
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([5, 2, 6, 1], [2, 1, 1, 0]),
         ([1, 2, 3, 4], [0, 0, 0, 0]),

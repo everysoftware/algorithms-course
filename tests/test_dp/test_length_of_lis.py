@@ -7,7 +7,7 @@ from src.k_dp.length_of_lis import lis_bisect, lis_naive
 
 @pytest.mark.parametrize("func", [lis_naive, lis_bisect])
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([0, 7, 1, 6, 2], 3),  # [0, 1, 2]
         ([10, 9, 2, 5, 3, 7, 101, 18], 4),  # [2, 3, 7, 18]

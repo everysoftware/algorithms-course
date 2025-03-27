@@ -4,7 +4,7 @@ from src.g_prefix_sums.null_exchange import null_exchange
 
 
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([1, 2, 3, -3, 1, 2, 3], 2),  # Пример из вопроса
         (

@@ -4,7 +4,7 @@ from src.d_sorting.partition import partition2, partition3
 
 
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([1, 2, 3, 4, 5], 0),
         ([5, 4, 3, 2, 1], 4),
@@ -19,7 +19,7 @@ def test_partition2(a: list[int], expected: int) -> None:
 
 
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([1, 2, 3, 4, 5], (0, 0)),
         ([5, 4, 3, 2, 1], (4, 4)),

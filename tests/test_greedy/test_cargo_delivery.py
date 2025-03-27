@@ -4,7 +4,7 @@ from src.j_greedy.knapsack import greedy_knapsack
 
 
 @pytest.mark.parametrize(
-    "w, items, expected",
+    ("w", "items", "expected"),
     [
         (50, [(60, 20), (100, 50), (120, 30)], 180.000),  # Основной сценарий
         (

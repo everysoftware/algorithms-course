@@ -4,7 +4,7 @@ from src.h_number_theory.primality_tests import primality_tests
 
 
 @pytest.mark.parametrize(
-    "n, expected",
+    ("n", "expected"),
     [
         (8273, ([517, 7755], 8272)),
         (97, ([3, 93], 96)),

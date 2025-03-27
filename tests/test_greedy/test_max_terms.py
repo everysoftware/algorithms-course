@@ -4,7 +4,7 @@ from src.j_greedy.max_terms import max_terms
 
 
 @pytest.mark.parametrize(
-    "n, expected",
+    ("n", "expected"),
     [
         (1, [1]),
         (2, [2]),

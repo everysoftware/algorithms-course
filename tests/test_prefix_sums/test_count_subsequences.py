@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from pathlib import Path
 
 import pytest
 
@@ -13,7 +14,7 @@ from src.g_prefix_sums.count_subsequences import count_subsequences_naive, count
     ],
 )
 @pytest.mark.parametrize(
-    "k, a, expected",
+    ("k", "a", "expected"),
     [
         (117, [108, 129, 143, 186, 72, 195, 94, 38, 69], 3),
     ],
@@ -30,13 +31,13 @@ def test_subsequence_count(func: Callable[[int, list[int]], int], k: int, a: lis
     ],
 )
 @pytest.mark.parametrize(
-    "path, expected",
+    ("path", "expected"),
     [
         ("tests/data/2363-A.txt", 34),
     ],
 )
 def test_k_subarray_a(func: Callable[[int, list[int]], int], path: str, expected: int):
-    with open(path) as f:
+    with Path(path).open() as f:
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
 
@@ -44,14 +45,14 @@ def test_k_subarray_a(func: Callable[[int, list[int]], int], path: str, expected
 
 
 @pytest.mark.parametrize(
-    "path, expected",
+    ("path", "expected"),
     [
         ("tests/data/2363-A.txt", 34),
         ("tests/data/2363-B.txt", 42729434),
     ],
 )
 def test_k_subarray_b(path: str, expected: int):
-    with open(path) as f:
+    with Path(path).open() as f:
         k, _ = list(map(int, f.readline().split()))
         a = [int(x) for x in f]
 

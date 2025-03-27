@@ -4,7 +4,7 @@ from src.c_search.search_range import lower_bound, search_range, upper_bound
 
 
 @pytest.mark.parametrize(
-    "a, target, expected",
+    ("a", "target", "expected"),
     [
         # Возрастающая последовательность
         ([1, 2, 3, 4, 5], 3, 2),
@@ -28,7 +28,7 @@ def test_lower_bound(a: list[int], target: int, expected: int) -> None:
 
 
 @pytest.mark.parametrize(
-    "a, target, expected",
+    ("a", "target", "expected"),
     [
         # Возрастающая последовательность
         ([1, 2, 3, 4, 5], 3, 3),
@@ -50,7 +50,7 @@ def test_upper_bound(a: list[int], target: int, expected: int) -> None:
 
 
 @pytest.mark.parametrize(
-    "a, target, expected",
+    ("a", "target", "expected"),
     [
         ([1, 2, 3, 4, 5], 3, [2, 2]),
         ([1, 2, 3, 4, 5], 1, [0, 0]),

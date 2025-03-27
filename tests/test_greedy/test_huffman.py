@@ -19,7 +19,7 @@ def is_prefix_code(tree: dict[str, str]) -> bool:
 
 
 @pytest.mark.parametrize(
-    "tree, expected",
+    ("tree", "expected"),
     [
         ({"a": "0"}, True),
         ({"a": "0", "b": "1"}, True),

@@ -6,7 +6,7 @@ from src.h_number_theory.array_gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
 
 
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         (18, 35, 1),
         (10, 20, 5),
@@ -19,7 +19,7 @@ def test_gcd_naive(a: int, b: int, expected: int) -> None:
 
 @pytest.mark.parametrize("func", [gcd_euclid, gcd_euclid_rec])
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         (28851538, 1183019, 17657),
         (14159572, 63967072, 4),

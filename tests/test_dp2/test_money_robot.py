@@ -10,7 +10,7 @@ from src.l_dp2.max_robot_path import max_robot_path
 
 
 @pytest.mark.parametrize(
-    "i_start, j_start, coins, expected",
+    ("i_start", "j_start", "coins", "expected"),
     [
         (0, 0, [[0, 1], [1, 0]], (1, [(0, 0), (0, 1), (1, 1)])),
         (

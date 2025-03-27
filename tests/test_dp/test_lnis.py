@@ -4,7 +4,7 @@ from src.k_dp.lnis import lnis
 
 
 @pytest.mark.parametrize(
-    "a, expected",
+    ("a", "expected"),
     [
         ([0, 7, 1, 6, 2], [7, 6, 2]),
         ([8, 4, 4, 2], [8, 4, 4, 2]),

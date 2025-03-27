@@ -7,7 +7,7 @@ from src.h_number_theory.divisors import closest_divisors, divisors_naive, divis
 
 @pytest.mark.parametrize("func", [divisors_naive, divisors_sqrt])
 @pytest.mark.parametrize(
-    "x, expected",
+    ("x", "expected"),
     [
         (1, False),  # [1]
         (2, False),  # [1, 2]
@@ -36,7 +36,7 @@ def test_three_divisors(func: Callable[[int], list[int]], x: int, expected: list
 
 
 @pytest.mark.parametrize(
-    "x, expected",
+    ("x", "expected"),
     [
         (8, [3, 3]),  # 9 = 3 * 3
         (123, [5, 25]),  # 125 = 5 * 25

@@ -10,7 +10,7 @@ from src.i_dnc.multiply import mul_dnc, mul_karatsuba, mul_naive
     [mul_naive, mul_dnc, mul_karatsuba],
 )
 @pytest.mark.parametrize(
-    "x, y",
+    ("x", "y"),
     [
         (0, 0),
         (1, 1),

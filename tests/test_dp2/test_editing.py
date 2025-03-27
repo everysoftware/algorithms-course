@@ -12,7 +12,7 @@ from src.l_dp2.edit_path import Operation, PathItem, edit_path
 
 @pytest.mark.parametrize("func", [edit_distance_rec, edit_distance_dp])
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         ("kitten", "sitting", 3),
         ("autozavod", "pivzavod", 4),
@@ -28,7 +28,7 @@ def test_edit_distance_dp(func: Callable[[str, str], int], a: str, b: str, expec
 
 
 @pytest.mark.parametrize(
-    "a, words, expected",
+    ("a", "words", "expected"),
     [
         # Пример из задания
         (
@@ -63,7 +63,7 @@ def test_editing(a: str, words: list[str], expected: tuple[int, list[str]]) -> N
 
 
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         (
             "sitting",

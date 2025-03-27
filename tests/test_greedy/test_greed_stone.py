@@ -4,7 +4,7 @@ from src.n_graphs.greed_stone import greed_stone
 
 
 @pytest.mark.parametrize(
-    "matrix, expected",
+    ("matrix", "expected"),
     [
         # Тестовый случай 1: Матрица 2x2, где все города связаны.
         ([[0, 1], [1, 0]], (2, [0, 1, 0])),

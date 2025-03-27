@@ -4,7 +4,7 @@ from src.b_base_ds.net_packets import net_packets
 
 
 @pytest.mark.parametrize(
-    "size, packets, expected",
+    ("size", "packets", "expected"),
     [
         (1, [], []),
         (1, [(0, 0)], [0]),

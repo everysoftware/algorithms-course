@@ -7,7 +7,7 @@ from src.e_two_pointers.shortest_palindrome import shortest_kmp, shortest_naive
 
 @pytest.mark.parametrize("func", [shortest_naive, shortest_kmp])
 @pytest.mark.parametrize(
-    "s, expected",
+    ("s", "expected"),
     [
         ("aacecaaa", "aaacecaaa"),
         ("abcd", "dcbabcd"),

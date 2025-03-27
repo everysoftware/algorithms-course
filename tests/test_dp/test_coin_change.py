@@ -4,7 +4,7 @@ from src.k_dp.coin_change import coin_change
 
 
 @pytest.mark.parametrize(
-    "coins, n, expected",
+    ("coins", "n", "expected"),
     [
         ([1, 3, 5, 10], 1, 1),
         ([1, 3, 5, 10], 2, 2),

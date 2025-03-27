@@ -7,7 +7,7 @@ from src.f_scanline.act_sel import act_sel
 
 @pytest.mark.parametrize("func", [act_sel])
 @pytest.mark.parametrize(
-    "acts, expected",
+    ("acts", "expected"),
     [
         (
             [

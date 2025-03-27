@@ -4,7 +4,7 @@ from src.b_base_ds.max_stack import MaxStack
 
 
 @pytest.mark.parametrize(
-    "operations, expected",
+    ("operations", "expected"),
     [
         (
             [

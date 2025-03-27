@@ -7,7 +7,7 @@ from src.c_search.binary_search import binary_search, exp_search
 
 @pytest.mark.parametrize("func", [binary_search, exp_search])
 @pytest.mark.parametrize(
-    "a, target, expected",
+    ("a", "target", "expected"),
     [
         ([1, 2, 3, 4, 5], 3, 2),
         ([1, 2, 3, 4, 5], 1, 0),
@@ -27,7 +27,7 @@ def test_searches(
 
 
 @pytest.mark.parametrize(
-    "func, a, target, expected",
+    ("func", "a", "target", "expected"),
     [
         (binary_search, [1, 1, 1, 1, 1], 1, 2),
         (exp_search, [1, 1, 1, 1, 1], 1, 2),

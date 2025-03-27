@@ -7,7 +7,7 @@ from src.f_scanline.points_cover import points_cover_naive, points_cover_scanlin
 
 @pytest.mark.parametrize("func", [points_cover_naive, points_cover_scanline])
 @pytest.mark.parametrize(
-    "points, expected",
+    ("points", "expected"),
     [
         ([1, 2, 3, 4, 5], [(1, 2), (3, 4), (5, 6)]),
         (

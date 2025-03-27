@@ -3,7 +3,7 @@ def divisors_naive(n: int) -> bool:
     divisors = []
     for i in range(1, n + 1):
         if n % i == 0:
-            divisors.append(i)
+            divisors.append(i)  # noqa: PERF401
     return len(divisors) == 3
 
 
@@ -22,10 +22,7 @@ def divisors_sqrt(n: int) -> bool:
 def closest_divisors(n: int) -> list[int]:
     closest1 = two_closest(n + 1)
     closest2 = two_closest(n + 2)
-    if closest1[1] - closest1[0] < closest2[1] - closest2[0]:
-        result = closest1
-    else:
-        result = closest2
+    result = closest1 if closest1[1] - closest1[0] < closest2[1] - closest2[0] else closest2
     return result
 
 

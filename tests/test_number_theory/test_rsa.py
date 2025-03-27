@@ -4,7 +4,7 @@ from src.h_number_theory.rsa import encrypt, generate_keypair
 
 
 @pytest.mark.parametrize(
-    "p, q, e_start, expected",
+    ("p", "q", "e_start", "expected"),
     [
         (13, 19, 2, ((5, 247), (173, 247))),
         (13, 23, 2, ((5, 299), (53, 299))),
@@ -22,7 +22,7 @@ def test_generate_keypair(
 
 
 @pytest.mark.parametrize(
-    "p, q, e_start, plaintext, expected",
+    ("p", "q", "e_start", "plaintext", "expected"),
     [
         (13, 19, 2, "a", [184]),
         (13, 23, 2, "a", [158]),

@@ -9,7 +9,7 @@ from src.b_base_ds.calculator import (
 
 
 @pytest.mark.parametrize(
-    "expression, expected",
+    ("expression", "expected"),
     [
         # Базовый случай.
         ("2+2", ["2", "+", "2"]),
@@ -30,7 +30,7 @@ def test_split_by_tokens(expression: str, expected: list[str]) -> None:
 
 
 @pytest.mark.parametrize(
-    "expression, expected",
+    ("expression", "expected"),
     [
         # Тестовый случай 1: Простое выражение без скобок.
         ("2 + 2", "2 2 +"),
@@ -47,7 +47,7 @@ def test_get_postfix_notation(expression: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize(
-    "expression, expected",
+    ("expression", "expected"),
     [
         # Тестовый случай 1: Простое выражение без скобок.
         ("2 2 +", 4.0),
@@ -64,7 +64,7 @@ def test_evaluate_postfix(expression: str, expected: float) -> None:
 
 
 @pytest.mark.parametrize(
-    "expression, expected",
+    ("expression", "expected"),
     [
         # Тест из условия задачи.
         ("(1+2)*4+3", 15.0),

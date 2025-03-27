@@ -4,7 +4,7 @@ from src.a_intro.line_reflection import is_reflected
 
 
 @pytest.mark.parametrize(
-    "points, expected",
+    ("points", "expected"),
     [
         ([[1, 1], [-1, 1]], True),
         ([[1, 1], [-1, -1]], False),

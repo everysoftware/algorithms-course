@@ -4,7 +4,7 @@ from src.f_scanline.min_set_of_points import min_set_of_points
 
 
 @pytest.mark.parametrize(
-    "segments, expected",
+    ("segments", "expected"),
     [
         ([(1, 3), (2, 5), (3, 6)], [3]),
         ([(4, 7), (1, 3), (2, 5), (5, 6)], [3, 6]),

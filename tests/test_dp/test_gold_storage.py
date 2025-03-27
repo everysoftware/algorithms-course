@@ -10,7 +10,7 @@ from src.k_dp.gold_storage_robbery import rob_gold_storage_dp, rob_gold_storage_
     [rob_gold_storage_dp2, rob_gold_storage_dp],
 )
 @pytest.mark.parametrize(
-    "w, weight, expected",
+    ("w", "weight", "expected"),
     [
         (
             10,

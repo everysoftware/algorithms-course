@@ -4,7 +4,7 @@ from src.a_intro.third_max import third_max
 
 
 @pytest.mark.parametrize(
-    "nums, expected",
+    ("nums", "expected"),
     [
         ([3, 2, 1], 1),
         ([1, 2, 3, 4, 5], 3),

@@ -10,7 +10,7 @@ from src.i_dnc.power import fast_power
     [fast_power],
 )
 @pytest.mark.parametrize(
-    "x, y",
+    ("x", "y"),
     [
         (0, 0),
         (1, 1),

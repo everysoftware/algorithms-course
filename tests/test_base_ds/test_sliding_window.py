@@ -7,7 +7,7 @@ from src.b_base_ds.sliding_window import sliding_window_deque, sliding_window_na
 
 @pytest.mark.parametrize("func", [sliding_window_naive, sliding_window_deque])
 @pytest.mark.parametrize(
-    "m, a, expected",
+    ("m", "a", "expected"),
     [
         (4, [2, 7, 3, 1, 5, 2, 6, 2], [7, 7, 5, 6, 6]),
         (3, [2, 1, 5, 3, 4, 6, 7], [5, 5, 5, 6, 7]),

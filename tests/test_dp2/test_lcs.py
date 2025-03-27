@@ -13,7 +13,7 @@ from src.l_dp2.lcs import lcs_dp, lcs_rec
     ],
 )
 @pytest.mark.parametrize(
-    "a, b, expected",
+    ("a", "b", "expected"),
     [
         ("AGGTAB", "GXTXAYB", 4),  # Стандартные кейсы
         ("ABCBDAB", "BDCAB", 4),

@@ -10,7 +10,7 @@ from src.f_scanline import (
 
 @pytest.mark.parametrize("func", [count_segments_bisect, count_segments])
 @pytest.mark.parametrize(
-    "segments, points, expected",
+    ("segments", "points", "expected"),
     [
         # Тест 1: Проверка на массиве с одним отрезком и одной точкой
         ([(1, 5)], [3], [1]),

@@ -4,7 +4,7 @@ from src.e_two_pointers.prizes_2s import prizes_hard
 
 
 @pytest.mark.parametrize(
-    "prize_positions, k, expected",
+    ("prize_positions", "k", "expected"),
     [
         ([1, 1, 2, 2, 3, 3, 5], 2, 7),
         ([1, 1, 2, 2, 3, 3, 5], 1, 6),

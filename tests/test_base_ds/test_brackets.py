@@ -4,7 +4,7 @@ from src.b_base_ds.brackets import brackets
 
 
 @pytest.mark.parametrize(
-    "s, expected",
+    ("s", "expected"),
     [
         ("[]", None),
         ("{}", None),
