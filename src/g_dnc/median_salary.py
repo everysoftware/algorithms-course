@@ -1,4 +1,4 @@
-from src.i_dnc.kth_largest import quick_select
+from src.g_dnc.kth_largest import quick_select
 
 
 # O(N) в среднем, O(N^2) в худшем

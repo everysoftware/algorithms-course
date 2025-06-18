@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.h_number_theory.array_gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
+from src.k_number_theory.array_gcd import gcd_euclid, gcd_euclid_rec, gcd_naive
 
 
 @pytest.mark.parametrize(

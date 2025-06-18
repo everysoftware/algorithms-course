@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp.length_of_lms import lms
+from src.h_dp.length_of_lms import lms
 
 
 @pytest.mark.parametrize(

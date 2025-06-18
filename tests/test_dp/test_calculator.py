@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp.calculator import calculator
+from src.h_dp.calculator import calculator
 
 
 @pytest.mark.parametrize(

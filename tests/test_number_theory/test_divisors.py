@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.h_number_theory.divisors import closest_divisors, divisors_naive, divisors_sqrt
+from src.k_number_theory.divisors import closest_divisors, divisors_naive, divisors_sqrt
 
 
 @pytest.mark.parametrize("func", [divisors_naive, divisors_sqrt])

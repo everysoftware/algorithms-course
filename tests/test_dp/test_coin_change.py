@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp.coin_change import coin_change
+from src.h_dp.coin_change import coin_change
 
 
 @pytest.mark.parametrize(

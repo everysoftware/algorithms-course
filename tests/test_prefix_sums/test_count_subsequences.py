@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from src.g_prefix_sums.count_subsequences import count_subsequences_naive, count_subsequences_ps
+from src.i_prefix_sums.count_subsequences import count_subsequences_naive, count_subsequences_ps
 
 
 @pytest.mark.parametrize(

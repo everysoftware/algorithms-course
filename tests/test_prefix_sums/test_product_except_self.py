@@ -1,6 +1,6 @@
 import pytest
 
-from src.g_prefix_sums.product_except_self import product_except_self
+from src.i_prefix_sums.product_except_self import product_except_self
 
 
 @pytest.mark.parametrize(

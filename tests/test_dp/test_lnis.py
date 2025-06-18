@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_dp.lnis import lnis
+from src.h_dp.lnis import lnis
 
 
 @pytest.mark.parametrize(
@@ -16,5 +16,5 @@ from src.k_dp.lnis import lnis
         ([4, 3, 2, 1], [4, 3, 2, 1]),
     ],
 )
-def test_lns(a: list[int], expected: list[int]) -> None:
+def test_lnis(a: list[int], expected: list[int]) -> None:
     assert lnis(a) == expected

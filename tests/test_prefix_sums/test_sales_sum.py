@@ -1,6 +1,6 @@
 import pytest
 
-from src.g_prefix_sums.sales_sum import sales_sum
+from src.i_prefix_sums.sales_sum import sales_sum
 
 
 @pytest.mark.parametrize(

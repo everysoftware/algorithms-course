@@ -2,10 +2,10 @@ from collections.abc import Callable
 
 import pytest
 
-from src.m_trees.tree_height import tree_height_naive, tree_height_stack
+from src.m_trees.tree_height import tree_height_dfs, tree_height_naive
 
 
-@pytest.mark.parametrize("func", [tree_height_naive, tree_height_stack])
+@pytest.mark.parametrize("func", [tree_height_naive, tree_height_dfs])
 @pytest.mark.parametrize(
     ("tree", "expected"),
     [

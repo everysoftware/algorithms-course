@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.k_dp.length_of_lis import lis_bisect, lis_naive
+from src.h_dp.length_of_lis import lis_bisect, lis_naive
 
 
 @pytest.mark.parametrize("func", [lis_naive, lis_bisect])

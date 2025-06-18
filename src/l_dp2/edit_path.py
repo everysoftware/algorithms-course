@@ -23,8 +23,8 @@ class PathItem:
 # O(n * m)
 def edit_path(a: str, b: str) -> tuple[int, list[PathItem]]:
     n, m = len(a), len(b)
-    distance = get_dp_table(a, b)
-    return distance[n][m], get_path(n, m, a, b, distance)
+    dp = get_dp_table(a, b)
+    return dp[n][m], get_path(n, m, a, b, dp)
 
 
 # O(n + m)
