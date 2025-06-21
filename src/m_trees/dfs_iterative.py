@@ -45,7 +45,7 @@ def dfs_preorder_iterative(node: BNode) -> list[int]:
     while st:
         node = st.pop()
         result.append(node.key)
-        # Push right first so that left is processed first
+        # Кладем в стек правого потомка перед левого, чтобы левый обрабатывался первым
         if node.right is not None:
             st.append(node.right)
         if node.left is not None:
@@ -63,12 +63,12 @@ def dfs_postorder_iterative(node: BNode) -> list[int]:
     while st:
         node = st.pop()
         result.append(node.key)
-        # Push left first so that right is processed first
+        # Кладем в стек левого потомка перед правого, чтобы правый обрабатывался первым
         if node.left is not None:
             st.append(node.left)
         if node.right is not None:
             st.append(node.right)
-    # Reverse the result to get postorder
+    # Поскольку мы добавляли узлы в обратном порядке, нужно развернуть результат
     result.reverse()
     return result
 
@@ -82,13 +82,12 @@ def dfs_inorder_iterative(node: BNode) -> list[int]:
     result: list[int] = []
     curr: BNode | None = node
     while st or curr is not None:
-        # Go to the leftmost node
+        # Переходим к самому левому узлу
         if curr is not None:
             st.append(curr)
             curr = curr.left
-        # Process the node
         else:
-            # Pop from stack and visit the node
+            # Когда достигли самого левого узла, обрабатываем егои переходим к правому
             curr = st.pop()
             result.append(curr.key)
             curr = curr.right

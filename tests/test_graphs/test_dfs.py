@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.n_graphs.dfs import dfs_graph, dfs_iterative
+from src.o_graphs.dfs import dfs_graph, dfs_iterative
 
 tree = {
     "A": ["B", "C"],

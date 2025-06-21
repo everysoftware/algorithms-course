@@ -1,3 +1,6 @@
+from collections import deque
+
+
 # O(n^2)
 def tree_height_naive(parents: list[int], node: int = -1) -> int:
     n = len(parents)
@@ -44,5 +47,28 @@ def dfs_iterative(node: int, tree: list[list[int]]) -> int:
         for child in tree[curr]:
             stack.append(child)
             # Обновляем высоту дерева для текущего узла
+            dp[child] = max(dp[child], dp[curr] + 1)
+    return max(dp)
+
+
+# O(n)
+def tree_height_bfs(parents: list[int]) -> int:
+    root, adjacency_list = build_tree(parents)
+    return bfs(root, adjacency_list)
+
+
+# O(n)
+def bfs(node: int, tree: list[list[int]]) -> int:
+    n = len(tree)
+    dp = [1] * n
+    queue = deque([node])
+    visited = [False] * n
+    while queue:
+        curr = queue.popleft()
+        if visited[curr]:
+            continue
+        visited[curr] = True
+        for child in tree[curr]:
+            queue.append(child)
             dp[child] = max(dp[child], dp[curr] + 1)
     return max(dp)
