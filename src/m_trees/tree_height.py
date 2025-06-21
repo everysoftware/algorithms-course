@@ -30,19 +30,19 @@ def build_tree(parents: list[int]) -> tuple[int, list[list[int]]]:
 
 
 # O(n)
-def dfs_iterative(root: int, tree: list[list[int]]) -> int:
+def dfs_iterative(node: int, tree: list[list[int]]) -> int:
     n = len(tree)
     # dp[i] - высота дерева заканчивающегося в i-й вершине
     dp = [1] * n
-    stack = [root]
+    stack = [node]
     visited = [False] * n
     while stack:
-        node = stack.pop()
-        if visited[node]:
+        curr = stack.pop()
+        if visited[curr]:
             continue
-        visited[node] = True
-        for child in tree[node]:
+        visited[curr] = True
+        for child in tree[curr]:
             stack.append(child)
             # Обновляем высоту дерева для текущего узла
-            dp[child] = max(dp[child], dp[node] + 1)
+            dp[child] = max(dp[child], dp[curr] + 1)
     return max(dp)

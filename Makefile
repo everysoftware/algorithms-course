@@ -12,7 +12,7 @@ format:
 .PHONY: lint
 lint:
 	@echo "Running ruff and mypy..."
-	@ruff check . --fix
+	@ruff check . --fix --unsafe-fixes
 	@mypy src --strict
 
 .PHONY: fix
