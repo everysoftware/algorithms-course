@@ -1,6 +1,6 @@
 from typing import Literal
 
-from src.m_trees.dfs import BNode, build_tree
+from src.trees.dfs import BNode, build_tree
 
 
 # O(n)

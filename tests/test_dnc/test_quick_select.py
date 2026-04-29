@@ -1,6 +1,6 @@
 import pytest
 
-from src.g_dnc.kth_largest import quick_select
+from src.dnc.kth_largest import quick_select
 
 
 @pytest.mark.parametrize(

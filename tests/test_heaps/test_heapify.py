@@ -1,6 +1,6 @@
 import pytest
 
-from src.n_heaps.heapify import heapify
+from src.heaps.heapify import heapify
 
 
 def is_min_heap(a: list[int]) -> bool:

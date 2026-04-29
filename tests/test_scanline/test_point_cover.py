@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.f_scanline.points_cover import points_cover_naive, points_cover_scanline
+from src.scanline.points_cover import points_cover_naive, points_cover_scanline
 
 
 @pytest.mark.parametrize("func", [points_cover_naive, points_cover_scanline])

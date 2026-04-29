@@ -1,6 +1,6 @@
 import pytest
 
-from src.n_heaps.parallel import parallel
+from src.heaps.parallel import parallel
 
 
 def test_parallel_sample_1() -> None:

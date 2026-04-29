@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.a_intro import (
+from src.intro import (
     fib_bine,
     fib_mod_pisano,
     fib_mod_two_last,

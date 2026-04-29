@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from enum import StrEnum, auto
 from typing import Any
 
-from src.l_dp2.edit_distance import get_dp_table
+from src.dp2.edit_distance import get_dp_table
 
 
 class Operation(StrEnum):

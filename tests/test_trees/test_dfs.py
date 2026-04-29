@@ -2,8 +2,8 @@ from typing import Any
 
 import pytest
 
-from src.m_trees.dfs import dfs_all
-from src.m_trees.dfs_iterative import dfs_all_iterative
+from src.trees.dfs import dfs_all
+from src.trees.dfs_iterative import dfs_all_iterative
 
 r"""
 Tree 1:

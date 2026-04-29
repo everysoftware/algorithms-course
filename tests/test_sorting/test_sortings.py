@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.d_sorting.sort_array import (
+from src.sorting.sort_array import (
     counting_sort,
     iterative_merge_sort,
     merge_sort,
@@ -10,7 +10,7 @@ from src.d_sorting.sort_array import (
     quick_sort3,
     radix_sort,
 )
-from src.d_sorting.sort_colors import bubble_sort, insertion_sort, selection_sort
+from src.sorting.sort_colors import bubble_sort, insertion_sort, selection_sort
 
 
 @pytest.mark.parametrize(

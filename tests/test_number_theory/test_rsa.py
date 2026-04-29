@@ -1,6 +1,6 @@
 import pytest
 
-from src.k_number_theory.rsa import encrypt, generate_keypair
+from src.number_theory.rsa import encrypt, generate_keypair
 
 
 @pytest.mark.parametrize(

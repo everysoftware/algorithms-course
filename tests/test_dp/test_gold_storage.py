@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.h_dp.gold_storage_robbery import rob_gold_storage_dp, rob_gold_storage_dp2
+from src.dp.gold_storage_robbery import rob_gold_storage_dp, rob_gold_storage_dp2
 
 
 @pytest.mark.parametrize(

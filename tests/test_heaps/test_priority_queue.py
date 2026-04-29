@@ -1,6 +1,6 @@
 import pytest
 
-from src.n_heaps.priority_queue import PriorityQueue
+from src.heaps.priority_queue import PriorityQueue
 
 
 def is_max_heap(a: list[int]) -> bool:

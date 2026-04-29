@@ -3,8 +3,8 @@ from typing import Any
 
 import pytest
 
-from src.m_trees.is_bst import is_bst, is_bst_naive
-from src.m_trees.is_general_bst import is_general_bst_dfs, is_general_bst_fake
+from src.trees.is_bst import is_bst, is_bst_naive
+from src.trees.is_general_bst import is_general_bst_dfs, is_general_bst_fake
 
 r"""
 Tree 1:

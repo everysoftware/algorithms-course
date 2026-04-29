@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds.net_packets import net_packets
+from src.base_ds.net_packets import net_packets
 
 
 @pytest.mark.parametrize(

@@ -1,4 +1,4 @@
-from src.f_scanline.count_segments import (
+from src.scanline.count_segments import (
     count_segments,
     count_segments_bisect,
 )

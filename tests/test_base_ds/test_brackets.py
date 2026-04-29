@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds.brackets import brackets
+from src.base_ds.brackets import brackets
 
 
 @pytest.mark.parametrize(
