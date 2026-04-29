@@ -64,7 +64,7 @@ def evaluate_postfix(expression: str) -> float:
         if token in operators:
             operand2 = stack.pop()
             operand1 = stack.pop()
-            result = operators[token](operand1, operand2)  # type: ignore[no-untyped-call]
+            result = operators[token](operand1, operand2)
             stack.append(result)
         else:
             stack.append(float(token))

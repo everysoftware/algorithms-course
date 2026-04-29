@@ -1,11 +1,6 @@
-"""
-Макс-куча
-"""
-
-
 class PriorityQueue:
     def __init__(self, arr: list[int] | None = None) -> None:
-        self.arr: list[int] = [] if arr is None else arr
+        self.arr: list[int] = [] if arr is None else arr.copy()
         self.size = len(self.arr)
         self.heapify()
 
