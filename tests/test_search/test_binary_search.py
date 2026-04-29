@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.c_search.binary_search import binary_search, exp_search
+from src.search.binary_search import binary_search, exp_search
 
 
 @pytest.mark.parametrize("func", [binary_search, exp_search])

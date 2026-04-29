@@ -1,6 +1,6 @@
 import pytest
 
-from src.b_base_ds.calculator import (
+from src.base_ds.calculator import (
     calculator,
     evaluate_postfix,
     get_postfix_notation,

@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from src.i_prefix_sums.blur_image import box_filter_naive, box_filter_ps
+from src.prefix_sums.blur_image import box_filter_naive, box_filter_ps
 
 
 @pytest.mark.parametrize(

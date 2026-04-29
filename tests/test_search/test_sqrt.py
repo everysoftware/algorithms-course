@@ -1,6 +1,6 @@
 import pytest
 
-from src.c_search.sqrt import sqrt
+from src.search.sqrt import sqrt
 
 
 @pytest.mark.parametrize(

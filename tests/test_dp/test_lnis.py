@@ -1,6 +1,6 @@
 import pytest
 
-from src.h_dp.lnis import lnis
+from src.dp.lnis import lnis
 
 
 @pytest.mark.parametrize(

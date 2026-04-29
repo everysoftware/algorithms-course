@@ -1,7 +1,7 @@
 from typing import Literal
 
-from src.m_trees.dfs import BNode, build_tree
-from src.m_trees.dfs_iterative import dfs_iterative
+from src.trees.dfs import BNode, build_tree
+from src.trees.dfs_iterative import dfs_iterative
 
 INF = 10**20
 

@@ -1,4 +1,4 @@
-from src.l_dp2.edit_distance import edit_distance_dp
+from src.dp2.edit_distance import edit_distance_dp
 
 
 # O(q * n * m), где q - количество слов, n - длина строки a, m - длина строки b

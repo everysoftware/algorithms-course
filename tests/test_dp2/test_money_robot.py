@@ -1,6 +1,6 @@
 import pytest
 
-from src.l_dp2.max_robot_path import max_robot_path
+from src.dp2.max_robot_path import max_robot_path
 
 # def generate_field() -> tuple[int, int, list[list[int]]]:
 #     n, m = random.randint(1, 10), random.randint(1, 10)

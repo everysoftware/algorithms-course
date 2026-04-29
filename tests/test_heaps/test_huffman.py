@@ -1,6 +1,6 @@
 import pytest
 
-from src.n_heaps.huffman import huffman_decode, huffman_encode, huffman_tree
+from src.heaps.huffman import huffman_decode, huffman_encode, huffman_tree
 
 
 # O(n)

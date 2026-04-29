@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.l_dp2.lcs import lcs_dp, lcs_rec
+from src.dp2.lcs import lcs_dp, lcs_rec
 
 
 @pytest.mark.parametrize(

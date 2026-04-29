@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.f_scanline import (
+from src.scanline import (
     count_segments,
     count_segments_bisect,
 )

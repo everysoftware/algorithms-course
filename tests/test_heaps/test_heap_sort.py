@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 import pytest
 
-from src.n_heaps.heap_sort import heap_sort, heap_sort_inplace
+from src.heaps.heap_sort import heap_sort, heap_sort_inplace
 
 
 @pytest.mark.parametrize(
