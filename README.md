@@ -1,6 +1,6 @@
 # Data Structures and Algorithms Notebook
 
-[![Lint](https://github.com/everysoftware/algorithms-course/actions/workflows/lint.yml/badge.svg)](https://github.com/everysoftware/algorithms-course/actions/workflows/lint.yml)
+[![Lint](https://github.com/everysoftware/algorithms-course/actions/workflows/lint.yml/badge.svg)](https://github.com/everysoftware/dsa-notebook/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)
 
