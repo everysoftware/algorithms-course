@@ -1,5 +1,6 @@
+from collections.abc import Iterable
 from functools import partial
-from typing import Any
+from typing import Any, Literal
 
 import pytest
 
@@ -29,7 +30,12 @@ Tree 3:
 5
 """
 
-METHODS = ["preorder", "inorder", "preorder-iter", "inorder-iter"]
+METHODS: Iterable[Literal["preorder", "inorder", "preorder-iter", "inorder-iter"]] = [
+    "preorder",
+    "inorder",
+    "preorder-iter",
+    "inorder-iter",
+]
 NON_NAIVE_FUNCS = [partial(is_bst, method=method) for method in METHODS]
 
 

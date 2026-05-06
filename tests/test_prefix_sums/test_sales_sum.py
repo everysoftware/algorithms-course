@@ -26,5 +26,5 @@ from src.prefix_sums.sales_sum import sales_sum
         ),
     ],
 )
-def test_sales_sum(sales: list[int], queries: list[tuple[int, int]], expected: list[int]):
+def test_sales_sum(sales: list[int], queries: list[tuple[int, int]], expected: list[int]) -> None:
     assert sales_sum(sales, queries) == expected

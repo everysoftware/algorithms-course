@@ -12,8 +12,8 @@ format:
 .PHONY: lint
 lint:
 	@echo "Running ruff and mypy..."
-	@ruff check . --fix --unsafe-fixes
-	@mypy src --strict
+	@ruff check . --fix
+	@mypy .
 
 .PHONY: fix
 fix:

@@ -7,5 +7,5 @@ from src.two_pointers.max_professionalism import max_professionalism
     ("a", "expected"),
     [([1, 3, 5, 7, 9], 21), ([1, 2, 3, 4, 5], 14), ([1, 1, 1, 1, 1], 5)],
 )
-def test_max_professionalism(a: list[int], expected: int):
+def test_max_professionalism(a: list[int], expected: int) -> None:
     assert max_professionalism(a) == expected

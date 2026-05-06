@@ -16,5 +16,5 @@ from src.dnc.median_salary import median_salary
         ([4, 2, 1, 3], 2.5),
     ],
 )
-def test_competition(scores: list[int], expected: float):
+def test_competition(scores: list[int], expected: float) -> None:
     assert median_salary(scores) == expected

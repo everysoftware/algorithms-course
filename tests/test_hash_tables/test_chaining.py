@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 import pytest
 
 # Предполагаем, что класс ChainingHashMap определён в модуле src.hash_tables.chaining
@@ -42,14 +44,14 @@ class TestChainingHashMap:
             m.delete(1)
 
     @pytest.mark.parametrize("hash_func", [hash_identity, hash_constant])
-    def test_add_and_get(self, hash_func) -> None:
+    def test_add_and_get(self, hash_func: Callable[[int], int]) -> None:
         m = ChainingHashMap[int, str](hash_func, capacity=8)
         m.add(10, "Alice")
         assert m.get(10) == "Alice"
         assert m.size == 1
 
     @pytest.mark.parametrize("hash_func", [hash_identity, hash_constant])
-    def test_add_update_value(self, hash_func) -> None:
+    def test_add_update_value(self, hash_func: Callable[[int], int]) -> None:
         m = ChainingHashMap[int, str](hash_func, capacity=4)
         m.add(42, "old")
         m.add(42, "new")
@@ -58,7 +60,7 @@ class TestChainingHashMap:
         assert m.size == 1
 
     @pytest.mark.parametrize("hash_func", [hash_identity, hash_constant])
-    def test_delete_existing(self, hash_func) -> None:
+    def test_delete_existing(self, hash_func: Callable[[int], int]) -> None:
         m = ChainingHashMap[int, str](hash_func, capacity=4)
         m.add(7, "seven")
         m.delete(7)
@@ -75,7 +77,7 @@ class TestChainingHashMap:
         assert exc_info.value.args[0] == 99
 
     @pytest.mark.parametrize("hash_func", [hash_identity, hash_constant])
-    def test_multiple_operations(self, hash_func) -> None:
+    def test_multiple_operations(self, hash_func: Callable[[int], int]) -> None:
         m = ChainingHashMap[int, str](hash_func, capacity=4)
         # Добавляем три элемента
         m.add(1, "one")
@@ -228,7 +230,9 @@ class TestChainingHashMap:
                 self.x = x
                 self.y = y
 
-            def __eq__(self, other) -> bool:
+            def __eq__(self, other: object) -> bool:
+                if not isinstance(other, Point):
+                    return NotImplemented
                 return self.x == other.x and self.y == other.y
 
             def __hash__(self) -> int:

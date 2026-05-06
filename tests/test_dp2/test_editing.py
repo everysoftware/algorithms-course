@@ -122,5 +122,5 @@ def test_editing(a: str, words: list[str], expected: tuple[int, list[str]]) -> N
         ("a", "a", (0, [PathItem(Operation.MATCH, 0, ("a",))])),
     ],
 )
-def test_edit_path(a: str, b: str, expected: list[PathItem]) -> None:
+def test_edit_path(a: str, b: str, expected: tuple[int, list[PathItem]]) -> None:
     assert edit_path(a, b) == expected
