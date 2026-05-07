@@ -9,7 +9,7 @@ from src.hash_tables.open_address import (
 # ---------------------------------------------------------------------------
 
 
-def constant_hash(x) -> int:
+def constant_hash(x: int) -> int:
     """Все ключи попадают в одно и то же место — крайняя коллизия."""
     return 0
 

@@ -171,7 +171,7 @@ def test_parallel_raises_if_no_processors() -> None:
         ),
     ],
 )
-def test_parallel_exact_cases(n, time, expected) -> None:
+def test_parallel_exact_cases(n: int, time: list[int], expected: list[tuple[int, int]]) -> None:
     # несколько точных сценариев для разных n и длительностей задач
     assert parallel(n, len(time), time) == expected
 
@@ -186,7 +186,7 @@ def test_parallel_exact_cases(n, time, expected) -> None:
         (5, [0, 0, 5, 5, 1, 1, 10]),
     ],
 )
-def test_parallel_general_properties(n, time) -> None:
+def test_parallel_general_properties(n: int, time: list[int]) -> None:
     # общие инварианты:
     # - ответ имеет длину m
     # - номера процессоров в допустимом диапазоне

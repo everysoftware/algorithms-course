@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from src.base_ds.max_stack import MaxStack
@@ -44,7 +46,7 @@ from src.base_ds.max_stack import MaxStack
         ),
     ],
 )
-def test_max_stack(operations: list[tuple], expected: list[int]) -> None:
+def test_max_stack(operations: list[tuple[Any, ...]], expected: list[int]) -> None:
     stack = MaxStack()
     for op, *args in operations:
         if op == "push":

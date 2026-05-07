@@ -29,5 +29,5 @@ def test_sum_of_two_numbers(
     arr: list[int],
     target: int,
     expected: tuple[int, int],
-):
+) -> None:
     assert func(arr, target) == expected

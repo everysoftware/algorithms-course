@@ -84,7 +84,7 @@ def test_heapify_returns_empty_for_already_valid_heap() -> None:
         [3, 1, 1, 0, 2, 2, -1],
     ],
 )
-def test_heapify_general_properties(a) -> None:
+def test_heapify_general_properties(a: list[int]) -> None:
     # проверяем общие свойства:
     # - результат является min-heap
     # - элементы не теряются

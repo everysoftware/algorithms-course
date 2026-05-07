@@ -18,5 +18,5 @@ from src.two_pointers.prizes_2s import prizes_hard
         ([], 5, 0),
     ],
 )
-def test_prizes_two_segments(prize_positions: list[int], k: int, expected: int):
+def test_prizes_two_segments(prize_positions: list[int], k: int, expected: int) -> None:
     assert prizes_hard(prize_positions, k) == expected

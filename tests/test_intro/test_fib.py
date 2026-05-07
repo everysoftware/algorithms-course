@@ -16,7 +16,7 @@ from src.intro import (
     ("n", "expected"),
     zip([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 1, 2, 3, 5, 8, 13, 21, 34], strict=False),
 )
-def test_fib(func: Callable[[int], int], n: int, expected: int):
+def test_fib(func: Callable[[int], int], n: int, expected: int) -> None:
     assert func(n) == expected
 
 
@@ -34,7 +34,7 @@ def test_fib(func: Callable[[int], int], n: int, expected: int):
         strict=False,
     ),
 )
-def test_fib_huge(func: Callable[[int], int], n: int, expected: int):
+def test_fib_huge(func: Callable[[int], int], n: int, expected: int) -> None:
     assert func(n) == expected
 
 
@@ -52,7 +52,7 @@ def test_fib_huge(func: Callable[[int], int], n: int, expected: int):
         (50, 13, 5),
     ],
 )
-def test_fib_mod(func: Callable[[int, int], int], n: int, m: int, expected: int):
+def test_fib_mod(func: Callable[[int, int], int], n: int, m: int, expected: int) -> None:
     assert func(n, m) == expected
 
 
@@ -68,5 +68,5 @@ def test_fib_mod(func: Callable[[int, int], int], n: int, m: int, expected: int)
         (60282445765134413, 2263, 974),
     ],
 )
-def test_fib_mod_huge(func: Callable[[int, int], int], n: int, m: int, expected: int):
+def test_fib_mod_huge(func: Callable[[int, int], int], n: int, m: int, expected: int) -> None:
     assert func(n, m) == expected

@@ -23,5 +23,5 @@ from src.dp2.lcs import lcs_dp, lcs_rec
         ("A", "B", 0),  # Разные строки
     ],
 )
-def test_lcs(func: Callable[[str, str], int], a: str, b: str, expected: int):
+def test_lcs(func: Callable[[str, str], int], a: str, b: str, expected: int) -> None:
     assert func(a, b) == expected
