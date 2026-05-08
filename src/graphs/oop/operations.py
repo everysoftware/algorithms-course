@@ -54,8 +54,9 @@ def dijkstra(nodes: Iterable[Node[K]], start: Node[K], end: Node[K]) -> list[K]:
 
     Сложность алгоритма: O(V^2 + E)
     """
-    unprocessed: set[Node[K]] = set()
-    time = {node: float("inf") for node in nodes}
+    nodes_set = set(nodes)
+    unprocessed: set[Node[K]] = nodes_set.copy()
+    time = {node: float("inf") for node in nodes_set}
     time[start] = 0
     previous = {}
 

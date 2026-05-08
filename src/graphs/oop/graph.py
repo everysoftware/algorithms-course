@@ -28,6 +28,9 @@ class Graph(Generic[K]):
     Словарь узлов графа.
     """
 
+    def __init__(self, nodes: dict[K, Node[K]] | None = None) -> None:
+        self.nodes = nodes if nodes is not None else {}
+
     @staticmethod
     def edge_exists(node_from: Node[K], node_to: Node[K]) -> bool:
         """
